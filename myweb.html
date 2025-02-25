@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>片岩拓也 | エンジニア＆リサーチャー</title>
+    <!-- Font Awesome for better icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #1d9b8f;
@@ -66,8 +68,23 @@
         
         .header-content {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .header-text {
+            flex: 1;
+            display: flex;
             flex-direction: column;
             gap: 30px;
+        }
+        
+        .header-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .name {
@@ -95,7 +112,12 @@
             border-radius: 20px;
             object-fit: cover;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .blob {
@@ -478,6 +500,19 @@
         
         /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .header-text, .header-image {
+                width: 200%;
+            }
+            
+            .header-image {
+                margin-bottom: 50px;
+            }
+            
             .name {
                 font-size: 2.5rem;
             }
@@ -517,6 +552,10 @@
             animation: slideUp 0.8s ease-in-out;
         }
         
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-in-out;
+        }
+        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -530,6 +569,17 @@
             to { 
                 opacity: 1;
                 transform: translateY(0); 
+            }
+        }
+        
+        @keyframes slideInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(30px); 
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0); 
             }
         }
     </style>
@@ -552,13 +602,30 @@
     
     <!-- Header Section -->
     <header id="about">
-        <div class="container header-content">
+        <div class="container">
             <div class="blob"></div>
             <div class="blob2"></div>
-            <img src="your-profile.png" alt="片岩拓也" class="profile-img fade-in">
-            <h1 class="name slide-up">片岩拓也<br><span style="font-size: 0.8em;">Takuya Kataiwa</span></h1>
-            <h2 class="role slide-up">エンジニア ＆ リサーチャー</h2>
-            <p class="description fade-in">静岡大学情報学部2年生。LLMの内部機序解析などの研究に取り組みながら、実務経験も積極的に積んでいます。</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 class="name slide-up">片岩拓也<br><span style="font-size: 0.8em;">Takuya Kataiwa</span></h1>
+                    <h2 class="role slide-up">エンジニア ＆ リサーチャー</h2>
+                    <p class="description fade-in">静岡大学情報学部2年生。LLMの内部機序解析などの研究に取り組みながら、実務経験も積極的に積んでいます。</p>
+                    <div class="social-links" style="justify-content: flex-start; margin-top: 20px;">
+                        <a href="https://github.com/Hosi121" target="_blank" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/takuya-kataiwa-774762349/" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:kataiwa.takuya.23@shizuoka.ac.jp" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="header-image">
+                    <img src="your-profile.png" alt="片岩拓也" class="profile-img slide-in-right">
+                </div>
+            </div>
         </div>
     </header>
     
@@ -572,15 +639,15 @@
                 <h3 class="skills-section-title">Programming Languages</h3>
                 <div class="skills-container">
                     <div class="skill-item">
-                        <span class="skill-icon">🚀</span>
+                        <span class="skill-icon"><i class="fab fa-golang"></i></span>
                         <span class="skill-name">Golang</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-icon">⚛️</span>
+                        <span class="skill-icon"><i class="fab fa-js"></i></span>
                         <span class="skill-name">TypeScript</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-icon">🐍</span>
+                        <span class="skill-icon"><i class="fab fa-python"></i></span>
                         <span class="skill-name">Python</span>
                     </div>
                 </div>
@@ -591,23 +658,23 @@
                 <h3 class="skills-section-title">Frameworks & Tools</h3>
                 <div class="skills-container">
                     <div class="skill-item">
-                        <span class="skill-icon">⚛️</span>
+                        <span class="skill-icon"><i class="fab fa-react"></i></span>
                         <span class="skill-name">Next.js</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-icon">⚛️</span>
+                        <span class="skill-icon"><i class="fab fa-react"></i></span>
                         <span class="skill-name">React</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-icon">🔥</span>
+                        <span class="skill-icon"><i class="fas fa-fire"></i></span>
                         <span class="skill-name">PyTorch</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-icon">☁️</span>
+                        <span class="skill-icon"><i class="fas fa-cloud"></i></span>
                         <span class="skill-name">GCP</span>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-icon">🅰️</span>
+                        <span class="skill-icon"><i class="fab fa-angular"></i></span>
                         <span class="skill-name">Angular</span>
                     </div>
                 </div>
@@ -719,14 +786,14 @@
                 </div>
                 
                 <div class="social-links">
-                    <a href="#" class="social-icon">
-                        <i>🐙</i>
+                    <a href="https://github.com/Hosi121" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/takuya-kataiwa-774762349/" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="mailto:kataiwa.takuya.23@shizuoka.ac.jp" class="social-icon">
-                        <i>📧</i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i>🐦</i>
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
                 <p class="copyright">© 2025 片岩拓也 / Takuya Kataiwa. All rights reserved.</p>
