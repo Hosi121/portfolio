@@ -498,6 +498,94 @@
             margin-top: 30px;
         }
         
+        /* Additional style for competitive achievements */
+        .competitive-achievements {
+            margin-top: 30px;
+        }
+        
+        .competitive-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .competitive-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .competitive-item {
+            background-color: var(--light);
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .competitive-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .competitive-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .competitive-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .competitive-name {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .competitive-rating {
+            font-size: 0.9rem;
+            color: #4CAF50;
+        }
+
+        .skills-used {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .skill-item.small {
+            padding: 8px 12px;
+            border-radius: 10px;
+            background-color: rgba(29, 155, 143, 0.1);
+            border: 1px solid rgba(29, 155, 143, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item.small:hover {
+            transform: translateY(-3px);
+            background-color: rgba(29, 155, 143, 0.15);
+        }
+
+        .skill-item.small .skill-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-right: 6px;
+        }
+
+        .skill-item.small .skill-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
         /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
             .header-content {
@@ -540,6 +628,10 @@
             
             .timeline-content {
                 padding: 20px;
+            }
+            
+            .competitive-container {
+                flex-direction: column;
             }
         }
         
@@ -679,38 +771,102 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Competitive Programming -->
+            <div class="competitive-achievements">
+                <h3 class="competitive-title">Competitive Achievements</h3>
+                <div class="competitive-container">
+                    <div class="competitive-item">
+                        <span class="competitive-icon"><i class="fas fa-code"></i></span>
+                        <div class="competitive-info">
+                            <span class="competitive-name">AtCoder</span>
+                            <span class="competitive-rating">緑 (2023~) highest:1027</span>
+                        </div>
+                    </div>
+                    <div class="competitive-item">
+                        <span class="competitive-icon"><i class="fas fa-calculator"></i></span>
+                        <div class="competitive-info">
+                            <span class="competitive-name">OMC (Online Math Contest)</span>
+                            <span class="competitive-rating">緑 (2023~) highest:1119</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
-    <!-- Experience Section -->
     <section id="experience">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2025年2月 - 現在</div>
-                            <h3 class="timeline-title">サイボウズラボユース第14期生</h3>
-                            <p class="timeline-description">サイボウズラボユース第14期生として採択．専門知識の向上に努める</p>
-                        </div>
+            <div class="timeline" >
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">2025年1月 - 現在</div>
+                <h3 class="timeline-title">IYNA Japan Chapter Advisor</h3>
+                <p class="timeline-description">International Youth Neuroscience Association 日本支部のアドバイザーとして活動</p>
+                <div class="skills-used">
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fas fa-users"></i></span>
+                        <span class="skill-name">Management</span>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024年11月 - 現在</div>
-                            <h3 class="timeline-title">Angular / Go / GCP を用いたインターン開発</h3>
-                            <p class="timeline-description">Angularをフロントエンド、Goをバックエンド、GCPをインフラとして用いたアプリケーション開発に従事</p>
-                        </div>
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="skill-name">Education</span>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024年2月 - 2024年8月</div>
-                            <h3 class="timeline-title">LLMを用いたエンタメ系インターン開発</h3>
-                            <p class="timeline-description">LLMを活用したエンターテイメント系アプリケーションの開発に従事</p>
-                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">2025年2月 - 現在</div>
+                <h3 class="timeline-title">サイボウズラボユース第14期生</h3>
+                <p class="timeline-description">サイボウズラボユース第14期生として採択．専門知識の向上に努める</p>
+                <div class="skills-used">
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fab fa-python"></i></span>
+                        <span class="skill-name">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">2024年11月 - 現在</div>
+                <h3 class="timeline-title">受託業務の合同会社でのインターン開発</h3>
+                <p class="timeline-description">Angularをフロントエンド、Goをバックエンド、GCPをインフラとして用いたアプリケーション開発に従事</p>
+                <div class="skills-used">
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fab fa-angular"></i></span>
+                        <span class="skill-name">Angular</span>
+                    </div>
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fab fa-golang"></i></span>
+                        <span class="skill-name">Go</span>
+                    </div>
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fas fa-cloud"></i></span>
+                        <span class="skill-name">GCP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">2024年2月 - 2024年8月</div>
+                <h3 class="timeline-title">LLMを用いたエンタメ系企業でのインターン開発</h3>
+                <p class="timeline-description">LLMを活用したウェブアプリの開発に従事</p>
+                <div class="skills-used">
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fab fa-python"></i></span>
+                        <span class="skill-name">Python</span>
+                    </div>
+                    <div class="skill-item small">
+                        <span class="skill-icon"><i class="fas fa-robot"></i></span>
+                        <span class="skill-name">LLM</span>
                     </div>
                 </div>
             </div>
@@ -763,6 +919,11 @@
         <div class="container">
             <h2 class="section-title">Awards & Achievements</h2>
             <div class="awards-container">
+                <div class="award-item">
+                    <h3 class="award-title">COG2024 セミファイナリスト</h3>
+                    <div class="award-date">2024</div>
+                    <p class="award-description">COG2024 において110チーム中25チーム（上位22.7%）に入賞</p>
+                </div>
                 <div class="award-item">
                     <h3 class="award-title">HackU2024 優秀賞</h3>
                     <div class="award-date">2024</div>
