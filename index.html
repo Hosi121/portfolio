@@ -16,6 +16,38 @@
         li { margin-bottom: 0.5rem; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
+
+        /* スマートフォン向けのスタイル */
+        @media (max-width: 600px) {
+            body {
+                margin: 1rem auto;
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+            h1, h2 {
+                font-size: 1.5rem;
+            }
+            .profile-image {
+                width: 100%;
+                margin-left: 0;
+            }
+            div[style="display: flex; align-items: flex-start;"] {
+                display: flex;
+                flex-direction: column;
+            }
+            div[style="display: flex; align-items: flex-start;"] > div {
+                width: 100%;
+            }
+            div[style="display: flex; align-items: flex-start;"] > span {
+                display: block;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            img[src="profile.png"] {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
     </style>
 </head>
 <body>
