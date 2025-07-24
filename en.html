@@ -1,248 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="JYIMUtPHlP44oK-KEB3sk5s3HkrTRmFii9pQTc70UXk" />
-        <title>Takuya kataiwa</title>
-        <meta name="description" content="This is the portfolio site of Takuya Kataiwa, a third-year student in the Faculty of Informatics at Shizuoka University, summarizing his research achievements, awards, and operational experience.">
-        <meta name="robots" content="index, follow">
-        <link rel="canonical" href="https://hosi121.github.io/portfolio/">
-        <!-- Open Graph（SNSでの共有時に使われる） -->
-        <meta property="og:title" content="Takuya Kataiwa | Portfolio">
-        <meta property="og:description" content="Research achievements and awards of Takuya Kataiwa, a third-year student in the Faculty of Informatics at Shizuoka University, are published.">
-        <meta property="og:url" content="https://hosi121.github.io/portfolio/">
-        <meta property="og:type" content="website">
-        <meta property="og:image" content="https://hosi121.github.io/portfolio/profile.jpg">
-        <!-- 構造化データ（JSON-LD） -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Takuya Kataiwa",
-          "url": "https://hosi121.github.io/portfolio/",
-          "sameAs": [
-            "https://github.com/Hosi121",
-            "https://qiita.com/Hosi121",
-            "https://www.linkedin.com/in/takuya-kataiwa-774762349/"
-          ]
-        }
-        </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="JYIMUtPHlP44oK-KEB3sk5s3HkrTRmFii9pQTc70UXk" />
+    <title>Takuya Kataiwa</title>
+    <meta
+      name="description"
+      content="Portfolio of Takuya Kataiwa, a third‑year student in the Faculty of Informatics at Shizuoka University, summarising research achievements, awards, and organisational experience."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hosi121.github.io/portfolio/" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Takuya Kataiwa | Portfolio" />
+    <meta
+      property="og:description"
+      content="Research achievements and awards of Takuya Kataiwa, a third‑year undergraduate in the Faculty of Informatics at Shizuoka University."
+    />
+    <meta property="og:url" content="https://hosi121.github.io/portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://hosi121.github.io/portfolio/profile.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Takuya Kataiwa",
+        "url": "https://hosi121.github.io/portfolio/",
+        "sameAs": [
+          "https://github.com/Hosi121",
+          "https://qiita.com/Hosi121",
+          "https://www.linkedin.com/in/takuya-kataiwa-774762349/",
+          "https://researchmap.jp/kataiwatakuya"
+        ]
+      }
+    </script>
     <style>
+      body {
+        font-family: sans-serif;
+        margin: 2rem auto;
+        max-width: 800px;
+        line-height: 1.6;
+      }
+      h1,
+      h2 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0.3rem;
+      }
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      /* Mobile */
+      @media (max-width: 600px) {
         body {
-            font-family: sans-serif;
-            margin: 2rem auto;
-            max-width: 800px;
-            line-height: 1.6;
+          margin: 1rem auto;
+          max-width: 100%;
+          padding: 0 1rem;
         }
-        h1, h2 { border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
-        ul { list-style: none; padding-left: 0; }
-        li { margin-bottom: 0.5rem; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-
-        /* スマートフォン向けのスタイル */
-        @media (max-width: 600px) {
-            body {
-                margin: 1rem auto;
-                max-width: 100%;
-                padding: 0 1rem;
-            }
-            h1, h2 {
-                font-size: 1.5rem;
-            }
-            .profile-image {
-                width: 100%;
-                margin-left: 0;
-            }
-            div[style="display: flex; align-items: flex-start;"] {
-                display: flex;
-                flex-direction: column;
-            }
-            div[style="display: flex; align-items: flex-start;"] > div {
-                width: 100%;
-            }
-            div[style="display: flex; align-items: flex-start;"] > span {
-                display: block;
-                width: 100%;
-                margin-top: 1rem;
-            }
-            img[src="profile.png"] {
-                width: 100%;
-                margin-left: 0;
-            }
+        h1,
+        h2 {
+          font-size: 1.5rem;
         }
+        .profile-image {
+          width: 100%;
+          margin-left: 0;
+        }
+        div[style="display: flex; align-items: flex-start;"] {
+          flex-direction: column;
+        }
+        div[style="display: flex; align-items: flex-start;"] > div {
+          width: 100%;
+        }
+        div[style="display: flex; align-items: flex-start;"] > span {
+          display: block;
+          width: 100%;
+          margin-top: 1rem;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Takuya Kataiwa</h1>
     <p><a href="index.html">🇯🇵</a> <a href="en.html">🇬🇧</a></p>
     <div style="display: flex; align-items: flex-start;">
-    <div>
-    <p><strong>Affiliation</strong>: 3rd year, Department of Information and Social Sciences, Faculty of Informatics, Shizuoka University<br>
-    <strong>Born</strong>: 2004, Ishikawa</p>
-    <p>I am currently studying informatics at university. I am particularly interested in the mathematical understanding of language and intelligence (statistical/geometric/information-theoretic analysis). Among these, I am also interested in symbol emergence and language emergence. I believe in the value of implementing theory in society.</p>
-        <strong>Links</strong>: <br>
-        <a href="https://skurukuru.hatenablog.com/" target="_blank">Hatena Blog</a>: Show off learning and eccentricity<br>
-        <a href="https://github.com/Hosi121" target="_blank">GitHub</a>: Hosi121<br>
-        <a href="https://qiita.com/Hosi121" target="_blank">Qiita</a>: Hosi121 <br>
-        <a href="https://www.linkedin.com/in/takuya-kataiwa-774762349/" target="_blank">Linkdin</a>: Takuya Kataiwa
-    </div>
-        <span style="display: inline-block; vertical-align: top;"><img src="profile.jpg" alt="Profile" style="width: 250px; margin-left: 10px;"></span>
+      <div>
+        <p>
+          <strong>Affiliation</strong>: 3rd‑year, Department of Information&nbsp;&amp;&nbsp;Social Sciences, Faculty of Informatics, Shizuoka University<br />
+          <strong>Born</strong>: 2004, Ishikawa, Japan
+        </p>
+        <p>
+          I study informatics with a focus on the mathematical understanding of
+          language and intelligence through statistical, geometric, and
+          information‑theoretic perspectives. My interests include symbol&nbsp;&amp;&nbsp;language emergence, and I value translating theory into social
+          applications.
+        </p>
+        <strong>Research&nbsp;Profiles&nbsp;/&nbsp;Links</strong>:<br />
+        <a href="https://skurukuru.hatenablog.com/" target="_blank" rel="noopener noreferrer">Hatena Blog</a> ·
+        <a href="https://github.com/Hosi121" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+        <a href="https://qiita.com/Hosi121" target="_blank" rel="noopener noreferrer">Qiita</a> ·
+        <a href="https://www.linkedin.com/in/takuya-kataiwa-774762349/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+        <a href="https://researchmap.jp/kataiwatakuya" target="_blank" rel="noopener noreferrer">Researchmap</a>
+      </div>
+      <span style="display:inline-block;vertical-align:top;">
+        <img src="profile.jpg" class="profile-image" alt="Portrait of Takuya Kataiwa" style="width:250px;margin-left:10px;" />
+      </span>
     </div>
 
-    <h2>Research Interests</h2>
-    <p><strong>Keywords</strong>: Embedding expression, Geometry, Mechanistic interpretability, Symbol emergence</p>
+    <h2>Expertise&nbsp;&amp;&nbsp;Skills</h2>
     <p>
-
+      Machine Learning (PyTorch, NumPy) · Formal Methods (Category Theory) · Go
+      backend · Front‑end (React&nbsp;/&nbsp;Next.js) · Statistical Modelling · LaTeX&nbsp;&amp;&nbsp;Academic Writing
     </p>
 
-    <h2>Research Achievements</h2>
-    <h3>International Conference</h3>
+    <h2>Research Interests</h2>
+    <p>
+      <strong>Keywords</strong>: Embedding representations, Geometry, Mechanistic
+      interpretability, Symbol emergence
+    </p>
+
+    <h2>Research Achievements</h2>
+    <!-- International Conference -->
+    <h3>International Conference</h3>
     <ul>
-        <li>
-            <strong>Enhancing LLM4Decompile with Obfuscated Source Code for Optimized Assembly</strong><br>
-            Saito Ryota, <strong>Takuya Kataiwa</strong>, Tetsushi Ohki<br>
-            The Network and Distributed System Security (NDSS) Symposium 2025. <br>
-            <a href="https://www.ndss-symposium.org/ndss2025/accepted-posters/" target="_blank">[details]</a>
-            <a href="https://www.ndss-symposium.org/wp-content/uploads/2025-poster-51.pdf" target="_blank">[PDF]</a>
-            <a href="https://www.ndss-symposium.org/wp-content/uploads/2025-poster-51.pdf" target="_blank">[poster]</a>
-        </li>
+      <li>
+        <strong>Enhancing LLM4Decompile with Obfuscated Source Code for Optimized Assembly</strong><br />
+        Saito Ryota, <strong>Takuya Kataiwa</strong>, Tetsushi Ohki.<br />
+        The Network and Distributed System Security (NDSS) Symposium 2025.<br />
+        <a href="https://www.ndss-symposium.org/ndss2025/accepted-posters/" target="_blank" rel="noopener noreferrer">[details]</a>
+        <a href="https://www.ndss-symposium.org/wp-content/uploads/2025-poster-51.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>
+        <a href="https://www.ndss-symposium.org/wp-content/uploads/2025-poster-51.pdf" target="_blank" rel="noopener noreferrer">[poster]</a>
+      </li>
     </ul>
-    <h3>Domestic Conference</h3>
+    <!-- Domestic Conference -->
+    <h3>Domestic Conference</h3>
     <ul>
-        <li>
-            <strong>Measuring Intrinsic Dimension of Token Embeddings</strong><br>
-            <strong>Takuya Kataiwa</strong>, Cho Hakaze, Ohki Tetsushi<br>
-            The 39th Annual Conference of the Japanese Society for Artificial Intelligence.2025.<br>
-            <a href="https://confit.atlas.jp/guide/event/jsai2025/subject/3S4-GS-2-02/date?cryptoId=" target="_blank">[details]</a>
-        </li>
-        <li>
-            <strong>Proposal of a simulator for social norm formation by aggregating individual behavioral decisions</strong><br>
-            Jun Tajima, <strong>Takuya Kataiwa</strong>, Kenya Sasaki, Junya Morita <br>
-            The 39th Annual Conference of the Japanese Society for Artificial Intelligence.2025.<br>
-            <a href="https://confit.atlas.jp/guide/event/jsai2025/subject/2Win5-101/detail" target="_blank">[details]</a>
-        </li>
-        <li>
-            <strong>Measuring Intrinsic Dimension of Embedding Expressions</strong><br>
-            <strong>Takuya Kataiwa</strong>, Cho Hakaze, Ohki Tetsushi<br>
-            The 31st Annual Meeting of the Association for Natural Language Processing. 2025.<br>
-            <a href="https://www.anlp.jp/proceedings/annual_meeting/2025/" target="_blank">[details]</a>
-            <a href="https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/P2-10.pdf" target="_blank">[PDF]</a>
-        </li>
-        <li>
-            <strong>A Method Proposal Using Dynamic Graph Neural Networks for Emotional Contagion in Local Communities</strong><br>
-            <strong>Takuya Kataiwa</strong>, Junya Morita<br>
-            The 21st Informatics Workshop. 2023.<br>
-            <a href="https://sites.google.com/view/winf2023/program" target="_blank">[details]</a>
-        </li>
+      <li>
+        <strong>Measuring Intrinsic Dimension of Token Embeddings</strong><br />
+        <strong>Takuya Kataiwa</strong>, Cho Hakaze, Ohki Tetsushi.<br />
+        The 39th Annual Conference of the Japanese Society for Artificial Intelligence (<time datetime="2025">2025</time>).<br />
+        <a href="https://confit.atlas.jp/guide/event/jsai2025/subject/3S4-GS-2-02/date?cryptoId=" target="_blank" rel="noopener noreferrer">[details]</a>
+      </li>
+      <li>
+        <strong>Simulator for Social Norm Formation by Aggregating Individual Behavioural Decisions</strong><br />
+        Jun Tajima, <strong>Takuya Kataiwa</strong>, Kenya Sasaki, Junya Morita.<br />
+        The 39th Annual Conference of the Japanese Society for Artificial Intelligence (<time datetime="2025">2025</time>).<br />
+        <a href="https://confit.atlas.jp/guide/event/jsai2025/subject/2Win5-101/detail" target="_blank" rel="noopener noreferrer">[details]</a>
+      </li>
+      <li>
+        <strong>Measuring Intrinsic Dimension of Embedding Representations</strong><br />
+        <strong>Takuya Kataiwa</strong>, Cho Hakaze, Ohki Tetsushi.<br />
+        The 31st Annual Meeting of the Association for Natural Language Processing (<time datetime="2025">2025</time>).<br />
+        <a href="https://www.anlp.jp/proceedings/annual_meeting/2025/" target="_blank" rel="noopener noreferrer">[details]</a>
+        <a href="https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/P2-10.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>
+      </li>
+      <li>
+        <strong>A Method Using Dynamic Graph Neural Networks for Emotional Contagion in Local Communities</strong><br />
+        <strong>Takuya Kataiwa</strong>, Junya Morita.<br />
+        The 21st Informatics Workshop (<time datetime="2023">2023</time>).<br />
+        <a href="https://sites.google.com/view/winf2023/program" target="_blank" rel="noopener noreferrer">[details]</a>
+      </li>
     </ul>
+    <!-- Preprints -->
     <h3>Preprint</h3>
     <ul>
-        <li>
-            <strong>Measuring Intrinsic Dimension of Token Embeddings</strong><br>
-            <strong>Takuya Kataiwa</strong>, Cho Hakaze, Ohki Tetsushi<br>
-            <a href="https://arxiv.org/abs/2503.02142" target="_blank">[arXiv]</a>
-        </li>       
+      <li>
+        <strong>Measuring Intrinsic Dimension of Token Embeddings</strong><br />
+        <strong>Takuya Kataiwa</strong>, Cho Hakaze, Ohki Tetsushi.<br />
+        <a href="https://arxiv.org/abs/2503.02142" target="_blank" rel="noopener noreferrer">[arXiv]</a>
+      </li>
     </ul>
 
-    <h2>Adoption Results</h2>
+    <!-- Fellowships and Programs -->
+    <h2>Fellowships&nbsp;&amp;&nbsp;Programs</h2>
     <ul>
-        <li><strong>Cybozu Labs Youth 14th Generation Adopted</strong><br>
-            <a href="https://labs.cybozu.co.jp/youth.html" target="_blank">[details]</a>
-        </li>
-        <li><strong>Advance Lab 2nd Generation Adopted</strong><br>
-            Theme: Guaranteeing the safety and reliability of machine learning models through geometry <br>
-            <a href="https://adlab.lne.st" target="_blank">[details]</a>
-        </li>
-        <li><strong>UT-Lab Membership Adopted</strong><br>
-            <a href="https://ut-lab.toggle.co.jp/" target="_blank">[Official]</a>
-            <a href="https://misty-individual-91e.notion.site/1f2279f553ef8082845cd67b51709850" target="_blank">[details]</a>
-        </li>
+      <li>
+        <strong>Cybozu Labs Youth</strong> (14th&nbsp;&amp;&nbsp;15th cohorts) — Accepted |
+        <small><a href="https://labs.cybozu.co.jp/youth.html" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+      </li>
+      <li>
+        <strong>Advance Lab</strong> (2nd cohort) — Accepted |
+        <small><a href="https://adlab.lne.st" target="_blank" rel="noopener noreferrer">[Official]</a></small><br />
+        <small>Theme: Ensuring safety&nbsp;&amp;&nbsp;reliability of machine‑learning model memory via geometric analysis</small>
+      </li>
+      <li>
+        <strong>UT‑Lab Membership</strong> — Accepted |
+        <small>
+          <a href="https://ut-lab.toggle.co.jp/" target="_blank" rel="noopener noreferrer">[Official]</a>
+          <a href="https://misty-individual-91e.notion.site/1f2279f553ef8082845cd67b51709850" target="_blank" rel="noopener noreferrer">[details]</a>
+        </small>
+      </li>
+      <li>
+        <strong>Security Camp National 2025</strong> (Class D) — Accepted |
+        <small><a href="https://www.ipa.go.jp/jinzai/security-camp/2025/camp/zenkoku/index.html" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+      </li>
+      <li>
+        <strong>Nippon Foundation HUMAI Program</strong> (Category A) — Accepted |
+        <small><a href="https://zen.ac.jp/humai" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+      </li>
     </ul>
 
+    <!-- Awards -->
     <h2>Awards</h2>
     <ul>
-        <li>
-            <strong>Hackathon</strong> <br>
-            Team "Hoikuru-zu" Excellence Award [6.7% : 2/30]<br>
-            Open HackU 2024 Tokyo, Sponsored by LINE Yahoo Corporation
-        </li>
-        <li>
-            <strong>Ideathon</strong> <br>
-            Team "Senkyu-Tenryu" Semi-Finalist [22.7% : 25/110]<br>
-            Challenge Open Governance (COG2024), Sponsored by The University of Tokyo
-        </li>
+      <li>
+        <strong>Hackathon</strong> — Open HackU 2024 Tokyo — Excellence Award <span>(Top 6.7% – 2 of 30 teams)</span> — Hosted by LINE Yahoo
+      </li>
+      <li>
+        <strong>Ideathon</strong> — Shizuoka University Ideathon&nbsp;&amp;&nbsp;Datathon 2025 — Grand Prize <span>(Top 16.7% – 1 of 6)</span><br />
+        Challenge Open Governance (COG 2024) — Semi‑Finalist <span>(Top 22.7% – 25 of 110)</span>
+      </li>
     </ul>
 
-    <h2>Competitive Experience</h2>
+    <!-- Competitive Experience -->
+    <h2>Competitive Experience</h2>
     <ul>
-        <li>
-            <strong>Competitive Programming</strong>. AtCoder : Green <br>
-            <strong>Competitive Mathematics</strong>. Online Math Contest (OMC) : Aqua  <br>
-            <strong>CTF (Catch The Frag) </strong>.<br>
-                DIVERS OSINT 2025 [2.5% : 16/668] <br>
-                SAN DIEGO CTF 2025 [8.9% : 24/269]  <br>
-                CRATE CTF 2024 [5.7% : 13/227] <br>
-                DIVERS OSINT CTF 2024 [5.7% : 26/453] <br>
-        </li>
+      <li>
+        <strong>Competitive Programming</strong>: AtCoder — Green<br />
+        <strong>Mathematics Competition</strong>: Online Math Contest — Aqua<br />
+        <strong>CTF (Capture The Flag)</strong>:<br />
+        DIVERS OSINT 2025 (Top 2.5% – 16 of 668)<br />
+        SAN DIEGO CTF 2025 (Top 8.9% – 24 of 269)<br />
+        CRATE CTF 2024 (Top 5.7% – 13 of 227)<br />
+        DIVERS OSINT 2024 (Top 5.7% – 26 of 453)
+      </li>
     </ul>
 
-    <h2>Management Experience</h2>
+    <!-- Management Experience -->
+    <h2>Management Experience</h2>
     <ul>
-        <li>
-            <strong>ANCHOR </strong> : Agora for Neuroscience, Consciousness, Human, Organisms, and Related research <br>
-            Description: We hold reading sessions on cognitive science and mental science such as computational mental science and free energy principle. The link is a Discord invitation link. <br>
-            <a href="https://sites.google.com/view/anchorstudy/%E3%83%9B%E3%83%BC%E3%83%A0" target="_blank">[Official]</a>
-            <a href="https://discord.gg/jNdMxC3n5Z" target="_blank">[Link]</a><br>
-            <strong>Shizudai LT Tournament Techno Festa Edition 2024</strong>, Executive Committee<br>
-            <a href="https://shizudailt2024.kawakin.tech/" target="_blank">[details]</a> <br>
-            <strong>CPC Spring Camp 2025</strong>, Executive Committee<br>
-            <a href="https://sites.google.com/view/cpc-spring-camp-2025/home" target="_blank">[Official]</a><br>
-            <strong>Symbol Emergence Outreach Team. 2024~Now.</strong><br>
-            <a href="https://www.symbol-emergence.net/" target="_blank">[Official]</a>
-            <a href="https://x.com/sym_eme_outrea" target="_blank">[Twitter]</a>
-            <a href="https://www.youtube.com/@TANICHU-TNK" target="_blank">[Youtube]</a>
-            <a href="https://note.com/symbol_emerg" target="_blank">[Note]</a><br>
-            <strong>IYNA Japan Chapter, advisor. 2024~Now.</strong><br>
-            <a href="https://www.iyna-japan.com/" target="_blank">[Official]</a>
-            <a href="https://x.com/IYNAJapan" target="_blank">[Twitter]</a>
-            <a href="https://www.instagram.com/iyna_japan/" target="_blank">[Instagram]</a>
-            <a href="https://note.com/iyna_japan" target="_blank">[Note]</a><br>
-            <strong>iGEM HG-Tokyo, advisor. 2025.</strong><br>
-            <a href="https://x.com/iGEM_HGTokyo" target="_blank">[Twitter]</a>
-        </li>
+      <li>
+        <strong>ANCHOR</strong> — Agora for Neuroscience, Consciousness, Human, Organisms&nbsp;&amp;&nbsp;Related Research (<time datetime="2024-10">2024‑10</time> – Present)<br />
+        Reading group on computational &amp; cognitive neuroscience.
+        <a href="https://sites.google.com/view/anchorstudy/%E3%83%9B%E3%83%BC%E3%83%A0" target="_blank" rel="noopener noreferrer">[Official]</a>
+        <a href="https://discord.gg/jNdMxC3n5Z" target="_blank" rel="noopener noreferrer">[Discord]</a>
+      </li>
+      <li>
+        <strong>Shizudai LT Tournament — Techno&nbsp;Festa Edition 2024</strong> — Executive Chair (<time datetime="2024-08">2024‑08</time> – <time datetime="2024-11">2024‑11</time>)
+        <a href="https://shizudailt2024.kawakin.tech/" target="_blank" rel="noopener noreferrer">[details]</a>
+      </li>
+      <li>
+        <strong>CPC Spring Camp 2025</strong> — Executive Committee (<time datetime="2024-12">2024‑12</time> – <time datetime="2025-03">2025‑03</time>)
+        <a href="https://sites.google.com/view/cpc-spring-camp-2025/home" target="_blank" rel="noopener noreferrer">[Official]</a>
+      </li>
+      <li>
+        <strong>Symbol Emergence Outreach Team</strong> — Committee Member (<time datetime="2024-12">2024‑12</time> – Present)
+        <a href="https://www.symbol-emergence.net/" target="_blank" rel="noopener noreferrer">[Official]</a>
+        <a href="https://x.com/sym_eme_outrea" target="_blank" rel="noopener noreferrer">[Twitter]</a>
+        <a href="https://www.youtube.com/@TANICHU-TNK" target="_blank" rel="noopener noreferrer">[YouTube]</a>
+        <a href="https://note.com/symbol_emerg" target="_blank" rel="noopener noreferrer">[Note]</a>
+      </li>
+      <li>
+        <strong>IYNA Japan Chapter</strong> — Advisor (<time datetime="2024-12">2024‑12</time> – Present)
+        <a href="https://www.iyna-japan.com/" target="_blank" rel="noopener noreferrer">[Official]</a>
+        <a href="https://x.com/IYNAJapan" target="_blank" rel="noopener noreferrer">[Twitter]</a>
+        <a href="https://www.instagram.com/iyna_japan/" target="_blank" rel="noopener noreferrer">[Instagram]</a>
+        <a href="https://note.com/iyna_japan" target="_blank" rel="noopener noreferrer">[Note]</a>
+      </li>
+      <li>
+        <strong>iGEM HG‑Tokyo</strong> — Advisor (<time datetime="2025-04">2025‑04</time> – Present)
+        <a href="https://x.com/iGEM_HGTokyo" target="_blank" rel="noopener noreferrer">[Twitter]</a>
+      </li>
     </ul>
 
-    <h2>Production</h2>
+    <!-- Projects / Productions -->
+    <h2>Projects</h2>
     <ul>
-        <li>Mainly lists productions such as hackathons.</li>
-        <li><strong>CPC-web.</strong> CPC Spring Camp 2025. 2025/3. <br>
-            <a href="https://github.com/Hosi121/cpc-web" target="_blank">[repo]</a>
-            <a href="https://cpc-web-henna.vercel.app/" target="_blank">[link]</a>
-        </li>
-        <li><strong>Bansho.</strong> assignment in Shizuoka University. 2025/1. <br>
-            <a href="https://github.com/Hosi121/Bansho" target="_blank">[repo]</a>
-            <a href="https://bansho-hosi121s-projects.vercel.app/" target="_blank">[link]</a>
-        </li>
-        <li><strong>SpeakUp.</strong> HackU Kanazawa. 2024/9. <br>
-            <a href="https://github.com/Hosi121/SpeakUp" target="_blank">[repo]</a>
-            <a href="https://www.youtube.com/watch?v=i3UFyAcAZOI&t=1318s" target="_blank">[video]</a>
-        </li>
-        <li><strong>Difflog.</strong>  HackU Tokyo vol2. 2024/8. <br>
-            <a href="https://github.com/GreenTeaProgrammers/difflog2" target="_blank">[repo]</a>
-            <a href="https://www.youtube.com/watch?v=inhe31cKfro&t=2900s" target="_blank">[video]</a>
-        </li>
-        <li><strong>Hoikuru-zu.</strong> HackU Tokyo vol1. 2024/2. <br>
-            <a href="https://github.com/GreenTeaProgrammers/WhereChildBus" target="_blank">[repo]</a>
-            <a href="https://www.youtube.com/watch?v=VB_LScUyFnk&t=2443s" target="_blank">[video]</a>
-        </li>
+      <li><em>Mainly hackathon or coursework projects:</em></li>
+      <li>
+        <strong>IYNA Japan Website</strong> — July 2025
+        <a href="https://github.com/Hosi121/iynaweb" target="_blank" rel="noopener noreferrer">[repo]</a>
+        <a href="https://www.iyna-japan.com/" target="_blank" rel="noopener noreferrer">[link]</a>
+      </li>
+      <li>
+        <strong>CPC‑web</strong> — Mar 2025
+        <a href="https://github.com/Hosi121/cpc-web" target="_blank" rel="noopener noreferrer">[repo]</a>
+        <a href="https://cpc-web-henna.vercel.app/" target="_blank" rel="noopener noreferrer">[link]</a>
+      </li>
+      <li>
+        <strong>Bansho</strong> — Jan 2025 (Course assignment)
+        <a href="https://github.com/Hosi121/Bansho" target="_blank" rel="noopener noreferrer">[repo]</a>
+        <a href="https://bansho-hosi121s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">[link]</a>
+      </li>
+      <li>
+        <strong>SpeakUp</strong> — HackU Kanazawa 2024
+        <a href="https://github.com/Hosi121/SpeakUp" target="_blank" rel="noopener noreferrer">[repo]</a>
+        <a href="https://www.youtube.com/watch?v=i3UFyAcAZOI&t=1318s" target="_blank" rel="noopener noreferrer">[video]</a>
+      </li>
+      <li>
+        <strong>Difflog</strong> — HackU Tokyo Vol.2 2024
+        <a href="https://github.com/GreenTeaProgrammers/difflog2" target="_blank" rel="noopener noreferrer">[repo]</a>
+        <a href="https://www.youtube.com/watch?v=inhe31cKfro&t=2900s" target="_blank" rel="noopener noreferrer">[video]</a>
+      </li>
+      <li>
+        <strong>Hoikuru‑zu</strong> — HackU Tokyo Vol.1 2024
+        <a href="https://github.com/GreenTeaProgrammers/WhereChildBus" target="_blank" rel="noopener noreferrer">[repo]</a>
+        <a href="https://www.youtube.com/watch?v=VB_LScUyFnk&t=2443s" target="_blank" rel="noopener noreferrer">[video]</a>
+      </li>
     </ul>
-        
+
+    <!-- Other -->
     <h2>Other</h2>
     <ul>
-        <li><a href="goroku.html">某室語録集</a></li>
+      <li><a href="goroku.html">Selected Quotations (Japanese)</a></li>
     </ul>
-    I like talking to people, eating delicious food, and traveling. I really enjoy the experience of learning new things and expanding my world.
-</body>
+    <p>I enjoy deep conversations, great food, and travelling. Learning something new and widening my worldview is my greatest motivation.</p>
+  </body>
 </html>
