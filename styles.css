@@ -1,0 +1,173 @@
+:root {
+  color: #1f2937;
+  background: #ffffff;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.page {
+  width: min(100% - 2rem, 52rem);
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
+
+h1,
+h2,
+h3 {
+  color: #111827;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+h1 {
+  margin-block: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+}
+
+.person-name {
+  display: inline-block;
+}
+
+h2 {
+  margin-block: 3rem 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #d1d5db;
+  font-size: clamp(1.35rem, 3vw, 1.6rem);
+}
+
+h3 {
+  margin-block: 1.75rem 0.75rem;
+  font-size: 1.1rem;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+a {
+  color: #005ea8;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  overflow-wrap: anywhere;
+}
+
+a:hover {
+  text-decoration-thickness: 0.14em;
+}
+
+a:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+  border-radius: 0.125rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.language-nav ul,
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.language-nav {
+  margin-top: 0.5rem;
+}
+
+.language-nav [aria-current="page"] {
+  color: #374151;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  gap: 2rem;
+  align-items: start;
+}
+
+.profile-copy > :first-child,
+.profile-photo {
+  margin-top: 0;
+}
+
+.profile-photo {
+  display: block;
+}
+
+.profile-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.profile-links {
+  margin-top: 0.35rem;
+}
+
+.entry-list {
+  margin-block: 0;
+  padding-left: 1.5rem;
+}
+
+.entry-list > li {
+  margin-bottom: 0.9rem;
+  padding-left: 0.2rem;
+}
+
+small,
+.metadata {
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+small {
+  display: block;
+}
+
+.link-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.6rem;
+}
+
+.closing-note {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 40rem) {
+  .page {
+    width: min(100% - 1.5rem, 52rem);
+    padding-block: 1.25rem 3rem;
+  }
+
+  .profile {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .profile-photo {
+    width: min(100%, 16rem);
+  }
+}
