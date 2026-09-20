@@ -188,7 +188,7 @@
             <a href="https://www.ipa.go.jp/jinzai/security-camp/2025/camp/zenkoku/index.html" target="_blank" rel="noopener noreferrer">[Official]</a>
           </li>
           <li>
-            <strong>100 Program 第10期（2026夏期）採択</strong>
+            <strong>100 Program 第10期（2026夏期）修了</strong>
             <a href="https://100program.jp/" target="_blank" rel="noopener noreferrer">[Official]</a>
           </li>
         </ol>
@@ -222,12 +222,28 @@
         <h3>ハッカソン</h3>
         <ol class="entry-list">
           <li>
+            <strong>技育博2026 vol.2 スポンサー賞（Works Human Intelligence賞）</strong>
+            <small>2026年9月19日 | サポーターズ主催<br>作品：ちゅーりんうぉっち <a href="https://talent.supporterz.jp/events/e02c646b-8f28-4d60-a6bb-a7fd24cbc6c3/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+          </li>
+          <li>
+            <strong>OpenAI 大学生向け夏の Codex 開発祭 2026 優勝</strong>
+            <small>2026年9月15日 | OpenAI主催<br>応募総数260チーム → 予選通過・現地参加26チーム → 決勝4チーム中1位 <a href="https://codex-student-hack-fes.openai.chatgpt.site/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+          </li>
+          <li>
             <strong>技育博2025 vol.5 スポンサー賞（ウィングアーク1st賞）</strong>
             <small>2025年12月 | 13.0% (3/23) | サポーターズ主催</small>
           </li>
           <li>
             <strong>Open HackU 2024 Tokyo 優秀賞</strong>
             <small>2024年2月 | 6.7% (2/30) | LINEヤフー株式会社主催 <a href="https://www.inf.shizuoka.ac.jp/news/2413/" target="_blank" rel="noopener noreferrer">[プレスリリース]</a></small>
+          </li>
+        </ol>
+
+        <h3>開発プログラム</h3>
+        <ol class="entry-list">
+          <li>
+            <strong>100 Program 第10期（2026夏期）最優秀賞・優秀インタビュー賞・優秀ハードウェア賞</strong>
+            <small>第10期を修了し、3賞を受賞。 <a href="https://100program.jp/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
           </li>
         </ol>
 
@@ -270,6 +286,30 @@
             <small>2026年6月 | 18.8% (3/16) | Tongali主催 <a href="https://tongali.net/biz-contest2026/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
           </li>
         </ol>
+      </section>
+
+      <section aria-labelledby="open-source">
+        <h2 id="open-source">OSSへの貢献</h2>
+        <h3>Espressif esp-dl</h3>
+        <p>ESP32-P4／ESP32-S3向けの深層学習推論処理の高速化に貢献。</p>
+        <ul class="entry-list">
+          <li>
+            <strong>Pointwise畳み込みの重みキャッシュ再利用（ESP32-P4／ESP32-S3）</strong>
+            <small>2026年9月14日 本体へ取り込み済み（メンテナー確認） | <a href="https://github.com/espressif/esp-dl/pull/332" target="_blank" rel="noopener noreferrer">[PR #332]</a><br>重みを分割して再利用し、メモリアクセスを削減。メンテナーのMobileNetV2 INT8・シングルコア測定で、ESP32-S3は約3.0倍、ESP32-P4は約1.9倍の高速化を確認。</small>
+          </li>
+          <li>
+            <strong>Concat・Transpose・ReduceMeanの最適化（ESP32-P4）</strong>
+            <small>2026年9月17日 マージ済み | <a href="https://github.com/espressif/esp-dl/pull/334" target="_blank" rel="noopener noreferrer">[PR #334]</a><br>メモリアクセスの削減とSIMD命令の活用により、PR記載の実機測定でYOLO11n 320 INT8の推論時間を41.7%、TDNN 3sを10.8%短縮。</small>
+          </li>
+          <li>
+            <strong>Conv・MatMulの重み再利用とコア間の処理分割（ESP32-P4）</strong>
+            <small>2026年9月20日時点で提案中 | <a href="https://github.com/espressif/esp-dl/pull/333" target="_blank" rel="noopener noreferrer">[PR #333]</a></small>
+          </li>
+          <li>
+            <strong>RTC RAM上のConv引数をSRAMのタスクスタックへコピー（ESP32-P4）</strong>
+            <small>2026年9月20日時点で提案中 | <a href="https://github.com/espressif/esp-dl/pull/335" target="_blank" rel="noopener noreferrer">[PR #335]</a></small>
+          </li>
+        </ul>
       </section>
 
       <section aria-labelledby="competitions">
