@@ -11,12 +11,14 @@
     <link rel="alternate" hreflang="ja" href="https://hosi121.github.io/portfolio/">
     <link rel="alternate" hreflang="en" href="https://hosi121.github.io/portfolio/en.html">
     <link rel="alternate" hreflang="x-default" href="https://hosi121.github.io/portfolio/">
+    <meta name="theme-color" content="#faf8f4">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23faf8f4'/%3E%3Ctext x='16' y='25' text-anchor='middle' font-size='28' fill='%237d716c'%3E✳%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
+    <script src="garden.js" defer></script>
     <meta property="og:title" content="Takuya Kataiwa | Portfolio">
     <meta property="og:description" content="Research, selected programs, and awards of Takuya Kataiwa, a fourth-year student in the Faculty of Informatics at Shizuoka University.">
     <meta property="og:url" content="https://hosi121.github.io/portfolio/en.html">
     <meta property="og:type" content="profile">
-    <meta property="og:image" content="https://hosi121.github.io/portfolio/profile.jpg">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <script type="application/ld+json">
@@ -26,7 +28,6 @@
         "name": "Takuya Kataiwa",
         "alternateName": "片岩拓也",
         "url": "https://hosi121.github.io/portfolio/en.html",
-        "image": "https://hosi121.github.io/portfolio/profile.jpg",
         "affiliation": {
           "@type": "CollegeOrUniversity",
           "name": "Shizuoka University"
@@ -40,288 +41,341 @@
     </script>
   </head>
   <body>
-    <main class="page">
-      <header class="page-header">
-        <h1>Takuya Kataiwa</h1>
-        <nav class="language-nav" aria-label="Language selection">
-          <ul>
-            <li><a href="index.html" lang="ja" hreflang="ja">日本語</a></li>
-            <li><a href="en.html" lang="en" aria-current="page">English</a></li>
-          </ul>
-        </nav>
+    <a class="skip-link" href="#about">Skip to content</a>
+    <main class="page" id="top">
+      <header class="site-header">
+        <a class="site-signature" href="en.html" aria-label="Takuya Kataiwa home"><span class="site-flower" aria-hidden="true">✳</span> Hosi121</a>
+        <nav class="language-nav" aria-label="Language selection"><a href="index.html" lang="ja" hreflang="ja" >JA<span class="sr-only"> — 日本語</span></a><span aria-hidden="true">/</span><a href="en.html" lang="en" hreflang="en" aria-current="page">EN<span class="sr-only"> — English</span></a></nav>
       </header>
 
-      <div class="profile">
-        <div class="profile-copy">
-          <p>
-            <strong>Affiliation</strong>: Fourth-year student, Department of Information and Social Sciences, Faculty of Informatics, Shizuoka University<br>
-            <strong>Born</strong>: 2004, Ishikawa, Japan
-          </p>
-          <p>
-            I study informatics with a focus on design for a society where humans and AI coexist. Through the lenses of usable security and LLM security, I explore safe and trustworthy interactions between people and AI. I believe in translating theory into social applications.
-          </p>
-          <strong>Links</strong>
-          <ul class="profile-links">
-            <li><a href="https://skurukuru.hatenablog.com/" target="_blank" rel="noopener noreferrer">Hatena Blog</a></li>
-            <li><a href="https://github.com/Hosi121" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://qiita.com/Hosi121" target="_blank" rel="noopener noreferrer">Qiita</a></li>
-            <li><a href="https://www.linkedin.com/in/takuya-kataiwa-774762349/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Résumé (PDF)</a></li>
-          </ul>
+      <figure class="garden" aria-label="A new arrangement on each visit: an ASCII bouquet and little birds over soft, painterly brushstrokes">
+        <div class="garden-art" aria-hidden="true">
+          <pre class="garden-fallback">  .-*. .-*.              ,
+ (* @ * @ *)         ___(o)&gt;
+  ' \ | / '         /  . /
+   .-*@*-.           `--'
+    \ | /             ||
+     \|/
+     &lt;~&gt;
+      |</pre>
+          <canvas id="garden-canvas" width="1440" height="520"></canvas>
         </div>
-        <picture class="profile-photo">
-          <source srcset="profile.webp" type="image/webp">
-          <img class="profile-image" src="profile.jpg" alt="Portrait of Takuya Kataiwa" width="600" height="800">
-        </picture>
+        <figcaption><span lang="en">Flowers, birds &amp; little thoughts.</span><span class="garden-colophon" aria-hidden="true">✳ &nbsp; · &nbsp; +</span></figcaption>
+      </figure>
+
+      <section class="about" id="about" aria-labelledby="name" tabindex="-1">
+        <div class="name-line">
+          <h1 id="name">Takuya Kataiwa</h1>
+          <span class="name-secondary" lang="ja">片岩 拓也</span>
+        </div>
+        <p class="affiliation">Fourth-year student, Department of Information and Social Sciences,<br>Faculty of Informatics, Shizuoka University</p>
+        <p class="bio">I am interested in design for a society where humans and AI coexist. Through the lenses of usable security and LLM security, I explore safe and trustworthy interactions between people and AI. I believe in translating theory into social applications.</p>
+        <p class="personal-note">Born in 2004, Ishikawa, Japan</p>
+        <ul class="profile-links" aria-label="Profiles and résumé">
+            <li><a href="https://skurukuru.hatenablog.com/" target="_blank" rel="noopener noreferrer" aria-label="Hatena Blog">Blog<span aria-hidden="true"> ↗</span></a></li>
+            <li><a href="https://github.com/Hosi121" target="_blank" rel="noopener noreferrer" aria-label="Hosi121 on GitHub">GitHub<span aria-hidden="true"> ↗</span></a></li>
+            <li><a href="https://qiita.com/Hosi121" target="_blank" rel="noopener noreferrer" aria-label="Hosi121 on Qiita">Qiita<span aria-hidden="true"> ↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/takuya-kataiwa-774762349/" target="_blank" rel="noopener noreferrer" aria-label="Takuya Kataiwa on LinkedIn">LinkedIn<span aria-hidden="true"> ↗</span></a></li>
+            <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Résumé (PDF)">CV / PDF<span aria-hidden="true"> ↗</span></a></li>
+        </ul>
+      </section>
+
+      <section class="interests" aria-labelledby="research-interests">
+        <h2 id="research-interests">Research interests</h2>
+        <p>Usable security / LLM security</p>
+      </section>
+
+      <div class="archive">
+        <div class="archive-heading"><p>Work & activities</p></div>
+        <section aria-labelledby="research-achievements">
+          <details class="archive-section">
+            <summary>
+              <h2 id="research-achievements"><span class="section-number" aria-hidden="true">01</span><span class="section-name">Research Achievements</span><span class="disclosure" aria-hidden="true"></span></h2>
+            </summary>
+            <div class="archive-content">
+              <h3>International Conferences</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Enhancing LLM4Decompile with Obfuscated Source Code for Optimized Assembly</strong>
+                  <small>Saito Ryota, <strong>Takuya Kataiwa</strong>, Tetsushi Ohki. The Network and Distributed System Security (NDSS) Symposium 2025.</small>
+                  <span class="link-group"><a href="https://www.ndss-symposium.org/ndss2025/accepted-posters/" target="_blank" rel="noopener noreferrer">[details]</a> <a href="https://www.ndss-symposium.org/wp-content/uploads/2025-poster-51.pdf" target="_blank" rel="noopener noreferrer">[poster]</a></span>
+                </li>
+                <li>
+                  <strong>Invisible Consent: Browser Automation by LLM Agents is Not Privacy-aware</strong>
+                  <small>Ryota Saito, <strong>Takuya Kataiwa</strong>, Minato Takashima, Tetsushi Ohki. Extended Abstracts of the ACM CHI Conference on Human Factors in Computing Systems (CHI EA '26). 2026.</small>
+                  <a href="https://doi.org/10.1145/3772363.3799048" target="_blank" rel="noopener noreferrer">[ACM DL]</a>
+                </li>
+                <li>
+                  <strong>Secure and Usable Authentication Using Avatar Expression Blendshapes in Virtual Reality</strong>
+                  <small>Natsuki Nagai, Tetsuro Takahashi, <strong>Takuya Kataiwa</strong>, Masakatsu Nishigaki, Tetsushi Ohki. Extended Abstracts of the ACM CHI Conference on Human Factors in Computing Systems (CHI EA '26). 2026.</small>
+                  <a href="https://doi.org/10.1145/3772363.3798838" target="_blank" rel="noopener noreferrer">[ACM DL]</a>
+                </li>
+              </ol>
+
+              <h3>Domestic Conferences</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Invisible Consent: Browser Automation by LLM Agents is Not Privacy-aware</strong>
+                  <small>Ryota Saito, <strong>Takuya Kataiwa</strong>, Masakatsu Nishigaki, Tetsushi Ohki. Computer Security Symposium 2025. 2025.</small>
+                </li>
+                <li>
+                  <strong>Measuring Intrinsic Dimension of Token Embeddings</strong>
+                  <small><strong>Takuya Kataiwa</strong>, Cho Hakaze, Tetsushi Ohki. The 39th Annual Conference of the Japanese Society for Artificial Intelligence. 2025.</small>
+                </li>
+                <li>
+                  <strong>Simulator for Social Norm Formation by Aggregating Individual Behavioural Decisions</strong>
+                  <small>Jun Tajima, <strong>Takuya Kataiwa</strong>, Kenya Sasaki, Junya Morita. The 39th Annual Conference of the Japanese Society for Artificial Intelligence. 2025.</small>
+                </li>
+                <li>
+                  <strong>Measuring Intrinsic Dimension of Embedding Representations</strong>
+                  <small><strong>Takuya Kataiwa</strong>, Cho Hakaze, Tetsushi Ohki. The 31st Annual Meeting of the Association for Natural Language Processing. 2025.</small>
+                </li>
+                <li>
+                  <strong>A Method Using Dynamic Graph Neural Networks for Emotional Contagion in Local Communities</strong>
+                  <small><strong>Takuya Kataiwa</strong>, Junya Morita. The 21st Informatics Workshop. 2023.</small>
+                </li>
+              </ol>
+
+              <h3>Preprint</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Measuring Intrinsic Dimension of Token Embeddings</strong>
+                  <small><strong>Takuya Kataiwa</strong>, Cho Hakaze, Tetsushi Ohki.</small>
+                  <span class="link-group"><a href="https://arxiv.org/abs/2503.02142" target="_blank" rel="noopener noreferrer">[arXiv]</a> <a href="https://www.semanticscholar.org/paper/6d885c9cfcb4643d9ead13f6b92b759def0002f6" target="_blank" rel="noopener noreferrer" title="Semantic Scholar · 2026-09-23" aria-label="Semantic Scholar: 9 citations as of September 23, 2026">[Cited by 9]</a></span>
+                </li>
+              </ol>
+
+              <h3>Poster Presentations</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Effects of Expression Types in VR Facial Expression Recognition on Authentication Accuracy and Usability</strong>
+                  <small>Natsuki Nagai, Tetsuro Takahashi, <strong>Takuya Kataiwa</strong>, Masakatsu Nishigaki, Tetsushi Ohki. The 2026 Symposium on Cryptography and Information Security. 2026.</small>
+                </li>
+                <li>
+                  <strong>Evaluating Scalability in LLM-based Decompilation Using Source Code Obfuscation</strong>
+                  <small>Ryota Saito, <strong>Takuya Kataiwa</strong>, Makoto Yamaguchi, Yoshinobu Kano, Tetsushi Ohki. The 20th Young Researchers' Symposium on Natural Language Processing. 2025. <strong>Sponsor Award</strong>.</small>
+                </li>
+                <li>
+                  <strong>Does Training Order Affect Transfer Performance and Internal Representations in Multilingual Continual Pretraining?</strong>
+                  <small>Makoto Yamaguchi, <strong>Takuya Kataiwa</strong>, Yoshinobu Kano. The 20th Young Researchers' Symposium on Natural Language Processing. 2025.</small>
+                </li>
+                <li>
+                  <strong>Hypothesis Exploration of Kunji-dominant Volumes of the Man'yōshū Using KL Divergence of n-gram Models</strong>
+                  <small>Shiori Shiratori, <strong>Takuya Kataiwa</strong>. The 20th Young Researchers' Symposium on Natural Language Processing. 2025.</small>
+                </li>
+              </ol>
+
+              <h3>Miscellaneous</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>CPC Spring Camp 2025: A Student Participation Report</strong>
+                  <small><strong>Takuya Kataiwa</strong>, Hana Kubota, Momoha Hirose. Journal of the Robotics Society of Japan, Vol.44, No.5, pp.488–491. 2026.</small>
+                </li>
+              </ol>
+            </div>
+          </details>
+        </section>
+        <section aria-labelledby="selections">
+          <details class="archive-section">
+            <summary>
+              <h2 id="selections"><span class="section-number" aria-hidden="true">02</span><span class="section-name">Selected Programs</span><span class="disclosure" aria-hidden="true"></span></h2>
+            </summary>
+            <div class="archive-content">
+              <h3>Fellowships and Research Development Programs</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Cybozu Labs Youth, 14th and 15th cohorts</strong>
+                  <a href="https://labs.cybozu.co.jp/youth.html" target="_blank" rel="noopener noreferrer">[Official]</a>
+                </li>
+                <li>
+                  <strong>Nippon Foundation HUMAI Program, 1st and 2nd cohorts</strong>
+                  <a href="https://zen.ac.jp/humai" target="_blank" rel="noopener noreferrer">[Official]</a>
+                  <small>Distinguished graduate (Excellence Award, 1st HUMAI Essay Contest <a href="https://genron-cafe.jp/event/20260405/" target="_blank" rel="noopener noreferrer">[Final Review]</a>)</small>
+                </li>
+                <li>
+                  <strong>ADvance Lab, 2nd cohort</strong>
+                  <a href="https://adlab.lne.st" target="_blank" rel="noopener noreferrer">[Official]</a>
+                  <small>Theme: Ensuring the safety and reliability of machine-learning model memory through geometry</small>
+                </li>
+                <li>
+                  <strong>Security Camp National 2025, Class D</strong>
+                  <a href="https://www.ipa.go.jp/jinzai/security-camp/2025/camp/zenkoku/index.html" target="_blank" rel="noopener noreferrer">[Official]</a>
+                </li>
+                <li>
+                  <strong>100 Program, 10th cohort (Summer 2026) — Completed</strong>
+                  <a href="https://100program.jp/" target="_blank" rel="noopener noreferrer">[Official]</a>
+                  <small>Grand Prize, Interview Excellence Award, and Hardware Excellence Award</small>
+                </li>
+              </ol>
+
+              <h3>Grants, Selected Projects, and Challenges</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>MITOU IT Talent Scout and Development Program FY2026 — Accepted</strong>
+                  <a href="https://www.ipa.go.jp/jinzai/mitou/it/2026/koubokekka.html" target="_blank" rel="noopener noreferrer">[Official]</a>
+                  <small>Theme: Communication augmentation via tactile gel interfaces (PM: Mizuki Oka)</small>
+                </li>
+                <li>
+                  <strong>Kansai Tech Creator Challenge (K-TCC) 2025</strong>
+                  <a href="https://kansai-tcc.dle.or.jp/" target="_blank" rel="noopener noreferrer">[Official]</a>
+                  <small>Theme: Holoprax: Extending cognition and the body to directly connect thought and action</small>
+                </li>
+              </ol>
+            </div>
+          </details>
+        </section>
+        <section aria-labelledby="awards">
+          <details class="archive-section">
+            <summary>
+              <h2 id="awards"><span class="section-number" aria-hidden="true">03</span><span class="section-name">Awards</span><span class="disclosure" aria-hidden="true"></span></h2>
+            </summary>
+            <div class="archive-content">
+              <h3>University Awards</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Shizuoka University President's Award (FY2025)</strong>
+                  <small>Mar 2026 | Ratio unavailable | Shizuoka University</small>
+                </li>
+              </ol>
+
+              <h3>Hackathons</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Gikuhaku 2026 vol.2 — Sponsor Award (Works Human Intelligence Award)</strong>
+                  <small>Sep 2026 | Hosted by Supporters <a href="https://talent.supporterz.jp/events/e02c646b-8f28-4d60-a6bb-a7fd24cbc6c3/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+                </li>
+                <li>
+                  <strong>OpenAI Codex Student Builder Fest 2026 — 1st Place</strong>
+                  <small>Sep 2026 | Hosted by OpenAI <a href="https://codex-student-hack-fes.openai.chatgpt.site/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+                </li>
+                <li>
+                  <strong>Gikuhaku 2025 vol.5 — Sponsor Award (WingArc 1st Award)</strong>
+                  <small>Dec 2025 | 13.0% (3/23) | Hosted by Supporters</small>
+                </li>
+                <li>
+                  <strong>Open HackU 2024 Tokyo — Excellence Award</strong>
+                  <small>Feb 2024 | 6.7% (2/30) | Hosted by LY Corporation <a href="https://www.inf.shizuoka.ac.jp/news/2413/" target="_blank" rel="noopener noreferrer">[Press Release]</a></small>
+                </li>
+              </ol>
+
+              <h3>Ideathons</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>Urban Data Challenge 2025 — Gold Award</strong>
+                  <small>Feb 2026 | 0.4% (1/229)</small>
+                </li>
+                <li>
+                  <strong>Government Reform Student Ideathon and Hackathon — Technology Utilisation Award</strong>
+                  <small>Aug 2025 | 11.1% (1/9) | Hosted by the Cabinet Secretariat <a href="https://www.inf.shizuoka.ac.jp/news/4787/" target="_blank" rel="noopener noreferrer">[Press Release]</a></small>
+                </li>
+              </ol>
+
+              <h3>Business Contests</h3>
+              <ol class="entry-list">
+                <li>
+                  <strong>IVS SPIKATHON 2026 — Winner</strong>
+                  <small>Jul 2026 | Team count unavailable | Hosted by 4S Inc. (IVS2026 hosted by the IVS KYOTO Executive Committee) <span class="link-group"><a href="https://adlab.lne.st/2026/07/27/advance-lab-kataiwaspikathon/" target="_blank" rel="noopener noreferrer">[Press Release 1]</a> <a href="https://www.linoa-lab.co.jp/news-detail/260726-spikathon" target="_blank" rel="noopener noreferrer">[Press Release 2]</a> <a href="https://prtimes.jp/main/html/rd/p/000000046.000092044.html" target="_blank" rel="noopener noreferrer">[Press Release 3]</a> <a href="https://www.mapion.co.jp/news/release/000000046.000092044/" target="_blank" rel="noopener noreferrer">[Press Release 4]</a> <a href="https://voix.jp/edu/news/64802/" target="_blank" rel="noopener noreferrer">[Press Release 5]</a></span></small>
+                </li>
+                <li>
+                  <strong>Tongali Business Plan Contest 2026 — 3rd Place (Tongali Award), Team I-Arm</strong>
+                  <small>Jun 2026 | 18.8% (3/16) | Hosted by Tongali <a href="https://tongali.net/biz-contest2026/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
+                </li>
+              </ol>
+
+              <details class="archive-subsection additional-awards">
+                <summary><h3>Other Awards<span class="disclosure" aria-hidden="true"></span></h3></summary>
+                <ol class="entry-list">
+                  <li>
+                    <strong>Tekuno Ai 2025, University Student Division — Fighting Spirit Award</strong>
+                    <small>Nov 2025 | Ratio unavailable | Hosted by the Tekuno Ai Executive Committee</small>
+                  </li>
+                  <li>
+                    <strong>Hamamatsu City Well-being Idea Contest, University/Graduate/Vocational Student Division — Excellence Award</strong>
+                    <small>Nov 2025 | Ratio unavailable | Hosted by LODU Inc. <span class="link-group"><a href="https://prtimes.jp/main/html/rd/p/000000016.000085972.html" target="_blank" rel="noopener noreferrer">[Press Release]</a> <a href="https://news.at-s.com/article/1892941" target="_blank" rel="noopener noreferrer">[News Article]</a></span></small>
+                  </li>
+                  <li>
+                    <strong>Shizuoka University Ideathon and Datathon 2025 — Grand Prize</strong>
+                    <small>Jun 2025 | 16.7% (1/6) | Co-hosted by Hamamatsu City and Shizuoka University</small>
+                  </li>
+                  <li>
+                    <strong>Challenge Open Governance (COG 2024) — Semi-finalist</strong>
+                    <small>Feb 2025 | 22.7% (25/110) | Hosted by the University of Tokyo</small>
+                  </li>
+                </ol>
+              </details>
+            </div>
+          </details>
+        </section>
+        <section aria-labelledby="open-source">
+          <details class="archive-section">
+            <summary>
+              <h2 id="open-source"><span class="section-number" aria-hidden="true">04</span><span class="section-name">Open Source Contributions</span><span class="disclosure" aria-hidden="true"></span></h2>
+            </summary>
+            <div class="archive-content">
+              <h3>Inference optimization</h3>
+              <h4 id="contributions-proposed" class="contribution-status">Proposed</h4>
+              <ul class="entry-list contribution-list" aria-labelledby="contributions-proposed">
+                <li><strong>OpenCV</strong> <a class="repo-stars" href="https://github.com/opencv/opencv" target="_blank" rel="noopener noreferrer" aria-label="opencv/opencv: 90,930 GitHub stars">☆ 90,930</a>: Reuse transposed-convolution buffers <a href="https://github.com/opencv/opencv/pull/30001" target="_blank" rel="noopener noreferrer" aria-label="OpenCV PR #30001" title="PR #30001">[PR #30001]</a></li>
+                <li><strong>PyTorch</strong> <a class="repo-stars" href="https://github.com/pytorch/pytorch" target="_blank" rel="noopener noreferrer" aria-label="pytorch/pytorch: 103,177 GitHub stars">☆ 103,177</a>: Parallel Col2im, less memory <a href="https://github.com/pytorch/pytorch/pull/198123" target="_blank" rel="noopener noreferrer" aria-label="PyTorch PR #198123" title="PR #198123">[PR #198123]</a></li>
+                <li><strong>ncnn</strong> <a class="repo-stars" href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener noreferrer" aria-label="Tencent/ncnn: 23,861 GitHub stars">☆ 23,861</a>: Reduce transposed-convolution memory access <a href="https://github.com/Tencent/ncnn/pull/7015" target="_blank" rel="noopener noreferrer" aria-label="ncnn PR #7015" title="PR #7015">[PR #7015]</a></li>
+                <li><strong>Burn</strong> <a class="repo-stars" href="https://github.com/tracel-ai/burn" target="_blank" rel="noopener noreferrer" aria-label="tracel-ai/burn: 15,966 GitHub stars">☆ 15,966</a>: Reuse buffers and parallelize transposed convolution <a href="https://github.com/tracel-ai/burn/pull/5761" target="_blank" rel="noopener noreferrer" aria-label="Burn PR #5761" title="PR #5761">[PR #5761]</a></li>
+                <li><strong>Candle</strong> <a class="repo-stars" href="https://github.com/huggingface/candle" target="_blank" rel="noopener noreferrer" aria-label="huggingface/candle: 21,087 GitHub stars">☆ 21,087</a>: Optimize 1D transposed convolution <a href="https://github.com/huggingface/candle/pull/3988" target="_blank" rel="noopener noreferrer" aria-label="Candle PR #3988" title="PR #3988">[PR #3988]</a></li>
+                <li><strong>ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl: 1,148 GitHub stars">☆ 1,148</a>: Weight reuse and argument placement <a href="https://github.com/espressif/esp-dl/pull/333" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #333" title="PR #333">[PR #333]</a> <a href="https://github.com/espressif/esp-dl/pull/335" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #335" title="PR #335">[PR #335]</a></li>
+              </ul>
+
+              <h4 id="contributions-merged" class="contribution-status">Merged</h4>
+              <ul class="entry-list contribution-list" aria-labelledby="contributions-merged">
+                <li><strong>ONNX Runtime</strong> <a class="repo-stars" href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener noreferrer" aria-label="microsoft/onnxruntime: 21,907 GitHub stars">☆ 21,907</a>: Reduce Col2im memory access <a href="https://github.com/microsoft/onnxruntime/pull/32698" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #32698" title="PR #32698">[PR #32698]</a></li>
+                <li><strong>MNN</strong> <a class="repo-stars" href="https://github.com/alibaba/MNN" target="_blank" rel="noopener noreferrer" aria-label="alibaba/MNN: 16,129 GitHub stars">☆ 16,129</a>: Share transposed-convolution output buffers <a href="https://github.com/alibaba/MNN/pull/4897" target="_blank" rel="noopener noreferrer" aria-label="MNN PR #4897" title="PR #4897">[PR #4897]</a></li>
+                <li><strong>tract</strong> <a class="repo-stars" href="https://github.com/sonos/tract" target="_blank" rel="noopener noreferrer" aria-label="sonos/tract: 3,070 GitHub stars">☆ 3,070</a>: Optimize transposed-convolution memory access <a href="https://github.com/sonos/tract/pull/2909" target="_blank" rel="noopener noreferrer" aria-label="tract PR #2909" title="PR #2909">[PR #2909]</a></li>
+                <li><strong>ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl: 1,148 GitHub stars">☆ 1,148</a>: Optimize convolution and tensor operations <a href="https://github.com/espressif/esp-dl/pull/332" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #332" title="PR #332">[PR #332]</a> <a href="https://github.com/espressif/esp-dl/pull/334" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #334" title="PR #334">[PR #334]</a></li>
+              </ul>
+            </div>
+          </details>
+        </section>
+        <section aria-labelledby="competitions">
+          <details class="archive-section">
+            <summary>
+              <h2 id="competitions"><span class="section-number" aria-hidden="true">05</span><span class="section-name">Competitive Experience</span><span class="disclosure" aria-hidden="true"></span></h2>
+            </summary>
+            <div class="archive-content">
+              <ul class="entry-list">
+                <li><strong>Competitive Programming</strong>: AtCoder — Algorithm Green / Heuristics Cyan</li>
+                <li><strong>Mathematics Competition</strong>: Online Math Contest (OMC) — Blue</li>
+                <li><strong>CTF (Capture The Flag)</strong>: Team <a href="https://ctftime.org/team/305310" target="_blank" rel="noopener noreferrer">teapp</a></li>
+                <li><strong>iGEM</strong>: HG-Tokyo (advisor) <span class="link-group"><a href="https://2025.igem.wiki/hg-tokyo/" target="_blank" rel="noopener noreferrer" aria-label="iGEM HG-Tokyo 2025">[2025]</a><a href="https://2026.igem.wiki/hg-tokyo/" target="_blank" rel="noopener noreferrer" aria-label="iGEM HG-Tokyo 2026">[2026]</a></span></li>
+              </ul>
+            </div>
+          </details>
+        </section>
+        <section aria-labelledby="management">
+          <details class="archive-section">
+            <summary>
+              <h2 id="management"><span class="section-number" aria-hidden="true">06</span><span class="section-name">Management Experience</span><span class="disclosure" aria-hidden="true"></span></h2>
+            </summary>
+            <div class="archive-content">
+              <ul class="entry-list">
+                <li>2024–: <strong>CPC Spring Camp Executive Committee / Symbol Emergence Outreach Team</strong></li>
+                <li>2026–: <strong>Japan Committee for the International Olympiad in Artificial Intelligence (JOAI Committee)</strong></li>
+              </ul>
+
+              <details class="archive-subsection activity-history">
+                <summary><h3>History<span class="disclosure" aria-hidden="true"></span></h3></summary>
+                <ul class="entry-list">
+                  <li>2024–2025: <strong>ANCHOR</strong> (organized a reading group on neuroscience and cognitive science)</li>
+                  <li>2025: <strong>ChoiAca</strong> (ran a site aggregating research event information)</li>
+                  <li>2024–2026: <strong>IYNA</strong> (advisor)</li>
+                </ul>
+              </details>
+            </div>
+          </details>
+        </section>
       </div>
 
-      <section aria-labelledby="research-interests">
-        <h2 id="research-interests">Research Interests</h2>
-        <p><strong>Keywords</strong>: Posthumanism design, usable security, LLM security</p>
-      </section>
-
-      <section aria-labelledby="research-achievements">
-        <h2 id="research-achievements">Research Achievements</h2>
-
-        <h3>International Conferences</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Enhancing LLM4Decompile with Obfuscated Source Code for Optimized Assembly</strong>
-            <small>Saito Ryota, <strong>Takuya Kataiwa</strong>, Tetsushi Ohki. The Network and Distributed System Security (NDSS) Symposium 2025.</small>
-            <span class="link-group"><a href="https://www.ndss-symposium.org/ndss2025/accepted-posters/" target="_blank" rel="noopener noreferrer">[details]</a> <a href="https://www.ndss-symposium.org/wp-content/uploads/2025-poster-51.pdf" target="_blank" rel="noopener noreferrer">[poster]</a></span>
-          </li>
-          <li>
-            <strong>Invisible Consent: Browser Automation by LLM Agents is Not Privacy-aware</strong>
-            <small>Ryota Saito, <strong>Takuya Kataiwa</strong>, Minato Takashima, Tetsushi Ohki. Extended Abstracts of the ACM CHI Conference on Human Factors in Computing Systems (CHI EA '26). 2026.</small>
-            <a href="https://doi.org/10.1145/3772363.3799048" target="_blank" rel="noopener noreferrer">[ACM DL]</a>
-          </li>
-          <li>
-            <strong>Secure and Usable Authentication Using Avatar Expression Blendshapes in Virtual Reality</strong>
-            <small>Natsuki Nagai, Tetsuro Takahashi, <strong>Takuya Kataiwa</strong>, Masakatsu Nishigaki, Tetsushi Ohki. Extended Abstracts of the ACM CHI Conference on Human Factors in Computing Systems (CHI EA '26). 2026.</small>
-            <a href="https://doi.org/10.1145/3772363.3798838" target="_blank" rel="noopener noreferrer">[ACM DL]</a>
-          </li>
-        </ol>
-
-        <h3>Domestic Conferences</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Invisible Consent: Browser Automation by LLM Agents is Not Privacy-aware</strong>
-            <small>Ryota Saito, <strong>Takuya Kataiwa</strong>, Masakatsu Nishigaki, Tetsushi Ohki. Computer Security Symposium 2025. 2025.</small>
-          </li>
-          <li>
-            <strong>Measuring Intrinsic Dimension of Token Embeddings</strong>
-            <small><strong>Takuya Kataiwa</strong>, Cho Hakaze, Tetsushi Ohki. The 39th Annual Conference of the Japanese Society for Artificial Intelligence. 2025.</small>
-          </li>
-          <li>
-            <strong>Simulator for Social Norm Formation by Aggregating Individual Behavioural Decisions</strong>
-            <small>Jun Tajima, <strong>Takuya Kataiwa</strong>, Kenya Sasaki, Junya Morita. The 39th Annual Conference of the Japanese Society for Artificial Intelligence. 2025.</small>
-          </li>
-          <li>
-            <strong>Measuring Intrinsic Dimension of Embedding Representations</strong>
-            <small><strong>Takuya Kataiwa</strong>, Cho Hakaze, Tetsushi Ohki. The 31st Annual Meeting of the Association for Natural Language Processing. 2025.</small>
-          </li>
-          <li>
-            <strong>A Method Using Dynamic Graph Neural Networks for Emotional Contagion in Local Communities</strong>
-            <small><strong>Takuya Kataiwa</strong>, Junya Morita. The 21st Informatics Workshop. 2023.</small>
-          </li>
-        </ol>
-
-        <h3>Preprint</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Measuring Intrinsic Dimension of Token Embeddings</strong>
-            <small><strong>Takuya Kataiwa</strong>, Cho Hakaze, Tetsushi Ohki.</small>
-            <a href="https://arxiv.org/abs/2503.02142" target="_blank" rel="noopener noreferrer">[arXiv]</a>
-          </li>
-        </ol>
-
-        <h3>Poster Presentations</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Effects of Expression Types in VR Facial Expression Recognition on Authentication Accuracy and Usability</strong>
-            <small>Natsuki Nagai, Tetsuro Takahashi, <strong>Takuya Kataiwa</strong>, Masakatsu Nishigaki, Tetsushi Ohki. The 2026 Symposium on Cryptography and Information Security. 2026.</small>
-          </li>
-          <li>
-            <strong>Evaluating Scalability in LLM-based Decompilation Using Source Code Obfuscation</strong>
-            <small>Ryota Saito, <strong>Takuya Kataiwa</strong>, Makoto Yamaguchi, Yoshinobu Kano, Tetsushi Ohki. The 20th Young Researchers' Symposium on Natural Language Processing. 2025. <strong>Sponsor Award</strong>.</small>
-          </li>
-          <li>
-            <strong>Does Training Order Affect Transfer Performance and Internal Representations in Multilingual Continual Pretraining?</strong>
-            <small>Makoto Yamaguchi, <strong>Takuya Kataiwa</strong>, Yoshinobu Kano. The 20th Young Researchers' Symposium on Natural Language Processing. 2025.</small>
-          </li>
-          <li>
-            <strong>Hypothesis Exploration of Kunji-dominant Volumes of the Man'yōshū Using KL Divergence of n-gram Models</strong>
-            <small>Shiori Shiratori, <strong>Takuya Kataiwa</strong>. The 20th Young Researchers' Symposium on Natural Language Processing. 2025.</small>
-          </li>
-        </ol>
-
-        <h3>Miscellaneous</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>CPC Spring Camp 2025: A Student Participation Report</strong>
-            <small><strong>Takuya Kataiwa</strong>, Hana Kubota, Momoha Hirose. Journal of the Robotics Society of Japan, Vol.44, No.5, pp.488–491. 2026.</small>
-          </li>
-        </ol>
-      </section>
-
-      <section aria-labelledby="selections">
-        <h2 id="selections">Selected Programs</h2>
-
-        <h3>Fellowships and Research Development Programs</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Cybozu Labs Youth, 14th and 15th cohorts</strong>
-            <a href="https://labs.cybozu.co.jp/youth.html" target="_blank" rel="noopener noreferrer">[Official]</a>
-          </li>
-          <li>
-            <strong>Nippon Foundation HUMAI Program, 1st and 2nd cohorts</strong>
-            <a href="https://zen.ac.jp/humai" target="_blank" rel="noopener noreferrer">[Official]</a>
-            <small>Distinguished graduate (Excellence Award, 1st HUMAI Essay Contest <a href="https://genron-cafe.jp/event/20260405/" target="_blank" rel="noopener noreferrer">[Final Review]</a>)</small>
-          </li>
-          <li>
-            <strong>ADvance Lab, 2nd cohort</strong>
-            <a href="https://adlab.lne.st" target="_blank" rel="noopener noreferrer">[Official]</a>
-            <small>Theme: Ensuring the safety and reliability of machine-learning model memory through geometry</small>
-          </li>
-          <li>
-            <strong>Security Camp National 2025, Class D</strong>
-            <a href="https://www.ipa.go.jp/jinzai/security-camp/2025/camp/zenkoku/index.html" target="_blank" rel="noopener noreferrer">[Official]</a>
-          </li>
-          <li>
-            <strong>100 Program, 10th cohort (Summer 2026) — Completed</strong>
-            <a href="https://100program.jp/" target="_blank" rel="noopener noreferrer">[Official]</a>
-            <small>Grand Prize, Interview Excellence Award, and Hardware Excellence Award</small>
-          </li>
-        </ol>
-
-        <h3>Grants, Selected Projects, and Challenges</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>MITOU IT Talent Scout and Development Program FY2026 — Accepted</strong>
-            <a href="https://www.ipa.go.jp/jinzai/mitou/it/2026/koubokekka.html" target="_blank" rel="noopener noreferrer">[Official]</a>
-            <small>Theme: Communication augmentation via tactile gel interfaces (PM: Mizuki Oka)<br>Jun 2026 | 7.5% (21/279) | Information-technology Promotion Agency, Japan</small>
-          </li>
-          <li>
-            <strong>Kansai Tech Creator Challenge (K-TCC) 2025</strong>
-            <a href="https://kansai-tcc.dle.or.jp/" target="_blank" rel="noopener noreferrer">[Official]</a>
-            <small>Theme: Holoprax: Extending cognition and the body to directly connect thought and action</small>
-          </li>
-        </ol>
-      </section>
-
-      <section aria-labelledby="awards">
-        <h2 id="awards">Awards</h2>
-
-        <h3>University Awards</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Shizuoka University President's Award (FY2025)</strong>
-            <small>Mar 2026 | Ratio unavailable | Shizuoka University</small>
-          </li>
-        </ol>
-
-        <h3>Hackathons</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Gikuhaku 2026 vol.2 — Sponsor Award (Works Human Intelligence Award)</strong>
-            <small>Sep 2026 | Hosted by Supporters <a href="https://talent.supporterz.jp/events/e02c646b-8f28-4d60-a6bb-a7fd24cbc6c3/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
-          </li>
-          <li>
-            <strong>OpenAI Codex Student Builder Fest 2026 — 1st Place</strong>
-            <small>Sep 2026 | Hosted by OpenAI <a href="https://codex-student-hack-fes.openai.chatgpt.site/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
-          </li>
-          <li>
-            <strong>Gikuhaku 2025 vol.5 — Sponsor Award (WingArc 1st Award)</strong>
-            <small>Dec 2025 | 13.0% (3/23) | Hosted by Supporters</small>
-          </li>
-          <li>
-            <strong>Open HackU 2024 Tokyo — Excellence Award</strong>
-            <small>Feb 2024 | 6.7% (2/30) | Hosted by LY Corporation <a href="https://www.inf.shizuoka.ac.jp/news/2413/" target="_blank" rel="noopener noreferrer">[Press Release]</a></small>
-          </li>
-        </ol>
-
-        <h3>Ideathons</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>Urban Data Challenge 2025 — Gold Award</strong>
-            <small>Feb 2026 | 0.4% (1/229)</small>
-          </li>
-          <li>
-            <strong>Tekuno Ai 2025, University Student Division — Fighting Spirit Award</strong>
-            <small>Nov 2025 | Ratio unavailable | Hosted by the Tekuno Ai Executive Committee</small>
-          </li>
-          <li>
-            <strong>Hamamatsu City Well-being Idea Contest, University/Graduate/Vocational Student Division — Excellence Award</strong>
-            <small>Nov 2025 | Ratio unavailable | Hosted by LODU Inc. <span class="link-group"><a href="https://prtimes.jp/main/html/rd/p/000000016.000085972.html" target="_blank" rel="noopener noreferrer">[Press Release]</a> <a href="https://news.at-s.com/article/1892941" target="_blank" rel="noopener noreferrer">[News Article]</a></span></small>
-          </li>
-          <li>
-            <strong>Government Reform Student Ideathon and Hackathon — Technology Utilisation Award</strong>
-            <small>Aug 2025 | 11.1% (1/9) | Hosted by the Cabinet Secretariat <a href="https://www.inf.shizuoka.ac.jp/news/4787/" target="_blank" rel="noopener noreferrer">[Press Release]</a></small>
-          </li>
-          <li>
-            <strong>Shizuoka University Ideathon and Datathon 2025 — Grand Prize</strong>
-            <small>Jun 2025 | 16.7% (1/6) | Co-hosted by Hamamatsu City and Shizuoka University</small>
-          </li>
-          <li>
-            <strong>Challenge Open Governance (COG 2024) — Semi-finalist</strong>
-            <small>Feb 2025 | 22.7% (25/110) | Hosted by the University of Tokyo</small>
-          </li>
-        </ol>
-
-        <h3>Business Contests</h3>
-        <ol class="entry-list">
-          <li>
-            <strong>IVS SPIKATHON 2026 — Winner</strong>
-            <small>Jul 2026 | Team count unavailable | Hosted by 4S Inc. (IVS2026 hosted by the IVS KYOTO Executive Committee) <span class="link-group"><a href="https://adlab.lne.st/2026/07/27/advance-lab-kataiwaspikathon/" target="_blank" rel="noopener noreferrer">[Press Release 1]</a> <a href="https://www.linoa-lab.co.jp/news-detail/260726-spikathon" target="_blank" rel="noopener noreferrer">[Press Release 2]</a> <a href="https://prtimes.jp/main/html/rd/p/000000046.000092044.html" target="_blank" rel="noopener noreferrer">[Press Release 3]</a> <a href="https://www.mapion.co.jp/news/release/000000046.000092044/" target="_blank" rel="noopener noreferrer">[Press Release 4]</a> <a href="https://voix.jp/edu/news/64802/" target="_blank" rel="noopener noreferrer">[Press Release 5]</a></span></small>
-          </li>
-          <li>
-            <strong>Tongali Business Plan Contest 2026 — 3rd Place (Tongali Award), Team I-Arm</strong>
-            <small>Jun 2026 | 18.8% (3/16) | Hosted by Tongali <a href="https://tongali.net/biz-contest2026/" target="_blank" rel="noopener noreferrer">[Official]</a></small>
-          </li>
-        </ol>
-      </section>
-
-      <section aria-labelledby="open-source">
-        <h2 id="open-source">Open Source Contributions</h2>
-        <ul class="entry-list">
-          <li>
-            <strong>Espressif esp-dl — Inference performance optimization for ESP32</strong>
-            <small>Sep 2026 | <span class="link-group"><a href="https://github.com/espressif/esp-dl/pull/332" target="_blank" rel="noopener noreferrer">[PR #332]</a> <a href="https://github.com/espressif/esp-dl/pull/334" target="_blank" rel="noopener noreferrer">[PR #334]</a></span></small>
-          </li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="competitions">
-        <h2 id="competitions">Competitive Experience</h2>
-        <ul class="entry-list">
-          <li><strong>Competitive Programming</strong>: AtCoder — Algorithm Green / Heuristics Cyan</li>
-          <li><strong>Mathematics Competition</strong>: Online Math Contest (OMC) — Blue</li>
-          <li><strong>CTF (Capture The Flag)</strong>: Team <a href="https://ctftime.org/team/305310" target="_blank" rel="noopener noreferrer">teapp</a></li>
-          <li>
-            <strong>iGEM HG-Tokyo</strong>
-            <small>Apr–Dec 2025 | Advisor | <a href="https://x.com/iGEM_HGTokyo" target="_blank" rel="noopener noreferrer">[X]</a><br>Gold Medal / Presentation [6.8%: 10/146] / Village [10.9%: 5/46] / Best Integrated Human Practices</small>
-          </li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="management">
-        <h2 id="management">Management Experience</h2>
-        <ul class="entry-list">
-          <li>
-            <strong>ANCHOR</strong>: Agora for Neuroscience, Consciousness, Human, Organisms, and Related Research
-            <small>Oct 2024–Present | Founder | <span class="link-group"><a href="https://sites.google.com/view/anchorstudy/%E3%83%9B%E3%83%BC%E3%83%A0" target="_blank" rel="noopener noreferrer">[Official]</a> <a href="https://discord.gg/jNdMxC3n5Z" target="_blank" rel="noopener noreferrer">[Discord]</a></span><br>A reading group on cognitive science and psychiatry, including computational psychiatry and the free-energy principle.</small>
-          </li>
-          <li>
-            <strong>ChoiAca</strong>
-            <small>Mar 2025–Present | Founder | <a href="https://lp.choiaca.com/" target="_blank" rel="noopener noreferrer">[details]</a></small>
-          </li>
-          <li>
-            <strong>CPC Spring Camp Executive Committee / Symbol Emergence Outreach Team</strong>
-            <small>Dec 2024–Present | Committee Member | <span class="link-group"><a href="https://sites.google.com/view/cpc-spring-camp-2025/home" target="_blank" rel="noopener noreferrer">[Official]</a> <a href="https://www.symbol-emergence.net/" target="_blank" rel="noopener noreferrer">[Official]</a> <a href="https://x.com/sym_eme_outrea" target="_blank" rel="noopener noreferrer">[X]</a> <a href="https://www.youtube.com/@TANICHU-TNK" target="_blank" rel="noopener noreferrer">[YouTube]</a> <a href="https://note.com/symbol_emerg" target="_blank" rel="noopener noreferrer">[Note]</a></span></small>
-          </li>
-        </ul>
-      </section>
-
+      <footer class="page-footer">
+        <span>© 2026 Takuya Kataiwa</span>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </footer>
     </main>
   </body>
 </html>
