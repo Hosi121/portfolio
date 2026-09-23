@@ -51,10 +51,10 @@ h1 { margin: 0; font-size: 1.8rem; font-weight: 500; line-height: 1.6; }
 .profile-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.7rem; margin: 1.4rem 0 0; padding: 0; list-style: none; font: 0.8125rem / 2 ui-monospace, "SFMono-Regular", Consolas, monospace; }
 .profile-links a { display: inline-block; padding-block: 0.25rem; }
 .profile-links a span { color: var(--muted); font-family: sans-serif; }
-.interests { display: grid; grid-template-columns: 5rem 1fr; gap: 1.3rem; margin-top: 2.3rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-size: 0.75rem; }
+.interests { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.3rem; margin-top: 2.3rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-size: 0.75rem; }
+.interests + .interests { margin-top: 0.75rem; padding-top: 0; border-top: 0; }
 .interests h2 { margin: 0; font-size: inherit; font-weight: 500; }
 .interests p { margin: 0; color: var(--muted); }
-:lang(en) .interests { grid-template-columns: 7.2rem 1fr; }
 .archive { margin-top: 3.6rem; }
 .archive-heading { margin-bottom: 1rem; color: var(--muted); font-size: 0.6875rem; }
 .archive-heading p { margin: 0; }
@@ -107,7 +107,7 @@ small { display: block; margin-top: 0.15rem; color: var(--muted); font-size: 0.7
   .name-secondary { font-size: 0.875rem; }
   .bio { line-height: 2; }
   .profile-links { gap: 0.2rem 1.25rem; }
-  .interests, :lang(en) .interests { grid-template-columns: 1fr; gap: 0.35rem; }
+  .interests { grid-template-columns: 1fr; gap: 0.35rem; }
   .archive { margin-top: 2.7rem; }
   .archive-section > summary h2 { gap: 0.8rem; }
   .archive-content { padding-left: 0.4rem; }
