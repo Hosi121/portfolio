@@ -115,6 +115,8 @@ small { display: block; margin-top: 0.15rem; color: var(--muted); font-size: 0.7
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
+  .archive-section > summary h2, .archive-subsection > summary h3 { transition: transform 90ms ease-out; }
+  .archive-section > summary:active h2, .archive-subsection > summary:active h3 { transform: translateY(1px); }
 }
 @media print {
   body { background: white; color: black; font-size: 11pt; }

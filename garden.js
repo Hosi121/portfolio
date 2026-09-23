@@ -1,6 +1,8 @@
 (() => {
   "use strict";
 
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
   // Keep existing section URLs useful even when their entries are folded away.
   function revealLinkedSection() {
     let id;
@@ -19,6 +21,18 @@
   });
   window.addEventListener("afterprint", () => {
     closedBeforePrint.forEach((section) => { section.open = false; });
+  });
+
+  // Only deliberate disclosure clicks get a short pulse, never URL or print changes.
+  let lastPulse = -Infinity;
+  document.querySelector(".archive")?.addEventListener("click", (event) => {
+    const summary = event.target instanceof Element ? event.target.closest("summary") : null;
+    if (!summary || !event.isTrusted || event.defaultPrevented || document.hidden || motion.matches || typeof navigator.vibrate !== "function") return;
+    const now = performance.now();
+    if (now - lastPulse < 100) return;
+    lastPulse = now;
+    try { navigator.vibrate(12); }
+    catch { /* Optional device feedback must not interfere with native disclosure controls. */ }
   });
 
   function createGarden() {
@@ -261,7 +275,6 @@
 
     let pointer = null;
     let frame = 0;
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const precise = window.matchMedia("(hover: hover) and (pointer: fine)");
 
     function draw() {
