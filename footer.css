@@ -1,0 +1,26 @@
+/* Shared footer for the Japanese and English portfolio pages. */
+.landscape-footer { margin-top: 2.5rem; color: var(--muted); }
+  .footer-content { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1.75rem 1rem; width: min(100% - 3rem, 40rem); margin-inline: auto; padding-top: 1.75rem; border-top: 1px solid var(--line); font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; }
+  .footer-signature { display: inline-flex; align-items: center; gap: 0.65rem; font-size: 0.75rem; }
+  .footer-signature span { color: #88727d; font-size: 1.75rem; line-height: 1; }
+  .landscape-footer ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; list-style: none; margin: 0; padding: 0; }
+  .landscape-footer a { color: inherit; text-decoration: none; }
+  .landscape-footer li a { display: inline-block; padding-block: 0.5rem; font-size: 0.75rem; }
+  .landscape-footer a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.3em; }
+  .footer-colophon { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.6875rem; }
+  .footer-colophon small { color: inherit; margin: 0; font-size: inherit; }
+  .footer-colophon a { padding-block: 0.5rem; }
+  /* Blend the upper edge into the page, then carry the landscape all the way
+     to both sides and the bottom of the viewport. */
+  .footer-scenery { position: relative; width: 100%; height: clamp(12rem, 22vw, 20rem); margin: 1rem 0 0; overflow: hidden; opacity: 0.3; mix-blend-mode: multiply; mask-image: linear-gradient(to bottom, transparent, #000 65%); }
+  .footer-landscape { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 75%; filter: saturate(0.3); }
+  .footer-landscape-soft { filter: saturate(0.3) blur(7px); }
+  .footer-landscape-detail { mask-image: linear-gradient(to bottom, transparent, #000 60%); }
+  @media (max-width: 35rem) {
+    .landscape-footer { margin-top: 1.5rem; }
+    .footer-content { grid-template-columns: 1fr; gap: 1rem; padding-top: 1.5rem; }
+    .footer-colophon { flex-wrap: wrap; gap: 0.25rem 1rem; font-size: 0.625rem; }
+    .footer-scenery { height: 10rem; }
+    .footer-landscape { height: 15rem; top: auto; bottom: 0; object-position: 30% bottom; }
+  }
+  @media print { .landscape-footer { display: none; } }
