@@ -1,0 +1,13 @@
+---
+import Blog from '../layouts/Blog.astro';
+import Controls from './Controls.astro';
+---
+<Blog title="新しい記事" draft={true}>
+  <Controls isNew />
+  <article>
+    <header class="post-header"><h1 id="article-title">新しい記事</h1><textarea data-edit-title aria-label="タイトル" placeholder="タイトル" rows="1" hidden></textarea></header>
+    <div id="article-body" class="prose"></div>
+    <div id="inline-body" class="prose" hidden></div>
+    {import.meta.env.DEV && <section id="edit-footnotes" class="footnotes" aria-label="脚注の編集" hidden><h2>脚注</h2><ol id="footnote-inputs"></ol></section>}
+  </article>
+</Blog>

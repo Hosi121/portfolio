@@ -1,0 +1,30 @@
+---
+import ReadingStats from '../../components/ReadingStats.astro';
+import { articleStats } from '../../lib/article-stats.mjs';
+import Footnotes from '../../components/Footnotes.astro';
+import Controls from '../../editor/Controls.astro';
+import { render, getEntry } from 'astro:content';
+import Blog from '../../layouts/Blog.astro';
+import { posts, base } from '../../lib/posts';
+export async function getStaticPaths() {
+  return (await posts()).map(post => ({ params: { id: post.id }, props: { post } }));
+}
+const post = Astro.props.post ?? await getEntry('posts', Astro.params.id!);
+if (!post) return new Response('記事が見つかりません。', { status: 404 });
+const { Content } = await render(post);
+---
+<Blog title={post.data.title} description={post.data.description} draft={post.data.draft}>
+  {import.meta.env.DEV && <Controls slug={post.id} />}
+  <article>
+    <header class="post-header"><time datetime={post.data.date}>{post.data.date}</time>
+      {post.data.draft && <p class="draft">下書き — このページは公開されません</p>}
+      <h1 id="article-title">{post.data.title}</h1>
+      <ReadingStats stats={articleStats(post.body, post.data.footnotes)} />
+      {import.meta.env.DEV && <textarea data-edit-title aria-label="タイトル" rows="1" hidden></textarea>}
+    </header>
+    <div id="article-body" class="prose"><Content /><Footnotes notes={post.data.footnotes} /></div>
+    {import.meta.env.DEV && <div id="inline-body" class="prose" hidden></div>}
+    {import.meta.env.DEV && <section id="edit-footnotes" class="footnotes" aria-label="脚注の編集" hidden><h2>脚注</h2><ol id="footnote-inputs"></ol></section>}
+  </article>
+  <p class="back-link"><a href={`${base}/blog/`}>記事一覧へ</a></p>
+</Blog>

@@ -1,0 +1,44 @@
+---
+import ReadingStats from '../components/ReadingStats.astro';
+import { readingStats } from '../lib/reading-stats.mjs';
+import Footnotes from '../components/Footnotes.astro';
+import Blog from '../layouts/Blog.astro';
+import { base } from '../lib/posts';
+const sampleText = ["何かをつくっていると、完成したものよりも、途中で気づいたことのほうが記憶に残ることがある。うまくいかなかった試みや、思いがけず役に立った小さな工夫。そんな断片を、少しずつ文章にして残しておきたい。", "これはブログの表示サンプルです。本文、見出し、画像が並んだときの雰囲気を確認できます。", "余白のある場所に", "読み返すときに、その日の考えをたどれること。", "大切なところだけを少し強調して", "、あとは普段の言葉で書く。長い説明が必要なときも、短いメモだけの日も、同じ場所に置いておけるといい。", "花束と小鳥。ポートフォリオと同じモチーフを、記事の中にも。", "書き残しておきたいこと", "新しく試したことと、その結果", "読んだものから考えたこと", "まだ答えが出ていない、小さな問い", "きれいにまとまる前の考えにも、書き留めておく意味がある。", "短いコードも添えられる", "必要なら、本文に ", "hello()", " のようなコードや、少し長い例も添えられます。", "この場所に少しずつ文章が増えて、あとから眺めたときに、考えてきたことが見えるようになればと思う。"];
+const sampleCode = "function hello(name) {\n  return `Hello, ${name}!`;\n}";
+const sampleNotes = [{"id": "sample-1", "text": "本文の流れを止めずに、補足や出典を添えるための脚注です。番号からここへ移動し、矢印で本文へ戻れます。"}, {"id": "sample-2", "text": "脚注が複数ある場合は、本文に現れる順に番号が付きます。"}];
+
+---
+<Blog title="日々の小さな発見を、書き留める" description="ブログの文字組みと画像の表示サンプル" draft={true}>
+  <article>
+    <header class="post-header">
+      <p class="sample-label">Sample</p>
+      <time datetime="2026-09-28">2026-09-28</time>
+      <h1>日々の小さな発見を、書き留める</h1>
+      <ReadingStats stats={readingStats([...sampleText, sampleCode].join("\n"), sampleNotes)} />
+    </header>
+    <div class="prose">
+      <p>{sampleText[0]}<sup class="footnote-reference" id="footnote-ref-sample-1"><a href="#footnote-sample-1" role="doc-noteref" aria-label="脚注 1">1</a></sup></p>
+      <p>{sampleText[1]}</p>
+      <h2>{sampleText[2]}</h2>
+      <p>{sampleText[3]}<strong>{sampleText[4]}</strong>{sampleText[5]}<sup class="footnote-reference" id="footnote-ref-sample-2"><a href="#footnote-sample-2" role="doc-noteref" aria-label="脚注 2">2</a></sup></p>
+      <figure>
+        <img src={`${base}/og-garden.png`} alt="淡い色の筆跡に、文字で描かれた花束と小鳥" width="1200" height="630" />
+        <figcaption>{sampleText[6]}</figcaption>
+      </figure>
+      <h2>{sampleText[7]}</h2>
+      <ul>
+        <li>{sampleText[8]}</li>
+        <li>{sampleText[9]}</li>
+        <li>{sampleText[10]}</li>
+      </ul>
+      <blockquote><p>{sampleText[11]}</p></blockquote>
+      <h3>{sampleText[12]}</h3>
+      <p>{sampleText[13]}<code>{sampleText[14]}</code>{sampleText[15]}</p>
+      <pre><code>{sampleCode}</code></pre>
+      <p>{sampleText[16]}</p>
+      <Footnotes notes={sampleNotes} />
+    </div>
+  </article>
+  <p class="back-link"><a href={`${base}/blog/`}>記事一覧へ</a></p>
+</Blog>

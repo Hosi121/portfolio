@@ -1,0 +1,5 @@
+---
+import { formatReadingStats } from '../lib/reading-stats.mjs';
+const { stats } = Astro.props;
+---
+<p class="reading-stats" data-reading-stats data-characters={stats.characters} data-minutes={stats.minutes} aria-label="文字数と推定読了時間">{formatReadingStats(stats)}</p>

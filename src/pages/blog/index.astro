@@ -1,0 +1,14 @@
+---
+import Blog from '../../layouts/Blog.astro';
+import { posts, postUrl, base } from '../../lib/posts';
+const entries = await posts();
+---
+<Blog title="Blog">
+  <h1>Blog</h1>
+  {import.meta.env.DEV && <p><a href="/blog/new">記事を書く</a> · <a href="/portfolio/blog/sample/hoge">表示サンプル</a></p>}
+  {entries.length ? <ul class="post-list">{entries.map(post => <li>
+    <time datetime={post.data.date}>{post.data.date}</time>{post.data.draft && <span class="draft">下書き</span>}
+    <h2><a href={postUrl(post.id)}>{post.data.title}</a></h2>
+    {post.data.description && <p>{post.data.description}</p>}
+  </li>)}</ul> : <p class="empty">記事はまだありません。<a href={`${base}/`}>プロフィールを見る</a></p>}
+</Blog>

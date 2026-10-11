@@ -1,0 +1,10 @@
+---
+const { notes = [] } = Astro.props;
+---
+{notes.length > 0 && <section class="footnotes" aria-label="脚注" role="doc-endnotes">
+  <h2>脚注</h2>
+  <ol>{notes.map((note, index) => <li id={`footnote-${note.id}`}>
+    <span>{note.text}</span>{' '}
+    <a href={`#footnote-ref-${note.id}`} role="doc-backlink" aria-label={`本文の脚注 ${index + 1} に戻る`}>↩</a>
+  </li>)}</ol>
+</section>}

@@ -1,0 +1,9 @@
+---
+import { posts, postUrl, base } from '../lib/posts';
+const { english = false } = Astro.props;
+const entries = (await posts(false)).slice(0, 3);
+---
+<section class="interests" aria-label="Blog">
+  <h2><a href={`${base}/blog/`}>Blog</a></h2>
+  <div>{entries.length ? <ul>{entries.map(post => <li><a href={postUrl(post.id)}>{post.data.title}</a></li>)}</ul> : <p>{english ? 'No posts yet.' : '記事はまだありません。'}</p>}</div>
+</section>

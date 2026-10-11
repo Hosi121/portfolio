@@ -1,0 +1,41 @@
+.blog-main h1 { font-size: 1.5rem; }
+.blog-main { margin-top: 3rem; }
+.post-list { list-style: none; padding: 0; margin: 2rem 0; }
+.post-list li { padding-block: 1.5rem; border-top: 1px solid var(--line); }
+.post-list h2 { margin: .4rem 0; font-size: 1rem; font-weight: 500; }
+.post-list p, time, .empty { color: var(--muted); }
+time { font-size: .8rem; font-variant-numeric: tabular-nums; }
+.draft { color: var(--accent); margin-left: .5rem; font-size: .8rem; }
+.post-header { margin-bottom: 2.5rem; }
+.post-header h1 { margin-top: .5rem; overflow-wrap: anywhere; }
+.prose { font-size: .875rem; overflow-wrap: anywhere; }
+.prose h2 { font-size: 1.125rem; margin-top: 2.5rem; }
+.prose h3 { font-size: 1rem; margin-top: 2rem; }
+.prose img { max-width: 100%; height: auto; }
+.prose pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--line); }
+.prose code { font-size: .85em; }
+.prose blockquote { margin-inline: 0; padding-left: 1.2rem; border-left: 2px solid var(--line); color: var(--muted); }
+.prose table { display: block; overflow-x: auto; border-collapse: collapse; }
+.prose th, .prose td { padding: .5rem; border: 1px solid var(--line); }
+.back-link { margin-top: 3rem; }
+
+.prose figure { margin: 2rem 0; }
+.prose figure img { display: block; width: 100%; }
+.prose figcaption { margin-top: .5rem; color: var(--muted); font-size: .75rem; }
+.sample-label { margin: 0 0 .5rem; color: var(--muted); font-size: .75rem; }
+@media (max-width: 40rem) { .blog-main h1 { font-size: 1.35rem; } }
+
+.footnote-reference { font-size: .75em; vertical-align: super; line-height: 0; color: var(--accent); }
+.footnote-reference a { padding: .15rem; }
+.footnotes { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .75rem; color: var(--muted); }
+.footnotes h2, .prose .footnotes h2 { margin: 0 0 .75rem; font-size: .8125rem; font-weight: 500; }
+.footnotes ol { margin: 0; padding-left: 1.5rem; }
+.footnotes li { margin-bottom: .65rem; overflow-wrap: anywhere; }
+.footnotes li:target { background: #eee9e1; }
+.footnotes li span { white-space: pre-wrap; }
+.footnotes textarea { display: block; width: 100%; min-height: 3.5rem; resize: vertical; padding: .4rem .5rem; font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 3px; }
+.footnotes button { padding: .25rem 0; font: inherit; color: var(--accent); border: 0; background: transparent; cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
+
+.reading-stats { margin: .55rem 0 0; color: var(--muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.edit-actions .reading-stats { margin: 0; }
+.reading-stats[hidden] { display: none; }

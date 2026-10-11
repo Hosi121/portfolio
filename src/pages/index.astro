@@ -1,3 +1,7 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import LatestPosts from "../components/LatestPosts.astro";
+---
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -14,8 +18,7 @@
     <meta name="theme-color" content="#faf8f4">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23faf8f4'/%3E%3Ctext x='16' y='25' text-anchor='middle' font-size='28' fill='%237d716c'%3E✳%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="footer.css">
-    <script src="garden.js" defer></script>
+    <script is:inline src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/garden.js`} defer></script>
     <meta property="og:title" content="片岩拓也 | ポートフォリオ">
     <meta property="og:description" content="片岩拓也のポートフォリオ。AIエージェントの同意・プライバシー、推論高速化、触覚ゲルを用いたインタフェースの研究と開発。">
     <meta property="og:url" content="https://hosi121.github.io/portfolio/">
@@ -56,6 +59,7 @@
     <main class="page" id="top">
       <header class="site-header">
         <a class="site-signature" href="index.html" aria-label="片岩拓也 ホーム"><span class="site-flower" aria-hidden="true">✳</span> Hosi121</a>
+        <a href="blog/">Blog</a>
         <nav class="language-nav" aria-label="言語選択"><a href="index.html" lang="ja" hreflang="ja" aria-current="page">JA<span class="sr-only"> — 日本語</span></a><span aria-hidden="true">/</span><a href="en.html" lang="en" hreflang="en" >EN<span class="sr-only"> — English</span></a></nav>
       </header>
 
@@ -398,27 +402,8 @@
         </section>
       </div>
 
+      <LatestPosts english={false} />
     </main>
-    <footer class="landscape-footer">
-      <div class="footer-content">
-        <div class="footer-intro">
-          <a class="footer-signature" href="index.html"><span aria-hidden="true">✳</span> Hosi121</a>
-        </div>
-        <nav aria-label="フッターリンク">
-          <ul>
-            <li><a href="https://github.com/Hosi121">GitHub <span aria-hidden="true">↗</span></a></li>
-            <li><a href="resume.pdf">CV / PDF <span aria-hidden="true">↗</span></a></li>
-          </ul>
-        </nav>
-        <div class="footer-colophon">
-          <small>© 2026 Takuya Kataiwa</small>
-          <a href="#top">ページの先頭へ <span aria-hidden="true">↑</span></a>
-        </div>
-      </div>
-      <div class="footer-scenery" aria-hidden="true">
-        <img class="footer-landscape footer-landscape-soft" src="images/footer-landscape.webp" width="2172" height="724" alt="" loading="lazy" decoding="async" />
-        <img class="footer-landscape footer-landscape-detail" src="images/footer-landscape.webp" width="2172" height="724" alt="" loading="lazy" decoding="async" />
-      </div>
-    </footer>
+    <SiteFooter portfolio english={false} />
   </body>
 </html>
