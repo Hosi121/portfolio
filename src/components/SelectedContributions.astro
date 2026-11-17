@@ -1,5 +1,6 @@
 ---
 import { selectedContributions } from '../data/selected-contributions';
+import BrandIcon from './BrandIcon.astro';
 
 interface Props { lang: 'ja' | 'en' }
 const { lang } = Astro.props;
@@ -9,6 +10,6 @@ const japanese = lang === 'ja';
   const url = `https://github.com/${contribution.repository}`;
   const stars = contribution.stars.toLocaleString('en-US');
   return (
-    <li><strong>{contribution.name}</strong>{' '}<a class="repo-stars" href={url} target="_blank" rel="noopener noreferrer" aria-label={japanese ? `${contribution.repository} のスター数：${stars}` : `${contribution.repository}: ${stars} GitHub stars`}>☆ {stars}</a>{japanese ? '：' : ': '}{contribution.description[lang]}{' '}{contribution.pullRequests.map((number, index) => <>{index > 0 && ' '}<a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`} title={`PR #${number}`}>[PR #{number}]</a></>)}</li>
+    <li><strong><BrandIcon kind={contribution.icon} />{contribution.name}</strong>{' '}<a class="repo-stars" href={url} target="_blank" rel="noopener noreferrer" aria-label={japanese ? `${contribution.repository} のスター数：${stars}` : `${contribution.repository}: ${stars} GitHub stars`}>☆ {stars}</a>{japanese ? '：' : ': '}{contribution.description[lang]}{' '}{contribution.pullRequests.map((number, index) => <>{index > 0 && ' '}<a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`} title={`PR #${number}`}>[PR #{number}]</a></>)}</li>
   );
 })}

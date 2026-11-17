@@ -3,6 +3,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import LatestPosts from "../components/LatestPosts.astro";
 import HoverPreview from "../components/HoverPreview.astro";
 import SelectedContributions from "../components/SelectedContributions.astro";
+import BrandIcon from "../components/BrandIcon.astro";
 import "../styles/portfolio.css";
 ---
 <!DOCTYPE html>
@@ -267,7 +268,7 @@ import "../styles/portfolio.css";
               <h3>ハッカソン</h3>
               <ol class="entry-list">
                 <li>
-                  <strong>OpenAI 大学生向け夏の Codex 開発祭 2026 優勝</strong>
+                  <strong><BrandIcon kind="openai" />OpenAI 大学生向け夏の Codex 開発祭 2026 優勝</strong>
                   <small>2026年9月 | OpenAI主催</small>
                 </li>
               </ol>
@@ -275,7 +276,7 @@ import "../styles/portfolio.css";
               <h3>アイデアソン</h3>
               <ol class="entry-list">
                 <li>
-                  <strong>Tongaliアイデアピッチコンテスト2026 2位（Tongali優秀賞／名古屋電機工業賞）</strong>
+                  <strong><BrandIcon kind="tongali" />Tongaliアイデアピッチコンテスト2026 2位（Tongali優秀賞／名古屋電機工業賞）</strong>
                   <small>2026年11月 | Tongali主催</small>
                 </li>
                 <li>
@@ -300,7 +301,7 @@ import "../styles/portfolio.css";
                     <small>2026年9月 | サポーターズ主催</small>
                   </li>
                   <li>
-                    <strong>Tongaliビジネスプランコンテスト2026 3位（Tongali賞）— チーム I-Arm</strong>
+                    <strong><BrandIcon kind="tongali" />Tongaliビジネスプランコンテスト2026 3位（Tongali賞）— チーム I-Arm</strong>
                     <small>2026年6月 | 18.8% (3/16) | Tongali主催</small>
                   </li>
                   <li>
@@ -350,24 +351,24 @@ import "../styles/portfolio.css";
               <details class="archive-subsection contributions-other-merged">
                 <summary><h3 id="contributions-other-merged">その他のマージ済み貢献（8件のPR）<span class="disclosure" aria-hidden="true"></span></h3></summary>
                 <ul class="entry-list contribution-list" aria-labelledby="contributions-other-merged">
-                  <li><strong>ncnn</strong> <a class="repo-stars" href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener noreferrer" aria-label="Tencent/ncnn のスター数：23,861">☆ 23,861</a>：逆畳み込みのメモリアクセス削減 <a href="https://github.com/Tencent/ncnn/pull/7015" target="_blank" rel="noopener noreferrer" aria-label="ncnn PR #7015" title="PR #7015">[PR #7015]</a></li>
-                  <li><strong>MNN</strong> <a class="repo-stars" href="https://github.com/alibaba/MNN" target="_blank" rel="noopener noreferrer" aria-label="alibaba/MNN のスター数：16,156">☆ 16,156</a>：逆畳み込みの最適化 <a href="https://github.com/alibaba/MNN/pull/4897" target="_blank" rel="noopener noreferrer" aria-label="MNN PR #4897" title="PR #4897">[PR #4897]</a> <a href="https://github.com/alibaba/MNN/pull/4912" target="_blank" rel="noopener noreferrer" aria-label="MNN PR #4912" title="PR #4912">[PR #4912]</a></li>
-                  <li><strong>Burn</strong> <a class="repo-stars" href="https://github.com/tracel-ai/burn" target="_blank" rel="noopener noreferrer" aria-label="tracel-ai/burn のスター数：15,966">☆ 15,966</a>：逆畳み込みのバッファ再利用・並列化 <a href="https://github.com/tracel-ai/burn/pull/5761" target="_blank" rel="noopener noreferrer" aria-label="Burn PR #5761" title="PR #5761">[PR #5761]</a></li>
-                  <li><strong>MLX Audio</strong> <a class="repo-stars" href="https://github.com/Blaizzy/mlx-audio" target="_blank" rel="noopener noreferrer" aria-label="Blaizzy/mlx-audio のスター数：7,991">☆ 7,991</a>：Qwen3音声認識のタイムスタンプ補正の最適化 <a href="https://github.com/Blaizzy/mlx-audio/pull/982" target="_blank" rel="noopener noreferrer" aria-label="MLX Audio PR #982" title="PR #982">[PR #982]</a></li>
-                  <li><strong>tract</strong> <a class="repo-stars" href="https://github.com/sonos/tract" target="_blank" rel="noopener noreferrer" aria-label="sonos/tract のスター数：3,070">☆ 3,070</a>：逆畳み込みのメモリアクセス最適化 <a href="https://github.com/sonos/tract/pull/2909" target="_blank" rel="noopener noreferrer" aria-label="tract PR #2909" title="PR #2909">[PR #2909]</a></li>
-                  <li><strong>ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl のスター数：1,148">☆ 1,148</a>：畳み込み・テンソル演算の最適化 <a href="https://github.com/espressif/esp-dl/pull/332" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #332" title="PR #332">[PR #332]</a> <a href="https://github.com/espressif/esp-dl/pull/334" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #334" title="PR #334">[PR #334]</a></li>
+                  <li><strong><BrandIcon kind="ncnn" />ncnn</strong> <a class="repo-stars" href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener noreferrer" aria-label="Tencent/ncnn のスター数：23,861">☆ 23,861</a>：逆畳み込みのメモリアクセス削減 <a href="https://github.com/Tencent/ncnn/pull/7015" target="_blank" rel="noopener noreferrer" aria-label="ncnn PR #7015" title="PR #7015">[PR #7015]</a></li>
+                  <li><strong><BrandIcon kind="mnn" />MNN</strong> <a class="repo-stars" href="https://github.com/alibaba/MNN" target="_blank" rel="noopener noreferrer" aria-label="alibaba/MNN のスター数：16,156">☆ 16,156</a>：逆畳み込みの最適化 <a href="https://github.com/alibaba/MNN/pull/4897" target="_blank" rel="noopener noreferrer" aria-label="MNN PR #4897" title="PR #4897">[PR #4897]</a> <a href="https://github.com/alibaba/MNN/pull/4912" target="_blank" rel="noopener noreferrer" aria-label="MNN PR #4912" title="PR #4912">[PR #4912]</a></li>
+                  <li><strong><BrandIcon kind="burn" />Burn</strong> <a class="repo-stars" href="https://github.com/tracel-ai/burn" target="_blank" rel="noopener noreferrer" aria-label="tracel-ai/burn のスター数：15,966">☆ 15,966</a>：逆畳み込みのバッファ再利用・並列化 <a href="https://github.com/tracel-ai/burn/pull/5761" target="_blank" rel="noopener noreferrer" aria-label="Burn PR #5761" title="PR #5761">[PR #5761]</a></li>
+                  <li><strong><BrandIcon kind="github" />MLX Audio</strong> <a class="repo-stars" href="https://github.com/Blaizzy/mlx-audio" target="_blank" rel="noopener noreferrer" aria-label="Blaizzy/mlx-audio のスター数：7,991">☆ 7,991</a>：Qwen3音声認識のタイムスタンプ補正の最適化 <a href="https://github.com/Blaizzy/mlx-audio/pull/982" target="_blank" rel="noopener noreferrer" aria-label="MLX Audio PR #982" title="PR #982">[PR #982]</a></li>
+                  <li><strong><BrandIcon kind="tract" />tract</strong> <a class="repo-stars" href="https://github.com/sonos/tract" target="_blank" rel="noopener noreferrer" aria-label="sonos/tract のスター数：3,070">☆ 3,070</a>：逆畳み込みのメモリアクセス最適化 <a href="https://github.com/sonos/tract/pull/2909" target="_blank" rel="noopener noreferrer" aria-label="tract PR #2909" title="PR #2909">[PR #2909]</a></li>
+                  <li><strong><BrandIcon kind="espressif" />ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl のスター数：1,148">☆ 1,148</a>：畳み込み・テンソル演算の最適化 <a href="https://github.com/espressif/esp-dl/pull/332" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #332" title="PR #332">[PR #332]</a> <a href="https://github.com/espressif/esp-dl/pull/334" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #334" title="PR #334">[PR #334]</a></li>
                 </ul>
               </details>
 
               <details class="archive-subsection contributions-proposed">
                 <summary><h3 id="contributions-proposed">提案中（9件のPR）<span class="disclosure" aria-hidden="true"></span></h3></summary>
                 <ul class="entry-list contribution-list" aria-labelledby="contributions-proposed">
-                  <li><strong>vLLM</strong> <a class="repo-stars" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener noreferrer" aria-label="vllm-project/vllm のスター数：93,389">☆ 93,389</a>：CPUのAVX2 prefill attentionのレジスタスピル削減 <a href="https://github.com/vllm-project/vllm/pull/58514" target="_blank" rel="noopener noreferrer" aria-label="vLLM PR #58514" title="PR #58514">[PR #58514]</a></li>
-                  <li><strong>ONNX Runtime</strong> <a class="repo-stars" href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener noreferrer" aria-label="microsoft/onnxruntime のスター数：21,943">☆ 21,943</a>：CPUの線形ResizeとArgMaxの融合 <a href="https://github.com/microsoft/onnxruntime/pull/33032" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #33032" title="PR #33032">[PR #33032]</a></li>
-                  <li><strong>Candle</strong> <a class="repo-stars" href="https://github.com/huggingface/candle" target="_blank" rel="noopener noreferrer" aria-label="huggingface/candle のスター数：21,087">☆ 21,087</a>：1次元逆畳み込みの最適化 <a href="https://github.com/huggingface/candle/pull/3988" target="_blank" rel="noopener noreferrer" aria-label="Candle PR #3988" title="PR #3988">[PR #3988]</a></li>
-                  <li><strong>vLLM-Omni</strong> <a class="repo-stars" href="https://github.com/vllm-project/vllm-omni" target="_blank" rel="noopener noreferrer" aria-label="vllm-project/vllm-omni のスター数：7,079">☆ 7,079</a>：タイムスタンプ復号・VAEタイル合成・動画バッファ書き込みの最適化 <a href="https://github.com/vllm-project/vllm-omni/pull/8230" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8230" title="PR #8230">[PR #8230]</a> <a href="https://github.com/vllm-project/vllm-omni/pull/8114" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8114" title="PR #8114">[PR #8114]</a> <a href="https://github.com/vllm-project/vllm-omni/pull/8113" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8113" title="PR #8113">[PR #8113]</a></li>
-                  <li><strong>tract</strong> <a class="repo-stars" href="https://github.com/sonos/tract" target="_blank" rel="noopener noreferrer" aria-label="sonos/tract のスター数：3,070">☆ 3,070</a>：評価順序計算での依存関係の再走査削減 <a href="https://github.com/sonos/tract/pull/2957" target="_blank" rel="noopener noreferrer" aria-label="tract PR #2957" title="PR #2957">[PR #2957]</a></li>
-                  <li><strong>ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl のスター数：1,148">☆ 1,148</a>：重み再利用・マルチコア実行・引数配置 <a href="https://github.com/espressif/esp-dl/pull/333" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #333" title="PR #333">[PR #333]</a> <a href="https://github.com/espressif/esp-dl/pull/335" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #335" title="PR #335">[PR #335]</a></li>
+                  <li><strong><BrandIcon kind="vllm" />vLLM</strong> <a class="repo-stars" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener noreferrer" aria-label="vllm-project/vllm のスター数：93,389">☆ 93,389</a>：CPUのAVX2 prefill attentionのレジスタスピル削減 <a href="https://github.com/vllm-project/vllm/pull/58514" target="_blank" rel="noopener noreferrer" aria-label="vLLM PR #58514" title="PR #58514">[PR #58514]</a></li>
+                  <li><strong><BrandIcon kind="onnx" />ONNX Runtime</strong> <a class="repo-stars" href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener noreferrer" aria-label="microsoft/onnxruntime のスター数：21,943">☆ 21,943</a>：CPUの線形ResizeとArgMaxの融合 <a href="https://github.com/microsoft/onnxruntime/pull/33032" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #33032" title="PR #33032">[PR #33032]</a></li>
+                  <li><strong><BrandIcon kind="huggingface" />Candle</strong> <a class="repo-stars" href="https://github.com/huggingface/candle" target="_blank" rel="noopener noreferrer" aria-label="huggingface/candle のスター数：21,087">☆ 21,087</a>：1次元逆畳み込みの最適化 <a href="https://github.com/huggingface/candle/pull/3988" target="_blank" rel="noopener noreferrer" aria-label="Candle PR #3988" title="PR #3988">[PR #3988]</a></li>
+                  <li><strong><BrandIcon kind="vllm" />vLLM-Omni</strong> <a class="repo-stars" href="https://github.com/vllm-project/vllm-omni" target="_blank" rel="noopener noreferrer" aria-label="vllm-project/vllm-omni のスター数：7,079">☆ 7,079</a>：タイムスタンプ復号・VAEタイル合成・動画バッファ書き込みの最適化 <a href="https://github.com/vllm-project/vllm-omni/pull/8230" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8230" title="PR #8230">[PR #8230]</a> <a href="https://github.com/vllm-project/vllm-omni/pull/8114" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8114" title="PR #8114">[PR #8114]</a> <a href="https://github.com/vllm-project/vllm-omni/pull/8113" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8113" title="PR #8113">[PR #8113]</a></li>
+                  <li><strong><BrandIcon kind="tract" />tract</strong> <a class="repo-stars" href="https://github.com/sonos/tract" target="_blank" rel="noopener noreferrer" aria-label="sonos/tract のスター数：3,070">☆ 3,070</a>：評価順序計算での依存関係の再走査削減 <a href="https://github.com/sonos/tract/pull/2957" target="_blank" rel="noopener noreferrer" aria-label="tract PR #2957" title="PR #2957">[PR #2957]</a></li>
+                  <li><strong><BrandIcon kind="espressif" />ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl のスター数：1,148">☆ 1,148</a>：重み再利用・マルチコア実行・引数配置 <a href="https://github.com/espressif/esp-dl/pull/333" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #333" title="PR #333">[PR #333]</a> <a href="https://github.com/espressif/esp-dl/pull/335" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #335" title="PR #335">[PR #335]</a></li>
                 </ul>
               </details>
             </div>

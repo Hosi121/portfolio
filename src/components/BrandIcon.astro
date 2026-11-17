@@ -5,15 +5,19 @@ import ncnn from '../assets/preview-icons/ncnn.png?url';
 import mnn from '../assets/preview-icons/mnn.png?url';
 import burn from '../assets/preview-icons/burn.svg?url';
 import tract from '../assets/preview-icons/tract.svg?url';
+import openai from '../assets/preview-icons/openai.png?url';
+import tongali from '../assets/preview-icons/tongali.ico?url';
+import vllm from '../assets/preview-icons/vllm.svg?url';
+import huggingface from '../assets/preview-icons/huggingface.svg?url';
 
-const assetIcons = { chi, ncnn, mnn, burn, tract };
+const assetIcons = { chi, ncnn, mnn, burn, tract, openai, tongali, vllm, huggingface };
 interface Props { kind: keyof typeof brandIcons | keyof typeof assetIcons }
 const { kind } = Astro.props;
 // Brand paths are stored locally; each source is recorded in preview-brand-icons.json.
 const brand = kind in brandIcons ? brandIcons[kind as keyof typeof brandIcons] : null;
 const asset = kind in assetIcons ? assetIcons[kind as keyof typeof assetIcons] : null;
 ---
-<span class="bio-preview-icon" data-icon={kind} aria-hidden="true">
+<span class="brand-icon" data-icon={kind} aria-hidden="true">
   {brand ? <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><path d={brand.path} fill={brand.color} /></svg>
     : asset && <img src={asset} width="32" height="32" alt="" loading="lazy" decoding="async" />}
 </span>

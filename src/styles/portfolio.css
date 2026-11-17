@@ -58,9 +58,10 @@ h1 { margin: 0; font-size: 1.8rem; font-weight: 500; line-height: 1.6; }
 .bio-system-link { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 0.3rem; text-decoration: none; }
 .bio-system-link:hover { background: #efeae2; }
 .bio-preview-item { display: flex; align-items: flex-start; gap: 0.5rem; min-width: 0; }
-.bio-preview-item > .bio-preview-icon { margin-block: 0.375rem; }
-.bio-preview-icon { display: block; flex: 0 0 12px; width: 12px; height: 12px; }
-.bio-preview-icon svg, .bio-preview-icon img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.bio-preview-item > .brand-icon { margin-block: 0.375rem; }
+.brand-icon { display: inline-block; flex: 0 0 12px; width: 12px; height: 12px; }
+.brand-icon svg, .brand-icon img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.entry-list .brand-icon { margin-inline-end: 0.4rem; vertical-align: -0.08em; }
 .bio-preview-project { display: flex; align-items: center; gap: 0.5rem; width: 100%; min-height: 1.5rem; padding-inline: 0.125rem; border-radius: 0.3rem; text-decoration: none; }
 .bio-preview-project:hover { background: #efeae2; }
 .bio-preview-links { display: flex; flex-wrap: wrap; gap: 0 0.625rem; min-width: 0; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }

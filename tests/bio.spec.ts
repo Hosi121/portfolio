@@ -48,7 +48,7 @@ for (const path of ['/', '/en.html']) {
     for (const name of ['PyTorch', 'OpenCV', 'ONNX Runtime', 'ncnn', 'MNN', 'Burn', 'tract', 'ESP-DL']) {
       await expect(systems.getByRole('link', { name, exact: true })).toBeVisible();
     }
-    await expect(systems.locator('.bio-preview-icon')).toHaveCount(8);
+    await expect(systems.locator('.brand-icon')).toHaveCount(8);
     await expectIconGrid(systems);
     await expect.poll(() => systems.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     await page.screenshot({ path: testInfo.outputPath('systems-preview.png'), animations: 'disabled' });
@@ -68,7 +68,7 @@ for (const path of ['/', '/en.html']) {
     const listed = await page.locator('#contributions-merged + ul a[title^="PR #"]').evaluateAll(elements => elements.map(element => element.getAttribute('href')));
     expect(links).toEqual(listed);
     expect(links).toHaveLength(7);
-    await expect(speed.locator('.bio-preview-icon svg')).toHaveCount(3);
+    await expect(speed.locator('.brand-icon svg')).toHaveCount(3);
     await expect(speed).not.toContainText(/Col2im|Im2col|Transpose|MaxPool|SIMD/);
     expect(await bounds()).toEqual(before);
     await page.screenshot({ path: testInfo.outputPath('speed-preview.png'), animations: 'disabled' });
@@ -78,8 +78,8 @@ for (const path of ['/', '/en.html']) {
     const safety = page.locator('#bio-safety');
     await expect(safety).toBeVisible();
     await expect(safety.getByRole('link')).toHaveText(['Invisible Consent', 'Secure & Usable Authentication', 'FHE-Mamba']);
-    await expect(safety.locator('.bio-preview-icon[data-icon="chi"] img')).toHaveCount(2);
-    await expect(safety.locator('.bio-preview-icon[data-icon="github"] svg')).toHaveCount(1);
+    await expect(safety.locator('.brand-icon[data-icon="chi"] img')).toHaveCount(2);
+    await expect(safety.locator('.brand-icon[data-icon="github"] svg')).toHaveCount(1);
     await expect.poll(() => safety.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     await expect(safety.getByRole('link', { name: 'Invisible Consent', exact: true })).toHaveAttribute('href', 'https://ohkilab.github.io/invisible-consent/');
     await expect(safety.getByRole('link', { name: 'Secure & Usable Authentication', exact: true })).toHaveAttribute('href', 'https://ohkilab.github.io/expressionauth/');

@@ -2,7 +2,7 @@
 import { selectedContributions } from '../data/selected-contributions';
 import { safetyProjects } from '../data/safety-projects';
 import { systemProjects } from '../data/system-projects';
-import PreviewIcon from './PreviewIcon.astro';
+import BrandIcon from './BrandIcon.astro';
 
 interface Props {
   lang: 'ja' | 'en';
@@ -22,14 +22,14 @@ const title = titles[kind][lang];
   <span class="sr-only" id={`${id}-title`}>{title}</span>
   <span class:list={['bio-preview-list', { 'bio-system-grid': kind === 'systems' }]} role="list">
     {kind === 'systems' ? systemProjects.map(project => <span role="listitem">
-      <a class="bio-system-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noopener noreferrer" aria-label={project.name} title={project.name}><PreviewIcon kind={project.icon} /></a>
+      <a class="bio-system-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noopener noreferrer" aria-label={project.name} title={project.name}><BrandIcon kind={project.icon} /></a>
     </span>) : kind === 'safety' ? safetyProjects.map(project => <span class="bio-preview-item" role="listitem">
-      <a class="bio-preview-project" href={project.url} target="_blank" rel="noopener noreferrer"><PreviewIcon kind={project.icon} />{project.name}</a>
+      <a class="bio-preview-project" href={project.url} target="_blank" rel="noopener noreferrer"><BrandIcon kind={project.icon} />{project.name}</a>
     </span>) : selectedContributions.map(contribution => {
       const url = `https://github.com/${contribution.repository}`;
       return (
         <span class="bio-preview-item" role="listitem">
-          <PreviewIcon kind={contribution.icon} />
+          <BrandIcon kind={contribution.icon} />
           <span class="bio-preview-links">
             {contribution.pullRequests.map(number => <a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`} title={`${contribution.name} PR #${number}`}>#{number}</a>)}
           </span>
