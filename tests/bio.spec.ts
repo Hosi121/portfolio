@@ -6,6 +6,8 @@ test.afterEach(async ({ page }) => {
 
 async function expectIconMountain(systems: import('@playwright/test').Locator) {
   await expect(systems.locator('.bio-system-grid')).toHaveCSS('display', 'grid');
+  await expect(systems).toHaveCSS('background-color', 'rgb(250, 248, 244)');
+  await expect(systems).not.toHaveCSS('box-shadow', 'none');
   const icons = await systems.getByRole('link').evaluateAll(links => links.map(link => {
     const rect = link.getBoundingClientRect();
     return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2, width: rect.width, height: rect.height, radius: getComputedStyle(link).borderRadius };

@@ -51,7 +51,7 @@ h1 { margin: 0; font-size: 1.8rem; font-weight: 500; line-height: 1.6; }
 .bio-trigger:hover { color: var(--accent); text-decoration-style: solid; }
 .bio-preview { position: fixed; inset: 0; width: min(25rem, calc(100vw - 2rem)); height: fit-content; max-height: calc(100dvh - 2rem); margin: auto; padding: 1.125rem 1.375rem; overflow: auto; overscroll-behavior: contain; border: 0; border-radius: 1.125rem 1.5rem 1.25rem 1.625rem / 1.375rem 1.125rem 1.5rem 1.25rem; background: var(--paper); color: var(--ink); box-shadow: 0 4px 16px rgb(52 56 51 / 0.06), 0 16px 40px rgb(52 56 51 / 0.07); font-size: 0.8125rem; line-height: 1.6; text-wrap: pretty; }
 .bio-preview:popover-open { display: block; }
-.bio-preview[data-kind="systems"] { width: min(16rem, calc(100vw - 2rem)); padding: 0.75rem 1rem 1rem; background: none; border-radius: 0; box-shadow: none; }
+.bio-preview[data-kind="systems"] { width: min(16rem, calc(100vw - 2rem)); padding: 0.75rem 1rem 1rem; }
 .bio-preview[data-positioned] { inset: auto; top: var(--preview-top); left: var(--preview-left); margin: 0; }
 .bio-preview-heading { display: block; margin-bottom: 0.75rem; color: var(--muted); font-size: 0.6875rem; }
 .bio-preview-list { display: block; }
