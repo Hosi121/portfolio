@@ -23,7 +23,11 @@ try {
   assert.ok(html.includes('id="footnote-source"'));
   assert.ok(html.includes('href="#footnote-ref-source"'));
   assert.ok(html.includes('role="doc-noteref"'));
-  assert.ok(html.includes('/portfolio/styles.css'));
+  const stylesheets = [...html.matchAll(/href="(\/portfolio\/_astro\/[^\"]+\.css)"/g)];
+  assert.ok(stylesheets.length > 0, 'shared styles use a fingerprinted asset URL');
+  const css = await Promise.all(stylesheets.map(([, url]) => readFile(`dist/${url.slice('/portfolio/'.length)}`, 'utf8')));
+  assert.ok(css.some(text => text.includes('.bio-system-grid')), 'shared portfolio styles are bundled');
+  assert.ok(!html.includes('/portfolio/styles.css'), 'no unversioned portfolio stylesheet');
   assert.ok(!html.includes('id="local-editor"'));
   assert.ok(!html.includes('/src/editor/'));
   assert.ok(!html.includes('id="inline-body"'));

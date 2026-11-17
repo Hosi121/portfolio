@@ -4,6 +4,29 @@ test.afterEach(async ({ page }) => {
   expect((await page.pageErrors()).map(error => error.message)).toEqual([]);
 });
 
+async function expectIconMountain(systems: import('@playwright/test').Locator) {
+  await expect(systems.locator('.bio-system-grid')).toHaveCSS('display', 'grid');
+  const icons = await systems.getByRole('link').evaluateAll(links => links.map(link => {
+    const rect = link.getBoundingClientRect();
+    return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2, width: rect.width, height: rect.height, radius: getComputedStyle(link).borderRadius };
+  }));
+  const rows: typeof icons[] = [];
+  for (const icon of icons) {
+    const row = rows.find(row => Math.abs(row[0].y - icon.y) < 2);
+    if (row) row.push(icon);
+    else rows.push([icon]);
+  }
+  expect(rows.map(row => row.length)).toEqual([1, 3, 4]);
+  expect(rows[0][0].x).toBeCloseTo(rows[1][1].x, 0);
+  expect(icons[2].width).toBeGreaterThan(icons[1].width);
+  expect(icons.every(icon => icon.radius === '50%')).toBe(true);
+  for (const row of rows) {
+    for (let index = 1; index < row.length; index++) {
+      expect(row[index].x - row[index - 1].x).toBeGreaterThanOrEqual((row[index].width + row[index - 1].width) / 2);
+    }
+  }
+}
+
 for (const path of ['/', '/en.html']) {
   test(`biography previews on ${path} keep the text and layout in place`, async ({ page }, testInfo) => {
     await page.goto(path);
@@ -28,6 +51,7 @@ for (const path of ['/', '/en.html']) {
       await expect(systems.getByRole('link', { name, exact: true })).toBeVisible();
     }
     await expect(systems.locator('.bio-preview-icon')).toHaveCount(8);
+    await expectIconMountain(systems);
     await expect.poll(() => systems.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     await page.screenshot({ path: testInfo.outputPath('systems-preview.png'), animations: 'disabled' });
     expect(await bounds()).toEqual(before);
@@ -96,13 +120,14 @@ test.describe('touch', () => {
           await page.locator(`[popovertarget="bio-${kind}"]`).tap();
           const preview = page.locator(`#bio-${kind}`);
           await expect(preview).toBeVisible();
+          if (kind === 'systems') await expectIconMountain(preview);
           const box = (await preview.boundingBox())!;
           expect(box.x).toBeGreaterThanOrEqual(0);
           expect(box.x + box.width).toBeLessThanOrEqual(width);
           expect(box.y).toBeGreaterThanOrEqual(0);
           expect(box.y + box.height).toBeLessThanOrEqual(844);
           expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-          if (kind === 'speed' && width === 390) await page.screenshot({ path: testInfo.outputPath(path === '/' ? 'mobile-ja.png' : 'mobile-en.png'), animations: 'disabled' });
+          if (kind === 'systems' && width === 390) await page.screenshot({ path: testInfo.outputPath(path === '/' ? 'mobile-ja.png' : 'mobile-en.png'), animations: 'disabled' });
           await page.touchscreen.tap(4, 4);
           await expect(preview).toBeHidden();
         }

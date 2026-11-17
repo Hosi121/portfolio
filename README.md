@@ -61,7 +61,7 @@ npm run test:build
 ## 構成と編集
 
 - `src/pages/index.astro` / `src/pages/en.html.astro`：プロフィール、研究・活動記録。内容の更新は両言語に反映します。
-- `public/styles.css`：生成りの背景、システムフォント、通常体の名前・見出し、スマートフォン対応。
+- `src/styles/portfolio.css`：生成りの背景、システムフォント、通常体の名前・見出し、スマートフォン対応。AstroがCSSの内容に応じたファイル名で出力します。
 - `public/garden.js`：Canvas 2D による花束・小鳥の ASCII 表現と、油絵風の筆跡。
 - `public/og-garden.png`：リンク共有用の花束・小鳥の画像（1200 × 630 px）。日英共通で Open Graph / X のカードに指定し、通常のページ表示では読み込みません。
 - レジュメは CV / PDF リンクから開けます。

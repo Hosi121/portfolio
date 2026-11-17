@@ -19,7 +19,7 @@ const titles = {
 const title = titles[kind][lang];
 ---
 <span class="bio-reference"><button class="bio-trigger" type="button" popovertarget={id}>{label}</button><span class="bio-preview" id={id} data-kind={kind} popover="auto" role="region" aria-labelledby={`${id}-title`}>
-  <span class="bio-preview-heading" id={`${id}-title`}>{title}</span>
+  <span class:list={['bio-preview-heading', { 'sr-only': kind === 'systems' }]} id={`${id}-title`}>{title}</span>
   <span class:list={['bio-preview-list', { 'bio-system-grid': kind === 'systems' }]} role="list">
     {kind === 'systems' ? systemProjects.map(project => <span role="listitem">
       <a class="bio-system-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noopener noreferrer" aria-label={project.name} title={project.name}><PreviewIcon kind={project.icon} /></a>
