@@ -1,6 +1,7 @@
 export const selectedContributions = [
   {
     name: 'PyTorch',
+    icon: 'pytorch',
     repository: 'pytorch/pytorch',
     stars: 103177,
     description: {
@@ -11,6 +12,7 @@ export const selectedContributions = [
   },
   {
     name: 'OpenCV',
+    icon: 'opencv',
     repository: 'opencv/opencv',
     stars: 90990,
     description: {
@@ -21,6 +23,7 @@ export const selectedContributions = [
   },
   {
     name: 'ONNX Runtime',
+    icon: 'onnx',
     repository: 'microsoft/onnxruntime',
     stars: 21943,
     description: {

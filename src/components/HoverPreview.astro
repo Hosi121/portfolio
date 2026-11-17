@@ -1,5 +1,7 @@
 ---
 import { selectedContributions } from '../data/selected-contributions';
+import { safetyProjects } from '../data/safety-projects';
+import PreviewIcon from './PreviewIcon.astro';
 
 interface Props {
   lang: 'ja' | 'en';
@@ -7,38 +9,38 @@ interface Props {
   label: string;
 }
 const { lang, kind, label } = Astro.props;
-const japanese = lang === 'ja';
 const id = `bio-${kind}`;
 const titles = {
   systems: { ja: '貢献しているシステム', en: 'Systems I contribute to' },
   speed: { ja: '高速化のPR', en: 'Performance pull requests' },
-  safety: { ja: '安全性に関する研究・実装', en: 'Privacy-preserving inference' },
+  safety: { ja: '安全性とプライバシー', en: 'Security & privacy' },
 };
 const title = titles[kind][lang];
 ---
-<span class="bio-reference"><button class="bio-trigger" type="button" popovertarget={id}>{label}</button><span class="bio-preview" id={id} popover="auto" role="region" aria-labelledby={`${id}-title`}>
+<span class="bio-reference"><button class="bio-trigger" type="button" popovertarget={id}>{label}</button><span class="bio-preview" id={id} data-kind={kind} popover="auto" role="region" aria-labelledby={`${id}-title`}>
   <span class="bio-preview-heading" id={`${id}-title`}>{title}</span>
   <span class="bio-preview-list" role="list">
-    {kind === 'safety' ? <span class="bio-preview-item" role="listitem">
-      <a class="bio-preview-name" href="https://github.com/Hosi121/fhe-mamba" target="_blank" rel="noopener noreferrer">FHE-Mamba<span aria-hidden="true"> ↗</span></a>
-      <span class="bio-preview-description">{japanese
-        ? '準同型暗号を用い、活性・内部状態を暗号化したまま計算するMamba推論の研究・実装。'
-        : 'Research and implementation of Mamba inference with encrypted activations and recurrent state using homomorphic encryption.'}</span>
-      <span class="bio-preview-repo">Hosi121/fhe-mamba</span>
-    </span> : selectedContributions.map(contribution => {
+    {kind === 'safety' ? safetyProjects.map(project => <span class="bio-preview-item" role="listitem">
+      <PreviewIcon kind={project.icon} />
+      <span class="bio-preview-content">
+        <a class="bio-preview-name" href={project.url} target="_blank" rel="noopener noreferrer">{project.name}<span aria-hidden="true"> ↗</span></a>
+        <span class="bio-preview-caption">{project.caption[lang]}</span>
+      </span>
+    </span>) : selectedContributions.map(contribution => {
       const url = `https://github.com/${contribution.repository}`;
       return (
         <span class="bio-preview-item" role="listitem">
+          <PreviewIcon kind={contribution.icon} />
+          <span class="bio-preview-content">
           {kind === 'systems' ? <>
             <a class="bio-preview-name" href={url} target="_blank" rel="noopener noreferrer">{contribution.name}<span aria-hidden="true"> ↗</span></a>
-            <span class="bio-preview-repo">{contribution.repository}</span>
           </> : <>
             <strong class="bio-preview-name">{contribution.name}</strong>
-            <span class="bio-preview-description">{contribution.description[lang]}</span>
             <span class="bio-preview-links">
-              {contribution.pullRequests.map(number => <a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`}>PR #{number}</a>)}
+              {contribution.pullRequests.map(number => <a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`}>#{number}</a>)}
             </span>
           </>}
+          </span>
         </span>
       );
     })}

@@ -24,6 +24,7 @@ for (const path of ['/', '/en.html']) {
     const systemsPanel = (await systems.boundingBox())!;
     expect(systemsPanel.y + systemsPanel.height).toBeLessThan(systemsAnchor.y);
     await expect(systems.getByRole('link')).toHaveText(['PyTorch ↗', 'OpenCV ↗', 'ONNX Runtime ↗']);
+    await expect(systems.locator('.bio-preview-icon svg')).toHaveCount(3);
     expect(await bounds()).toEqual(before);
     await systems.getByRole('link').first().hover();
     await expect(systems).toBeVisible();
@@ -40,6 +41,8 @@ for (const path of ['/', '/en.html']) {
     const listed = await page.locator('#contributions-merged + ul a[title^="PR #"]').evaluateAll(elements => elements.map(element => element.getAttribute('href')));
     expect(links).toEqual(listed);
     expect(links).toHaveLength(7);
+    await expect(speed.locator('.bio-preview-icon svg')).toHaveCount(3);
+    await expect(speed).not.toContainText(/Col2im|Im2col|Transpose|MaxPool|SIMD/);
     expect(await bounds()).toEqual(before);
     await page.screenshot({ path: testInfo.outputPath('speed-preview.png'), animations: 'disabled' });
     await page.mouse.move(16, 16);
@@ -47,6 +50,10 @@ for (const path of ['/', '/en.html']) {
     await page.locator('[popovertarget="bio-safety"]').hover();
     const safety = page.locator('#bio-safety');
     await expect(safety).toBeVisible();
+    await expect(safety.getByRole('link')).toHaveText(['Invisible Consent ↗', 'Secure & Usable Authentication ↗', 'FHE-Mamba ↗']);
+    await expect(safety.locator('.bio-preview-icon svg')).toHaveCount(3);
+    await expect(safety.getByRole('link', { name: 'Invisible Consent', exact: true })).toHaveAttribute('href', 'https://ohkilab.github.io/invisible-consent/');
+    await expect(safety.getByRole('link', { name: 'Secure & Usable Authentication', exact: true })).toHaveAttribute('href', 'https://ohkilab.github.io/expressionauth/');
     await expect(safety.getByRole('link', { name: 'FHE-Mamba', exact: true })).toHaveAttribute('href', 'https://github.com/Hosi121/fhe-mamba');
     const safetyAnchor = (await page.locator('[popovertarget="bio-safety"]').boundingBox())!;
     const safetyPanel = (await safety.boundingBox())!;
