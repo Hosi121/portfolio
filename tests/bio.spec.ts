@@ -4,8 +4,8 @@ test.afterEach(async ({ page }) => {
   expect((await page.pageErrors()).map(error => error.message)).toEqual([]);
 });
 
-async function expectIconCluster(systems: import('@playwright/test').Locator) {
-  await expect(systems.locator('.bio-system-cluster')).toBeVisible();
+async function expectIconGrid(systems: import('@playwright/test').Locator) {
+  await expect(systems.locator('.bio-system-grid')).toHaveCSS('display', 'grid');
   await expect(systems).toHaveCSS('background-color', 'rgb(250, 248, 244)');
   await expect(systems).not.toHaveCSS('box-shadow', 'none');
   const icons = await systems.getByRole('link').evaluateAll(links => links.map(link => {
@@ -13,24 +13,15 @@ async function expectIconCluster(systems: import('@playwright/test').Locator) {
     const x = rect.x + rect.width / 2;
     const y = rect.y + rect.height / 2;
     const symbol = link.querySelector('svg, img')!.getBoundingClientRect();
-    return { x, y, width: rect.width, height: rect.height, radius: getComputedStyle(link).borderRadius, reachable: document.elementFromPoint(x, y)?.closest('a') === link, symbolContained: symbol.x >= rect.x && symbol.y >= rect.y && symbol.right <= rect.right && symbol.bottom <= rect.bottom };
+    return { x, y, width: rect.width, symbolWidth: symbol.width, symbolHeight: symbol.height, reachable: document.elementFromPoint(x, y)?.closest('a') === link, symbolContained: symbol.x >= rect.x && symbol.y >= rect.y && symbol.right <= rect.right && symbol.bottom <= rect.bottom };
   }));
-  expect(new Set(icons.map(icon => Math.round(icon.y / 4))).size).toBeGreaterThanOrEqual(6);
-  expect(new Set(icons.map(icon => Math.round(icon.width))).size).toBeGreaterThanOrEqual(4);
-  expect(icons.every(icon => icon.radius === '50%')).toBe(true);
+  const rows = [...new Set(icons.map(icon => Math.round(icon.y)))];
+  expect(rows).toHaveLength(2);
+  expect(rows.map(y => icons.filter(icon => Math.round(icon.y) === y).length)).toEqual([4, 4]);
+  expect(new Set(icons.map(icon => Math.round(icon.x))).size).toBe(4);
+  expect(icons.every(icon => icon.symbolWidth <= 24 && icon.symbolHeight <= 24)).toBe(true);
   expect(icons.every(icon => icon.reachable)).toBe(true);
   expect(icons.every(icon => icon.symbolContained)).toBe(true);
-  const width = Math.max(...icons.map(icon => icon.x + icon.width / 2)) - Math.min(...icons.map(icon => icon.x - icon.width / 2));
-  const height = Math.max(...icons.map(icon => icon.y + icon.height / 2)) - Math.min(...icons.map(icon => icon.y - icon.height / 2));
-  expect(width / height).toBeGreaterThan(0.8);
-  expect(width / height).toBeLessThan(1.2);
-  for (let first = 0; first < icons.length; first++) {
-    for (let second = first + 1; second < icons.length; second++) {
-      const a = icons[first];
-      const b = icons[second];
-      expect(Math.hypot(a.x - b.x, a.y - b.y)).toBeGreaterThanOrEqual((a.width + b.width) * 0.45);
-    }
-  }
 }
 
 for (const path of ['/', '/en.html']) {
@@ -58,7 +49,7 @@ for (const path of ['/', '/en.html']) {
       await expect(systems.getByRole('link', { name, exact: true })).toBeVisible();
     }
     await expect(systems.locator('.bio-preview-icon')).toHaveCount(8);
-    await expectIconCluster(systems);
+    await expectIconGrid(systems);
     await expect.poll(() => systems.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     await page.screenshot({ path: testInfo.outputPath('systems-preview.png'), animations: 'disabled' });
     expect(await bounds()).toEqual(before);
@@ -127,7 +118,7 @@ test.describe('touch', () => {
           await page.locator(`[popovertarget="bio-${kind}"]`).tap();
           const preview = page.locator(`#bio-${kind}`);
           await expect(preview).toBeVisible();
-          if (kind === 'systems') await expectIconCluster(preview);
+          if (kind === 'systems') await expectIconGrid(preview);
           const box = (await preview.boundingBox())!;
           expect(box.x).toBeGreaterThanOrEqual(0);
           expect(box.x + box.width).toBeLessThanOrEqual(width);
