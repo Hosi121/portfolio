@@ -19,7 +19,7 @@ async function expectIconGrid(systems: import('@playwright/test').Locator) {
   expect(rows).toHaveLength(1);
   expect(icons).toHaveLength(8);
   expect(new Set(icons.map(icon => Math.round(icon.x))).size).toBe(8);
-  expect(icons.every(icon => Math.abs(icon.symbolWidth - 10) < 0.1 && Math.abs(icon.symbolHeight - 10) < 0.1)).toBe(true);
+  expect(icons.every(icon => Math.abs(icon.symbolWidth - 12) < 0.1 && Math.abs(icon.symbolHeight - 12) < 0.1)).toBe(true);
   expect(icons.every(icon => icon.reachable)).toBe(true);
   expect(icons.every(icon => icon.symbolContained)).toBe(true);
 }
