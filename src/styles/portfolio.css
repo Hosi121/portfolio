@@ -51,14 +51,14 @@ h1 { margin: 0; font-size: 1.8rem; font-weight: 500; line-height: 1.6; }
 .bio-trigger:hover { color: var(--accent); text-decoration-style: solid; }
 .bio-preview { position: fixed; inset: 0; width: min(25rem, calc(100vw - 2rem)); height: fit-content; max-height: calc(100dvh - 2rem); margin: auto; padding: 1.125rem 1.375rem; overflow: auto; overscroll-behavior: contain; border: 0; border-radius: 1.125rem 1.5rem 1.25rem 1.625rem / 1.375rem 1.125rem 1.5rem 1.25rem; background: var(--paper); color: var(--ink); box-shadow: 0 4px 16px rgb(52 56 51 / 0.06), 0 16px 40px rgb(52 56 51 / 0.07); font-size: 0.8125rem; line-height: 1.6; text-wrap: pretty; }
 .bio-preview:popover-open { display: block; }
-.bio-preview[data-kind="systems"] { width: min(13.5rem, calc(100vw - 2rem)); padding: 0.9rem 1rem; border-radius: 0.875rem; }
+.bio-preview[data-kind="systems"] { width: min(11.5rem, calc(100vw - 2rem)); padding: 0.7rem 0.8rem; border-radius: 0.875rem; }
 .bio-preview[data-positioned] { inset: auto; top: var(--preview-top); left: var(--preview-left); margin: 0; }
 .bio-preview-heading { display: block; margin-bottom: 0.75rem; color: var(--muted); font-size: 0.6875rem; }
 .bio-preview-list { display: block; }
-.bio-system-grid { display: grid; grid-template-columns: repeat(4, 2rem); grid-template-rows: repeat(2, 2rem); justify-content: center; gap: 0.5rem 0.625rem; }
-.bio-system-link { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 0.3rem; text-decoration: none; }
+.bio-system-grid { display: grid; grid-template-columns: repeat(4, 1.75rem); grid-template-rows: repeat(2, 1.75rem); justify-content: center; gap: 0.375rem 0.5rem; }
+.bio-system-link { display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 0.3rem; text-decoration: none; }
 .bio-system-link:hover { background: #efeae2; }
-.bio-preview[data-kind="systems"] .bio-preview-icon { display: block; width: 1.375rem; height: 1.375rem; background: none; }
+.bio-preview[data-kind="systems"] .bio-preview-icon { display: block; width: 1.125rem; height: 1.125rem; background: none; }
 .bio-system-link .bio-preview-icon svg, .bio-system-link .bio-preview-icon img { width: 100%; height: 100%; }
 .bio-preview-item { display: flex; align-items: center; gap: 0.75rem; }
 .bio-preview-item + .bio-preview-item { margin-top: 0.85rem; }
