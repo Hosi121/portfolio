@@ -51,28 +51,25 @@ h1 { margin: 0; font-size: 1.8rem; font-weight: 500; line-height: 1.6; }
 .bio-trigger:hover { color: var(--accent); text-decoration-style: solid; }
 .bio-preview { position: fixed; inset: 0; width: min(25rem, calc(100vw - 2rem)); height: fit-content; max-height: calc(100dvh - 2rem); margin: auto; padding: 1.125rem 1.375rem; overflow: auto; overscroll-behavior: contain; border: 0; border-radius: 1.125rem 1.5rem 1.25rem 1.625rem / 1.375rem 1.125rem 1.5rem 1.25rem; background: var(--paper); color: var(--ink); box-shadow: 0 4px 16px rgb(52 56 51 / 0.06), 0 16px 40px rgb(52 56 51 / 0.07); font-size: 0.8125rem; line-height: 1.6; text-wrap: pretty; }
 .bio-preview:popover-open { display: block; }
-.bio-preview[data-kind="systems"] { width: min(16rem, calc(100vw - 2rem)); padding: 0.75rem 1rem 1rem; }
+.bio-preview[data-kind="systems"] { width: min(16rem, calc(100vw - 2rem)); padding: 0.75rem 1rem 1rem; border-radius: 46% 54% 49% 51% / 48% 46% 54% 52%; }
 .bio-preview[data-positioned] { inset: auto; top: var(--preview-top); left: var(--preview-left); margin: 0; }
 .bio-preview-heading { display: block; margin-bottom: 0.75rem; color: var(--muted); font-size: 0.6875rem; }
 .bio-preview-list { display: block; }
-.bio-system-grid { display: grid; grid-template-columns: repeat(8, 1.625rem); grid-template-rows: repeat(3, 3.125rem); justify-content: center; align-items: center; row-gap: 0.125rem; }
-.bio-system-grid > span { display: grid; place-items: center; grid-column: span 2; }
-.bio-system-grid > :nth-child(1) { grid-area: 1 / 4 / 2 / 6; }
-.bio-system-grid > :nth-child(2) { grid-area: 2 / 2 / 3 / 4; }
-.bio-system-grid > :nth-child(3) { grid-area: 2 / 4 / 3 / 6; }
-.bio-system-grid > :nth-child(4) { grid-area: 2 / 6 / 3 / 8; }
-.bio-system-grid > :nth-child(5) { grid-area: 3 / 1 / 4 / 3; }
-.bio-system-grid > :nth-child(6) { grid-area: 3 / 3 / 4 / 5; }
-.bio-system-grid > :nth-child(7) { grid-area: 3 / 5 / 4 / 7; }
-.bio-system-grid > :nth-child(8) { grid-area: 3 / 7 / 4 / 9; }
-.bio-system-link { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: #fffcf8; box-shadow: 0 3px 12px rgb(52 56 51 / 0.1); text-decoration: none; }
+.bio-system-cluster { position: relative; display: block; width: 13rem; max-width: 100%; aspect-ratio: 1; margin-inline: auto; }
+.bio-system-cluster > span { position: absolute; display: block; left: var(--x); top: var(--y); width: var(--size); aspect-ratio: 1; transform: translate(-50%, -50%); z-index: var(--level, 0); }
+.bio-system-cluster > :nth-child(1) { --x: 39.5%; --y: 41.8%; --size: 29.8%; --level: 2; }
+.bio-system-cluster > :nth-child(2) { --x: 64.4%; --y: 50.96%; --size: 25.96%; --level: 1; }
+.bio-system-cluster > :nth-child(3) { --x: 57.7%; --y: 18.75%; --size: 20.2%; }
+.bio-system-cluster > :nth-child(4) { --x: 81.25%; --y: 34.6%; --size: 18.27%; }
+.bio-system-cluster > :nth-child(5) { --x: 76.9%; --y: 75.96%; --size: 24%; }
+.bio-system-cluster > :nth-child(6) { --x: 51.9%; --y: 83.65%; --size: 21.15%; }
+.bio-system-cluster > :nth-child(7) { --x: 25.96%; --y: 73.55%; --size: 19.23%; }
+.bio-system-cluster > :nth-child(8) { --x: 14.9%; --y: 45.19%; --size: 16.35%; }
+.bio-system-cluster > span:is(:hover, :focus-within) { z-index: 3; }
+.bio-system-link { position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; background: #fffcf8; box-shadow: 0 3px 12px rgb(52 56 51 / 0.1); text-decoration: none; }
 .bio-system-link:hover { background: #f1ece4; }
-.bio-system-grid > :nth-child(3) .bio-system-link { width: 3.25rem; height: 3.25rem; }
-.bio-system-grid > :nth-child(2) .bio-system-link, .bio-system-grid > :nth-child(4) .bio-system-link { width: 2.5rem; height: 2.5rem; }
-.bio-system-grid > :nth-child(5) .bio-system-link, .bio-system-grid > :nth-child(8) .bio-system-link { width: 2.35rem; height: 2.35rem; }
-.bio-preview[data-kind="systems"] .bio-preview-icon { width: 2rem; height: 2rem; background: none; }
-.bio-system-link .bio-preview-icon svg, .bio-system-link .bio-preview-icon img { width: 1.65rem; height: 1.65rem; }
-.bio-system-grid > :nth-child(3) .bio-preview-icon svg { width: 1.9rem; height: 1.9rem; }
+.bio-preview[data-kind="systems"] .bio-preview-icon { position: absolute; display: block; inset: 21%; width: auto; height: auto; background: none; }
+.bio-system-link .bio-preview-icon svg, .bio-system-link .bio-preview-icon img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .bio-preview-item { display: flex; align-items: center; gap: 0.75rem; }
 .bio-preview-item + .bio-preview-item { margin-top: 0.85rem; }
 .bio-preview-content { display: block; min-width: 0; }

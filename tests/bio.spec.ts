@@ -4,27 +4,31 @@ test.afterEach(async ({ page }) => {
   expect((await page.pageErrors()).map(error => error.message)).toEqual([]);
 });
 
-async function expectIconMountain(systems: import('@playwright/test').Locator) {
-  await expect(systems.locator('.bio-system-grid')).toHaveCSS('display', 'grid');
+async function expectIconCluster(systems: import('@playwright/test').Locator) {
+  await expect(systems.locator('.bio-system-cluster')).toBeVisible();
   await expect(systems).toHaveCSS('background-color', 'rgb(250, 248, 244)');
   await expect(systems).not.toHaveCSS('box-shadow', 'none');
   const icons = await systems.getByRole('link').evaluateAll(links => links.map(link => {
     const rect = link.getBoundingClientRect();
-    return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2, width: rect.width, height: rect.height, radius: getComputedStyle(link).borderRadius };
+    const x = rect.x + rect.width / 2;
+    const y = rect.y + rect.height / 2;
+    const symbol = link.querySelector('svg, img')!.getBoundingClientRect();
+    return { x, y, width: rect.width, height: rect.height, radius: getComputedStyle(link).borderRadius, reachable: document.elementFromPoint(x, y)?.closest('a') === link, symbolContained: symbol.x >= rect.x && symbol.y >= rect.y && symbol.right <= rect.right && symbol.bottom <= rect.bottom };
   }));
-  const rows: typeof icons[] = [];
-  for (const icon of icons) {
-    const row = rows.find(row => Math.abs(row[0].y - icon.y) < 2);
-    if (row) row.push(icon);
-    else rows.push([icon]);
-  }
-  expect(rows.map(row => row.length)).toEqual([1, 3, 4]);
-  expect(rows[0][0].x).toBeCloseTo(rows[1][1].x, 0);
-  expect(icons[2].width).toBeGreaterThan(icons[1].width);
+  expect(new Set(icons.map(icon => Math.round(icon.y / 4))).size).toBeGreaterThanOrEqual(6);
+  expect(new Set(icons.map(icon => Math.round(icon.width))).size).toBeGreaterThanOrEqual(4);
   expect(icons.every(icon => icon.radius === '50%')).toBe(true);
-  for (const row of rows) {
-    for (let index = 1; index < row.length; index++) {
-      expect(row[index].x - row[index - 1].x).toBeGreaterThanOrEqual((row[index].width + row[index - 1].width) / 2);
+  expect(icons.every(icon => icon.reachable)).toBe(true);
+  expect(icons.every(icon => icon.symbolContained)).toBe(true);
+  const width = Math.max(...icons.map(icon => icon.x + icon.width / 2)) - Math.min(...icons.map(icon => icon.x - icon.width / 2));
+  const height = Math.max(...icons.map(icon => icon.y + icon.height / 2)) - Math.min(...icons.map(icon => icon.y - icon.height / 2));
+  expect(width / height).toBeGreaterThan(0.8);
+  expect(width / height).toBeLessThan(1.2);
+  for (let first = 0; first < icons.length; first++) {
+    for (let second = first + 1; second < icons.length; second++) {
+      const a = icons[first];
+      const b = icons[second];
+      expect(Math.hypot(a.x - b.x, a.y - b.y)).toBeGreaterThanOrEqual((a.width + b.width) * 0.45);
     }
   }
 }
@@ -32,6 +36,7 @@ async function expectIconMountain(systems: import('@playwright/test').Locator) {
 for (const path of ['/', '/en.html']) {
   test(`biography previews on ${path} keep the text and layout in place`, async ({ page }, testInfo) => {
     await page.goto(path);
+    await page.waitForLoadState('networkidle');
     const bio = page.locator('.bio');
     const systems = page.locator('#bio-systems');
     await expect(bio).toBeVisible();
@@ -53,7 +58,7 @@ for (const path of ['/', '/en.html']) {
       await expect(systems.getByRole('link', { name, exact: true })).toBeVisible();
     }
     await expect(systems.locator('.bio-preview-icon')).toHaveCount(8);
-    await expectIconMountain(systems);
+    await expectIconCluster(systems);
     await expect.poll(() => systems.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     await page.screenshot({ path: testInfo.outputPath('systems-preview.png'), animations: 'disabled' });
     expect(await bounds()).toEqual(before);
@@ -122,7 +127,7 @@ test.describe('touch', () => {
           await page.locator(`[popovertarget="bio-${kind}"]`).tap();
           const preview = page.locator(`#bio-${kind}`);
           await expect(preview).toBeVisible();
-          if (kind === 'systems') await expectIconMountain(preview);
+          if (kind === 'systems') await expectIconCluster(preview);
           const box = (await preview.boundingBox())!;
           expect(box.x).toBeGreaterThanOrEqual(0);
           expect(box.x + box.width).toBeLessThanOrEqual(width);
