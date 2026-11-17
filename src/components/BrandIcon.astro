@@ -9,11 +9,35 @@ import openai from '../assets/preview-icons/openai.png?url';
 import tongali from '../assets/preview-icons/tongali.ico?url';
 import vllm from '../assets/preview-icons/vllm.svg?url';
 import huggingface from '../assets/preview-icons/huggingface.svg?url';
+import shizuoka from '../assets/preview-icons/shizuoka.png?url';
+import ipa from '../assets/preview-icons/ipa.png?url';
+import ktcc from '../assets/preview-icons/ktcc.png?url';
+import cybozu from '../assets/preview-icons/cybozu.svg?url';
+import humai from '../assets/preview-icons/humai.ico?url';
+import securitycamp from '../assets/preview-icons/security-camp.ico?url';
+import advancelab from '../assets/preview-icons/advance-lab.png?url';
+import hundredprogram from '../assets/preview-icons/100program.png?url';
+import ivs from '../assets/preview-icons/ivs.png?url';
+import gikuhaku from '../assets/preview-icons/gikuhaku.png?url';
+import lodu from '../assets/preview-icons/lodu.svg?url';
+import cabinet from '../assets/preview-icons/cabinet.ico?url';
+import cog from '../assets/preview-icons/cog.png?url';
+import hacku from '../assets/preview-icons/hacku.ico?url';
+import atcoder from '../assets/preview-icons/atcoder.png?url';
+import omc from '../assets/preview-icons/omc.ico?url';
+import igem from '../assets/preview-icons/igem.svg?url';
+import joai from '../assets/preview-icons/joai.png?url';
+import iyna from '../assets/preview-icons/iyna.png?url';
+import arxiv from '../assets/preview-icons/arxiv.png?url';
 
-const assetIcons = { chi, ncnn, mnn, burn, tract, openai, tongali, vllm, huggingface };
+const assetIcons = {
+  chi, ncnn, mnn, burn, tract, openai, tongali, vllm, huggingface,
+  shizuoka, ipa, ktcc, cybozu, humai, securitycamp, advancelab, hundredprogram,
+  ivs, gikuhaku, lodu, cabinet, cog, hacku, atcoder, omc, igem, joai, iyna, arxiv,
+};
 interface Props { kind: keyof typeof brandIcons | keyof typeof assetIcons }
 const { kind } = Astro.props;
-// Brand paths are stored locally; each source is recorded in preview-brand-icons.json.
+// Local icon sources are recorded in preview-brand-icons.json and preview-icons/SOURCES.md.
 const brand = kind in brandIcons ? brandIcons[kind as keyof typeof brandIcons] : null;
 const asset = kind in assetIcons ? assetIcons[kind as keyof typeof assetIcons] : null;
 ---
