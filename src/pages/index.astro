@@ -1,6 +1,8 @@
 ---
 import SiteFooter from "../components/SiteFooter.astro";
 import LatestPosts from "../components/LatestPosts.astro";
+import HoverPreview from "../components/HoverPreview.astro";
+import SelectedContributions from "../components/SelectedContributions.astro";
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -84,7 +86,7 @@ import LatestPosts from "../components/LatestPosts.astro";
           <span class="name-secondary" lang="en">Takuya Kataiwa</span>
         </div>
         <p class="affiliation">静岡大学 情報学部情報社会学科 4年生</p>
-        <p class="bio">人と計算機の関わりを、研究と実装の両面から探っています。まだ誰も作っていないものを作ることと、既に存在する巨大で複雑なシステムを、もっと速く、大きく、安全にすること。その両方を通じて、人と計算機ができることを広げていきたいと考えています。</p>
+        <p class="bio">人と計算機の関わりを、研究と実装の両面から探っています。まだ誰も作っていないものを作ることと、<HoverPreview lang="ja" kind="systems" label="既に存在する巨大で複雑なシステム" />を、<HoverPreview lang="ja" kind="speed" label="もっと速く" />、大きく、安全にすること。その両方を通じて、人と計算機ができることを広げていきたいと考えています。</p>
         <p class="personal-note">2004年、石川生まれ</p>
         <ul class="profile-links" aria-label="外部リンクとレジュメ">
             <li><a href="https://skurukuru.hatenablog.com/" target="_blank" rel="noopener noreferrer" aria-label="学も衒えば奇も衒う">Blog<span aria-hidden="true"> ↗</span></a></li>
@@ -342,9 +344,7 @@ import LatestPosts from "../components/LatestPosts.astro";
             <div class="archive-content">
               <h3 id="contributions-merged">代表的な貢献（マージ済み）</h3>
               <ul class="entry-list contribution-list" aria-labelledby="contributions-merged">
-                <li><strong>PyTorch</strong> <a class="repo-stars" href="https://github.com/pytorch/pytorch" target="_blank" rel="noopener noreferrer" aria-label="pytorch/pytorch のスター数：103,177">☆ 103,177</a>：Col2imの並列化・メモリ削減 <a href="https://github.com/pytorch/pytorch/pull/198123" target="_blank" rel="noopener noreferrer" aria-label="PyTorch PR #198123" title="PR #198123">[PR #198123]</a></li>
-                <li><strong>OpenCV</strong> <a class="repo-stars" href="https://github.com/opencv/opencv" target="_blank" rel="noopener noreferrer" aria-label="opencv/opencv のスター数：90,990">☆ 90,990</a>：CPU逆畳み込みの座標計算削減・SIMD化 <a href="https://github.com/opencv/opencv/pull/30001" target="_blank" rel="noopener noreferrer" aria-label="OpenCV PR #30001" title="PR #30001">[PR #30001]</a></li>
-                <li><strong>ONNX Runtime</strong> <a class="repo-stars" href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener noreferrer" aria-label="microsoft/onnxruntime のスター数：21,943">☆ 21,943</a>：Col2im・Im2col・Transpose・1次元MaxPoolの最適化 <a href="https://github.com/microsoft/onnxruntime/pull/32698" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #32698" title="PR #32698">[PR #32698]</a> <a href="https://github.com/microsoft/onnxruntime/pull/32800" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #32800" title="PR #32800">[PR #32800]</a> <a href="https://github.com/microsoft/onnxruntime/pull/32817" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #32817" title="PR #32817">[PR #32817]</a> <a href="https://github.com/microsoft/onnxruntime/pull/32891" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #32891" title="PR #32891">[PR #32891]</a> <a href="https://github.com/microsoft/onnxruntime/pull/32936" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #32936" title="PR #32936">[PR #32936]</a></li>
+                <SelectedContributions lang="ja" />
               </ul>
 
               <details class="archive-subsection contributions-other-merged">

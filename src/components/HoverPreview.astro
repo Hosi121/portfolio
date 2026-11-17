@@ -1,0 +1,111 @@
+---
+import { selectedContributions } from '../data/selected-contributions';
+
+interface Props {
+  lang: 'ja' | 'en';
+  kind: 'systems' | 'speed';
+  label: string;
+}
+const { lang, kind, label } = Astro.props;
+const japanese = lang === 'ja';
+const id = `bio-${kind}`;
+const title = kind === 'systems'
+  ? (japanese ? '貢献しているシステム' : 'Systems I contribute to')
+  : (japanese ? '高速化のPR' : 'Performance pull requests');
+---
+<span class="bio-reference"><button class="bio-trigger" type="button" popovertarget={id}>{label}</button><span class="bio-preview" id={id} popover="auto" role="region" aria-labelledby={`${id}-title`}>
+  <span class="bio-preview-heading" id={`${id}-title`}>{title}</span>
+  <span class="bio-preview-list" role="list">
+    {selectedContributions.map(contribution => {
+      const url = `https://github.com/${contribution.repository}`;
+      return (
+        <span class="bio-preview-item" role="listitem">
+          {kind === 'systems' ? <>
+            <a class="bio-preview-name" href={url} target="_blank" rel="noopener noreferrer">{contribution.name}<span aria-hidden="true"> ↗</span></a>
+            <span class="bio-preview-repo">{contribution.repository}</span>
+          </> : <>
+            <strong class="bio-preview-name">{contribution.name}</strong>
+            <span class="bio-preview-description">{contribution.description[lang]}</span>
+            <span class="bio-preview-links">
+              {contribution.pullRequests.map(number => <a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`}>PR #{number}</a>)}
+            </span>
+          </>}
+        </span>
+      );
+    })}
+  </span>
+</span></span>
+
+<script>
+  let openingPreview = false;
+  document.querySelectorAll<HTMLElement>('.bio-reference').forEach(reference => {
+    const trigger = reference.querySelector<HTMLButtonElement>('.bio-trigger')!;
+    const preview = reference.querySelector<HTMLElement>('.bio-preview')!;
+    if (typeof preview.showPopover !== 'function') return;
+
+    let pinned = false;
+    let changing = false;
+    let closeTimer: ReturnType<typeof setTimeout> | undefined;
+    const cancelClose = () => clearTimeout(closeTimer);
+    const position = () => {
+      if (!preview.matches(':popover-open')) return;
+      const anchor = trigger.getBoundingClientRect();
+      const panel = preview.getBoundingClientRect();
+      const gutter = 16;
+      const left = Math.max(gutter, Math.min(anchor.left, document.documentElement.clientWidth - panel.width - gutter));
+      const below = anchor.bottom + 8;
+      const above = anchor.top - panel.height - 8;
+      const top = below + panel.height <= innerHeight - gutter ? below
+        : above >= gutter ? above : Math.max(gutter, innerHeight - panel.height - gutter);
+      preview.style.setProperty('--preview-left', `${left}px`);
+      preview.style.setProperty('--preview-top', `${top}px`);
+      preview.dataset.positioned = '';
+    };
+    const show = () => {
+      cancelClose();
+      if (openingPreview || changing) return;
+      openingPreview = true;
+      try {
+        if (!preview.matches(':popover-open')) preview.showPopover();
+        position();
+      } finally { openingPreview = false; }
+    };
+    const scheduleClose = () => {
+      cancelClose();
+      closeTimer = setTimeout(() => {
+        if (!pinned && !reference.matches(':hover, :focus-within') && preview.matches(':popover-open')) preview.hidePopover();
+      }, 160);
+    };
+
+    reference.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse') show();
+    });
+    reference.addEventListener('pointerleave', scheduleClose);
+    reference.addEventListener('focusin', () => {
+      if (trigger.matches(':focus-visible')) show();
+    });
+    reference.addEventListener('focusout', event => {
+      if (!(event.relatedTarget instanceof Node && reference.contains(event.relatedTarget))) {
+        pinned = false;
+        scheduleClose();
+      }
+    });
+    trigger.addEventListener('click', event => {
+      if (preview.matches(':popover-open') && !pinned) {
+        event.preventDefault();
+        pinned = true;
+      } else pinned = !preview.matches(':popover-open');
+    });
+    preview.addEventListener('beforetoggle', () => {
+      // Native dismissal can restore focus before the popover finishes closing.
+      changing = true;
+    });
+    preview.addEventListener('toggle', event => {
+      changing = false;
+      if (event.newState === 'open') position();
+      else { pinned = false; cancelClose(); }
+    });
+    window.addEventListener('resize', position);
+    window.addEventListener('scroll', position, { passive: true });
+  });
+</script>
