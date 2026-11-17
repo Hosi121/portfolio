@@ -67,7 +67,6 @@ h1 { margin: 0; font-size: 1.8rem; font-weight: 500; line-height: 1.6; }
 .bio-preview-project:hover { background: #efeae2; }
 .bio-preview-links { display: flex; flex-wrap: wrap; gap: 0 0.625rem; min-width: 0; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
 .bio-preview-links a { display: inline-flex; align-items: center; min-height: 1.5rem; }
-.personal-note { margin: 1rem 0 0; color: var(--muted); font-size: 0.75rem; }
 .profile-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.7rem; margin: 1.4rem 0 0; padding: 0; list-style: none; font: 0.8125rem / 2 ui-monospace, "SFMono-Regular", Consolas, monospace; }
 .profile-links a { display: inline-block; padding-block: 0.25rem; }
 .profile-links a span { color: var(--muted); font-family: sans-serif; }
