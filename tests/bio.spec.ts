@@ -77,7 +77,7 @@ for (const path of ['/', '/en.html']) {
     await page.locator('[popovertarget="bio-safety"]').hover();
     const safety = page.locator('#bio-safety');
     await expect(safety).toBeVisible();
-    await expect(safety.getByRole('link')).toHaveText(['Invisible Consent ↗', 'Secure & Usable Authentication ↗', 'FHE-Mamba ↗']);
+    await expect(safety.getByRole('link')).toHaveText(['Invisible Consent', 'Secure & Usable Authentication', 'FHE-Mamba']);
     await expect(safety.locator('.bio-preview-icon[data-icon="chi"] img')).toHaveCount(2);
     await expect(safety.locator('.bio-preview-icon[data-icon="github"] svg')).toHaveCount(1);
     await expect.poll(() => safety.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
