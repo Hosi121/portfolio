@@ -3,20 +3,29 @@ import { selectedContributions } from '../data/selected-contributions';
 
 interface Props {
   lang: 'ja' | 'en';
-  kind: 'systems' | 'speed';
+  kind: 'systems' | 'speed' | 'safety';
   label: string;
 }
 const { lang, kind, label } = Astro.props;
 const japanese = lang === 'ja';
 const id = `bio-${kind}`;
-const title = kind === 'systems'
-  ? (japanese ? '貢献しているシステム' : 'Systems I contribute to')
-  : (japanese ? '高速化のPR' : 'Performance pull requests');
+const titles = {
+  systems: { ja: '貢献しているシステム', en: 'Systems I contribute to' },
+  speed: { ja: '高速化のPR', en: 'Performance pull requests' },
+  safety: { ja: '安全性に関する研究・実装', en: 'Privacy-preserving inference' },
+};
+const title = titles[kind][lang];
 ---
 <span class="bio-reference"><button class="bio-trigger" type="button" popovertarget={id}>{label}</button><span class="bio-preview" id={id} popover="auto" role="region" aria-labelledby={`${id}-title`}>
   <span class="bio-preview-heading" id={`${id}-title`}>{title}</span>
   <span class="bio-preview-list" role="list">
-    {selectedContributions.map(contribution => {
+    {kind === 'safety' ? <span class="bio-preview-item" role="listitem">
+      <a class="bio-preview-name" href="https://github.com/Hosi121/fhe-mamba" target="_blank" rel="noopener noreferrer">FHE-Mamba<span aria-hidden="true"> ↗</span></a>
+      <span class="bio-preview-description">{japanese
+        ? '準同型暗号を用い、活性・内部状態を暗号化したまま計算するMamba推論の研究・実装。'
+        : 'Research and implementation of Mamba inference with encrypted activations and recurrent state using homomorphic encryption.'}</span>
+      <span class="bio-preview-repo">Hosi121/fhe-mamba</span>
+    </span> : selectedContributions.map(contribution => {
       const url = `https://github.com/${contribution.repository}`;
       return (
         <span class="bio-preview-item" role="listitem">
@@ -52,11 +61,11 @@ const title = kind === 'systems'
       const anchor = trigger.getBoundingClientRect();
       const panel = preview.getBoundingClientRect();
       const gutter = 16;
-      const left = Math.max(gutter, Math.min(anchor.left, document.documentElement.clientWidth - panel.width - gutter));
-      const below = anchor.bottom + 8;
-      const above = anchor.top - panel.height - 8;
-      const top = below + panel.height <= innerHeight - gutter ? below
-        : above >= gutter ? above : Math.max(gutter, innerHeight - panel.height - gutter);
+      const left = Math.max(gutter, Math.min(anchor.left + (anchor.width - panel.width) / 2, document.documentElement.clientWidth - panel.width - gutter));
+      const above = anchor.top - panel.height - 10;
+      const below = anchor.bottom + 10;
+      const top = above >= gutter ? above
+        : below + panel.height <= innerHeight - gutter ? below : Math.max(gutter, innerHeight - panel.height - gutter);
       preview.style.setProperty('--preview-left', `${left}px`);
       preview.style.setProperty('--preview-top', `${top}px`);
       preview.dataset.positioned = '';
