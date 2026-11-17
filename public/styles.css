@@ -55,14 +55,20 @@ h1 { margin: 0; font-size: 1.8rem; font-weight: 500; line-height: 1.6; }
 .bio-preview[data-positioned] { inset: auto; top: var(--preview-top); left: var(--preview-left); margin: 0; }
 .bio-preview-heading { display: block; margin-bottom: 0.75rem; color: var(--muted); font-size: 0.6875rem; }
 .bio-preview-list { display: block; }
+.bio-system-grid { display: grid; grid-template-columns: repeat(4, 2.5rem); justify-content: center; gap: 0.65rem 0.85rem; }
+.bio-system-link { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 0.65rem; text-decoration: none; }
+.bio-system-link:hover { background: #efeae2; }
+.bio-preview[data-kind="systems"] .bio-preview-icon { width: 2rem; height: 2rem; background: none; }
+.bio-system-link .bio-preview-icon svg, .bio-system-link .bio-preview-icon img { width: 1.65rem; height: 1.65rem; }
 .bio-preview-item { display: flex; align-items: center; gap: 0.75rem; }
 .bio-preview-item + .bio-preview-item { margin-top: 0.85rem; }
 .bio-preview-content { display: block; min-width: 0; }
 .bio-preview-icon { display: grid; place-items: center; flex: 0 0 2.25rem; width: 2.25rem; height: 2.25rem; border-radius: 44% 56% 52% 48% / 54% 46% 56% 44%; background: #f3e8df; color: var(--accent); }
-.bio-preview-icon svg { display: block; width: 1.3rem; height: 1.3rem; }
-.bio-preview-icon[data-icon="opencv"], .bio-preview-icon[data-icon="fhe"] { background: #e8eee4; color: #788564; }
-.bio-preview-icon[data-icon="onnx"], .bio-preview-icon[data-icon="vr"] { background: #e6edf3; color: #7189a2; }
-.bio-preview-icon[data-icon="consent"] { background: #eee7ef; color: #947c9c; }
+.bio-preview-icon svg, .bio-preview-icon img { display: block; width: 1.3rem; height: 1.3rem; object-fit: contain; }
+.bio-preview-icon[data-icon="opencv"] { background: #e8eee4; }
+.bio-preview-icon[data-icon="onnx"] { background: #e6edf3; }
+.bio-preview[data-kind="safety"] .bio-preview-icon { background: none; border-radius: 0; }
+.bio-preview[data-kind="safety"] .bio-preview-icon svg, .bio-preview[data-kind="safety"] .bio-preview-icon img { width: 1.85rem; height: 1.85rem; }
 .bio-preview-name { font-weight: 550; text-decoration: none; }
 .bio-preview-caption { display: block; margin-top: 0.2rem; color: var(--muted); font-size: 0.6875rem; }
 .bio-preview-links { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }

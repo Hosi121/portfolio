@@ -23,8 +23,13 @@ for (const path of ['/', '/en.html']) {
     const systemsAnchor = (await page.locator('[popovertarget="bio-systems"]').boundingBox())!;
     const systemsPanel = (await systems.boundingBox())!;
     expect(systemsPanel.y + systemsPanel.height).toBeLessThan(systemsAnchor.y);
-    await expect(systems.getByRole('link')).toHaveText(['PyTorch ↗', 'OpenCV ↗', 'ONNX Runtime ↗']);
-    await expect(systems.locator('.bio-preview-icon svg')).toHaveCount(3);
+    await expect(systems.getByRole('link')).toHaveCount(8);
+    for (const name of ['PyTorch', 'OpenCV', 'ONNX Runtime', 'ncnn', 'MNN', 'Burn', 'tract', 'ESP-DL']) {
+      await expect(systems.getByRole('link', { name, exact: true })).toBeVisible();
+    }
+    await expect(systems.locator('.bio-preview-icon')).toHaveCount(8);
+    await expect.poll(() => systems.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
+    await page.screenshot({ path: testInfo.outputPath('systems-preview.png'), animations: 'disabled' });
     expect(await bounds()).toEqual(before);
     await systems.getByRole('link').first().hover();
     await expect(systems).toBeVisible();
@@ -51,7 +56,9 @@ for (const path of ['/', '/en.html']) {
     const safety = page.locator('#bio-safety');
     await expect(safety).toBeVisible();
     await expect(safety.getByRole('link')).toHaveText(['Invisible Consent ↗', 'Secure & Usable Authentication ↗', 'FHE-Mamba ↗']);
-    await expect(safety.locator('.bio-preview-icon svg')).toHaveCount(3);
+    await expect(safety.locator('.bio-preview-icon[data-icon="chi"] img')).toHaveCount(2);
+    await expect(safety.locator('.bio-preview-icon[data-icon="github"] svg')).toHaveCount(1);
+    await expect.poll(() => safety.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     await expect(safety.getByRole('link', { name: 'Invisible Consent', exact: true })).toHaveAttribute('href', 'https://ohkilab.github.io/invisible-consent/');
     await expect(safety.getByRole('link', { name: 'Secure & Usable Authentication', exact: true })).toHaveAttribute('href', 'https://ohkilab.github.io/expressionauth/');
     await expect(safety.getByRole('link', { name: 'FHE-Mamba', exact: true })).toHaveAttribute('href', 'https://github.com/Hosi121/fhe-mamba');

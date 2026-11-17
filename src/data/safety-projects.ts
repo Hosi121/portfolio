@@ -1,7 +1,7 @@
 export const safetyProjects = [
   {
     name: 'Invisible Consent',
-    icon: 'consent',
+    icon: 'chi',
     url: 'https://ohkilab.github.io/invisible-consent/',
     caption: {
       ja: 'AIエージェントと同意 · CHI EA ’26',
@@ -10,7 +10,7 @@ export const safetyProjects = [
   },
   {
     name: 'Secure & Usable Authentication',
-    icon: 'vr',
+    icon: 'chi',
     url: 'https://ohkilab.github.io/expressionauth/',
     caption: {
       ja: '表情によるVR認証 · CHI EA ’26',
@@ -19,7 +19,7 @@ export const safetyProjects = [
   },
   {
     name: 'FHE-Mamba',
-    icon: 'fhe',
+    icon: 'github',
     url: 'https://github.com/Hosi121/fhe-mamba',
     caption: {
       ja: '暗号化推論',

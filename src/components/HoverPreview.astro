@@ -1,6 +1,7 @@
 ---
 import { selectedContributions } from '../data/selected-contributions';
 import { safetyProjects } from '../data/safety-projects';
+import { systemProjects } from '../data/system-projects';
 import PreviewIcon from './PreviewIcon.astro';
 
 interface Props {
@@ -19,8 +20,10 @@ const title = titles[kind][lang];
 ---
 <span class="bio-reference"><button class="bio-trigger" type="button" popovertarget={id}>{label}</button><span class="bio-preview" id={id} data-kind={kind} popover="auto" role="region" aria-labelledby={`${id}-title`}>
   <span class="bio-preview-heading" id={`${id}-title`}>{title}</span>
-  <span class="bio-preview-list" role="list">
-    {kind === 'safety' ? safetyProjects.map(project => <span class="bio-preview-item" role="listitem">
+  <span class:list={['bio-preview-list', { 'bio-system-grid': kind === 'systems' }]} role="list">
+    {kind === 'systems' ? systemProjects.map(project => <span role="listitem">
+      <a class="bio-system-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noopener noreferrer" aria-label={project.name} title={project.name}><PreviewIcon kind={project.icon} /></a>
+    </span>) : kind === 'safety' ? safetyProjects.map(project => <span class="bio-preview-item" role="listitem">
       <PreviewIcon kind={project.icon} />
       <span class="bio-preview-content">
         <a class="bio-preview-name" href={project.url} target="_blank" rel="noopener noreferrer">{project.name}<span aria-hidden="true"> ↗</span></a>
@@ -32,14 +35,10 @@ const title = titles[kind][lang];
         <span class="bio-preview-item" role="listitem">
           <PreviewIcon kind={contribution.icon} />
           <span class="bio-preview-content">
-          {kind === 'systems' ? <>
-            <a class="bio-preview-name" href={url} target="_blank" rel="noopener noreferrer">{contribution.name}<span aria-hidden="true"> ↗</span></a>
-          </> : <>
             <strong class="bio-preview-name">{contribution.name}</strong>
             <span class="bio-preview-links">
               {contribution.pullRequests.map(number => <a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`}>#{number}</a>)}
             </span>
-          </>}
           </span>
         </span>
       );
