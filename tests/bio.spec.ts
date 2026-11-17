@@ -31,7 +31,7 @@ for (const path of ['/', '/en.html']) {
     const bio = page.locator('.bio');
     const systems = page.locator('#bio-systems');
     await expect(bio).toBeVisible();
-    await expect(page.locator('.bio-trigger')).toHaveCount(3);
+    await expect(page.locator('.bio-trigger')).toHaveCount(4);
     await expect(systems).toBeHidden();
     const bounds = () => bio.evaluate(element => {
       const rect = element.getBoundingClientRect();
@@ -92,6 +92,39 @@ for (const path of ['/', '/en.html']) {
   });
 }
 
+for (const path of ['/', '/en.html']) {
+  test(`creation links on ${path} open the matching program or award entry`, async ({ page }, testInfo) => {
+    const programs = [
+      { name: path === '/' ? '未踏' : 'MITOU', id: 'program-mitou' },
+      { name: '100 Program', id: 'program-100' },
+      { name: 'Tongali', id: 'award-tongali-idea-pitch' },
+    ];
+    for (const program of programs) {
+      await page.goto(path);
+      await page.waitForLoadState('networkidle');
+      const trigger = page.locator('[popovertarget="bio-creation"]');
+      const preview = page.locator('#bio-creation');
+      await trigger.hover();
+      await expect(preview).toBeVisible();
+      await expect(preview.getByRole('link')).toHaveCount(3);
+      await expect(preview.getByRole('listitem')).toHaveCount(2);
+      await expect(preview.getByText(path === '/' ? '無声入力インタフェース' : 'Silent input interface', { exact: true })).toHaveCount(1);
+      if (program.id === 'program-100') await page.screenshot({ path: testInfo.outputPath('creation-preview.png'), animations: 'disabled' });
+      await preview.getByRole('link', { name: program.name, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp(`#${program.id}$`));
+      await expect(preview).toBeHidden();
+      const entry = page.locator(`#${program.id}`);
+      await expect(entry).toBeInViewport();
+      expect(await entry.evaluate(element => {
+        for (let section = element.closest('details'); section; section = section.parentElement?.closest('details') ?? null) {
+          if (!section.open) return false;
+        }
+        return true;
+      })).toBe(true);
+    }
+  });
+}
+
 test('keyboard users can enter the preview links and dismiss with Escape', async ({ page }) => {
   await page.goto('/');
   const trigger = page.locator('[popovertarget="bio-systems"]');
@@ -114,7 +147,7 @@ test.describe('touch', () => {
       await page.setViewportSize({ width, height: 844 });
       for (const path of ['/', '/en.html']) {
         await page.goto(path);
-        for (const kind of ['systems', 'speed', 'safety']) {
+        for (const kind of ['creation', 'systems', 'speed', 'safety']) {
           await page.locator(`[popovertarget="bio-${kind}"]`).tap();
           const preview = page.locator(`#bio-${kind}`);
           await expect(preview).toBeVisible();

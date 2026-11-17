@@ -10,6 +10,21 @@ const japanese = lang === 'ja';
   const url = `https://github.com/${contribution.repository}`;
   const stars = contribution.stars.toLocaleString('en-US');
   return (
-    <li><strong><BrandIcon kind={contribution.icon} />{contribution.name}</strong>{' '}<a class="repo-stars" href={url} target="_blank" rel="noopener noreferrer" aria-label={japanese ? `${contribution.repository} のスター数：${stars}` : `${contribution.repository}: ${stars} GitHub stars`}>☆ {stars}</a>{japanese ? '：' : ': '}{contribution.description[lang]}{' '}{contribution.pullRequests.map((number, index) => <>{index > 0 && ' '}<a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`} title={`PR #${number}`}>[PR #{number}]</a></>)}</li>
+    <li><strong><BrandIcon kind={contribution.icon} />{contribution.name}</strong>{' '}<a class="repo-stars" href={url} target="_blank" rel="noopener noreferrer" aria-label={japanese ? `${contribution.repository} のスター数：${stars}` : `${contribution.repository}: ${stars} GitHub stars`}>☆ {stars}</a>{japanese ? '：' : ': '}{contribution.descriptionPrefix[lang]}{contribution.changes.map((change, index) => {
+      const previewId = `selected-${contribution.icon}-${index}-preview`;
+      const separator = index === 0 ? '' : japanese ? '・' : index === contribution.changes.length - 1 ? ', and ' : ', ';
+      return <>{separator}<span data-hover-preview>
+        <button class="text-preview-trigger contribution-description" type="button" popovertarget={previewId} data-preview-trigger>{change.description[lang]}</button>
+        <span class="bio-preview contribution-preview" id={previewId} popover="auto" data-preview-panel role="region" aria-label={`${contribution.name} ${change.description[lang]} ${japanese ? 'のPR' : 'pull requests'}`}>
+          <span class="bio-preview-links">
+            {change.pullRequests.map(number => <a href={`${url}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${contribution.name} PR #${number}`} title={`PR #${number}`}>#{number}</a>)}
+          </span>
+        </span>
+      </span></>;
+    })}{contribution.descriptionSuffix[lang]}</li>
   );
 })}
+
+<script>
+  import '../lib/hover-preview';
+</script>

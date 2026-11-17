@@ -2,27 +2,34 @@
 import { selectedContributions } from '../data/selected-contributions';
 import { safetyProjects } from '../data/safety-projects';
 import { systemProjects } from '../data/system-projects';
+import { creationPrograms } from '../data/creation-programs';
 import BrandIcon from './BrandIcon.astro';
 
 interface Props {
   lang: 'ja' | 'en';
-  kind: 'systems' | 'speed' | 'safety';
+  kind: 'creation' | 'systems' | 'speed' | 'safety';
   label: string;
 }
 const { lang, kind, label } = Astro.props;
 const id = `bio-${kind}`;
 const titles = {
+  creation: { ja: 'ものづくりのプログラム・受賞', en: 'Programs and awards for building new things' },
   systems: { ja: '貢献しているシステム', en: 'Systems I contribute to' },
   speed: { ja: '高速化のPR', en: 'Performance pull requests' },
   safety: { ja: '安全性とプライバシー', en: 'Security & privacy' },
 };
 const title = titles[kind][lang];
 ---
-<span class="bio-reference"><button class="bio-trigger" type="button" popovertarget={id}>{label}</button><span class="bio-preview" id={id} data-kind={kind} popover="auto" role="region" aria-labelledby={`${id}-title`}>
+<span class="bio-reference" data-hover-preview><button data-preview-trigger class="bio-trigger text-preview-trigger" type="button" popovertarget={id}>{label}</button><span data-preview-panel class="bio-preview" id={id} data-kind={kind} popover="auto" role="region" aria-labelledby={`${id}-title`}>
   <span class="sr-only" id={`${id}-title`}>{title}</span>
   <span class:list={['bio-preview-list', { 'bio-system-grid': kind === 'systems' }]} role="list">
-    {kind === 'systems' ? systemProjects.map(project => <span role="listitem">
-      <a class="bio-system-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noopener noreferrer" aria-label={project.name} title={project.name}><BrandIcon kind={project.icon} /></a>
+    {kind === 'creation' ? creationPrograms.map(project => <span class="bio-creation-item" role="listitem">
+      <span class="bio-creation-links">
+        {project.programs.map(program => <a class="bio-icon-link" href={program.href} aria-label={program.name[lang]} title={program.name[lang]}><BrandIcon kind={program.icon} /></a>)}
+      </span>
+      <span>{project.name[lang]}</span>
+    </span>) : kind === 'systems' ? systemProjects.map(project => <span role="listitem">
+      <a class="bio-icon-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noopener noreferrer" aria-label={project.name} title={project.name}><BrandIcon kind={project.icon} /></a>
     </span>) : kind === 'safety' ? safetyProjects.map(project => <span class="bio-preview-item" role="listitem">
       <a class="bio-preview-project" href={project.url} target="_blank" rel="noopener noreferrer"><BrandIcon kind={project.icon} />{project.name}</a>
     </span>) : selectedContributions.map(contribution => {
@@ -40,75 +47,5 @@ const title = titles[kind][lang];
 </span></span>
 
 <script>
-  let openingPreview = false;
-  document.querySelectorAll<HTMLElement>('.bio-reference').forEach(reference => {
-    const trigger = reference.querySelector<HTMLButtonElement>('.bio-trigger')!;
-    const preview = reference.querySelector<HTMLElement>('.bio-preview')!;
-    if (typeof preview.showPopover !== 'function') return;
-
-    let pinned = false;
-    let changing = false;
-    let closeTimer: ReturnType<typeof setTimeout> | undefined;
-    const cancelClose = () => clearTimeout(closeTimer);
-    const position = () => {
-      if (!preview.matches(':popover-open')) return;
-      const anchor = trigger.getBoundingClientRect();
-      const panel = preview.getBoundingClientRect();
-      const gutter = 16;
-      const left = Math.max(gutter, Math.min(anchor.left + (anchor.width - panel.width) / 2, document.documentElement.clientWidth - panel.width - gutter));
-      const above = anchor.top - panel.height - 10;
-      const below = anchor.bottom + 10;
-      const top = above >= gutter ? above
-        : below + panel.height <= innerHeight - gutter ? below : Math.max(gutter, innerHeight - panel.height - gutter);
-      preview.style.setProperty('--preview-left', `${left}px`);
-      preview.style.setProperty('--preview-top', `${top}px`);
-      preview.dataset.positioned = '';
-    };
-    const show = () => {
-      cancelClose();
-      if (openingPreview || changing) return;
-      openingPreview = true;
-      try {
-        if (!preview.matches(':popover-open')) preview.showPopover();
-        position();
-      } finally { openingPreview = false; }
-    };
-    const scheduleClose = () => {
-      cancelClose();
-      closeTimer = setTimeout(() => {
-        if (!pinned && !reference.matches(':hover, :focus-within') && preview.matches(':popover-open')) preview.hidePopover();
-      }, 160);
-    };
-
-    reference.addEventListener('pointerenter', event => {
-      if (event.pointerType === 'mouse') show();
-    });
-    reference.addEventListener('pointerleave', scheduleClose);
-    reference.addEventListener('focusin', () => {
-      if (trigger.matches(':focus-visible')) show();
-    });
-    reference.addEventListener('focusout', event => {
-      if (!(event.relatedTarget instanceof Node && reference.contains(event.relatedTarget))) {
-        pinned = false;
-        scheduleClose();
-      }
-    });
-    trigger.addEventListener('click', event => {
-      if (preview.matches(':popover-open') && !pinned) {
-        event.preventDefault();
-        pinned = true;
-      } else pinned = !preview.matches(':popover-open');
-    });
-    preview.addEventListener('beforetoggle', () => {
-      // Native dismissal can restore focus before the popover finishes closing.
-      changing = true;
-    });
-    preview.addEventListener('toggle', event => {
-      changing = false;
-      if (event.newState === 'open') position();
-      else { pinned = false; cancelClose(); }
-    });
-    window.addEventListener('resize', position);
-    window.addEventListener('scroll', position, { passive: true });
-  });
+  import '../lib/hover-preview';
 </script>

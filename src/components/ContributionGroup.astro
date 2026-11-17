@@ -1,0 +1,38 @@
+---
+import BrandIcon from './BrandIcon.astro';
+import { otherMergedContributions, proposedContributions } from '../data/additional-contributions';
+
+interface Props {
+  lang: 'ja' | 'en';
+  status: 'merged' | 'proposed';
+}
+const { lang, status } = Astro.props;
+const japanese = lang === 'ja';
+const merged = status === 'merged';
+const projects = merged ? otherMergedContributions : proposedContributions;
+const id = merged ? 'contributions-other-merged' : 'contributions-proposed';
+---
+<section class="contribution-group" aria-labelledby={id} data-status={status}>
+  <h3 id={id}>
+    {merged ? japanese ? <><span class="contribution-group-extra">その他の</span>マージ済み貢献</> : <>Other merged<span class="contribution-group-extra"> contributions</span></> : japanese ? '提案中' : 'Proposed'}
+  </h3>
+  <ul class="contribution-icons" aria-labelledby={id}>
+    {projects.map((project, index) => {
+      const previewId = `${id}-${index}-preview`;
+      return (
+        <li data-hover-preview>
+          <button class="contribution-icon" type="button" popovertarget={previewId} data-preview-trigger aria-label={project.name}><BrandIcon kind={project.icon} /></button>
+          <span class="bio-preview contribution-preview" id={previewId} popover="auto" data-preview-panel role="region" aria-label={`${project.name} ${japanese ? 'のPR' : 'pull requests'}`}>
+            <span class="bio-preview-links">
+              {project.pullRequests.map(number => <a href={`https://github.com/${project.repository}/pull/${number}`} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} PR #${number}`}>#{number}</a>)}
+            </span>
+          </span>
+        </li>
+      );
+    })}
+  </ul>
+</section>
+
+<script>
+  import '../lib/hover-preview';
+</script>

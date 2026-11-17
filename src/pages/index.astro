@@ -3,6 +3,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import LatestPosts from "../components/LatestPosts.astro";
 import HoverPreview from "../components/HoverPreview.astro";
 import SelectedContributions from "../components/SelectedContributions.astro";
+import ContributionGroup from "../components/ContributionGroup.astro";
 import BrandIcon from "../components/BrandIcon.astro";
 import "../styles/portfolio.css";
 ---
@@ -87,7 +88,7 @@ import "../styles/portfolio.css";
           <span class="name-secondary" lang="en">Takuya Kataiwa</span>
         </div>
         <p class="affiliation"><BrandIcon kind="shizuoka" />静岡大学 情報学部情報社会学科 4年生（2004年、石川生まれ）</p>
-        <p class="bio">人と計算機の関わりを、研究と実装の両面から探っています。まだ誰も作っていないものを作ることと、<HoverPreview lang="ja" kind="systems" label="既に存在する巨大で複雑なシステム" />を、<HoverPreview lang="ja" kind="speed" label="もっと速く" />、大きく、<HoverPreview lang="ja" kind="safety" label="安全にすること" />。その両方を通じて、人と計算機ができることを広げていきたいと考えています。</p>
+        <p class="bio">人と計算機の関わりを、研究と実装の両面から探っています。<HoverPreview lang="ja" kind="creation" label="まだ誰も作っていないものを作ること" />と、<HoverPreview lang="ja" kind="systems" label="既に存在する巨大で複雑なシステム" />を、<HoverPreview lang="ja" kind="speed" label="もっと速く" />、大きく、<HoverPreview lang="ja" kind="safety" label="安全にすること" />。その両方を通じて、人と計算機ができることを広げていきたいと考えています。</p>
         <ul class="profile-links" aria-label="外部リンクとレジュメ">
             <li><a href="https://skurukuru.hatenablog.com/" target="_blank" rel="noopener noreferrer" aria-label="学も衒えば奇も衒う">Blog<span aria-hidden="true"> ↗</span></a></li>
             <li><a href="https://github.com/Hosi121" target="_blank" rel="noopener noreferrer" aria-label="Hosi121 on GitHub">GitHub<span aria-hidden="true"> ↗</span></a></li>
@@ -208,7 +209,7 @@ import "../styles/portfolio.css";
             <div class="archive-content">
               <h3>助成・事業採択／チャレンジ</h3>
               <ol class="entry-list">
-                <li>
+                <li id="program-mitou">
                   <strong><BrandIcon kind="mitou" />2026年度 未踏IT人材発掘・育成事業 採択</strong>
                   <small>テーマ：触覚ゲルインタフェースによるコミュニケーション拡張（岡PM）</small>
                 </li>
@@ -241,7 +242,7 @@ import "../styles/portfolio.css";
                     <strong><BrandIcon kind="advancelab" />ADvance Lab 2期生</strong>
                     <small>テーマ：幾何学を通した機械学習モデルの記憶に関する安全性・信頼性の保証</small>
                   </li>
-                  <li>
+                  <li id="program-100">
                     <strong><BrandIcon kind="hundredprogram" />100 Program 第10期（2026夏期）修了</strong>
                     <small>最優秀賞・優秀インタビュー賞・優秀ハードウェア賞</small>
                   </li>
@@ -274,7 +275,7 @@ import "../styles/portfolio.css";
 
               <h3>アイデアソン</h3>
               <ol class="entry-list">
-                <li>
+                <li id="award-tongali-idea-pitch">
                   <strong><BrandIcon kind="tongali" />Tongaliアイデアピッチコンテスト2026 2位（Tongali優秀賞／名古屋電機工業賞）</strong>
                   <small>2026年11月 | Tongali主催</small>
                 </li>
@@ -347,29 +348,9 @@ import "../styles/portfolio.css";
                 <SelectedContributions lang="ja" />
               </ul>
 
-              <details class="archive-subsection contributions-other-merged">
-                <summary><h3 id="contributions-other-merged">その他のマージ済み貢献（8件のPR）<span class="disclosure" aria-hidden="true"></span></h3></summary>
-                <ul class="entry-list contribution-list" aria-labelledby="contributions-other-merged">
-                  <li><strong><BrandIcon kind="ncnn" />ncnn</strong> <a class="repo-stars" href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener noreferrer" aria-label="Tencent/ncnn のスター数：23,861">☆ 23,861</a>：逆畳み込みのメモリアクセス削減 <a href="https://github.com/Tencent/ncnn/pull/7015" target="_blank" rel="noopener noreferrer" aria-label="ncnn PR #7015" title="PR #7015">[PR #7015]</a></li>
-                  <li><strong><BrandIcon kind="mnn" />MNN</strong> <a class="repo-stars" href="https://github.com/alibaba/MNN" target="_blank" rel="noopener noreferrer" aria-label="alibaba/MNN のスター数：16,156">☆ 16,156</a>：逆畳み込みの最適化 <a href="https://github.com/alibaba/MNN/pull/4897" target="_blank" rel="noopener noreferrer" aria-label="MNN PR #4897" title="PR #4897">[PR #4897]</a> <a href="https://github.com/alibaba/MNN/pull/4912" target="_blank" rel="noopener noreferrer" aria-label="MNN PR #4912" title="PR #4912">[PR #4912]</a></li>
-                  <li><strong><BrandIcon kind="burn" />Burn</strong> <a class="repo-stars" href="https://github.com/tracel-ai/burn" target="_blank" rel="noopener noreferrer" aria-label="tracel-ai/burn のスター数：15,966">☆ 15,966</a>：逆畳み込みのバッファ再利用・並列化 <a href="https://github.com/tracel-ai/burn/pull/5761" target="_blank" rel="noopener noreferrer" aria-label="Burn PR #5761" title="PR #5761">[PR #5761]</a></li>
-                  <li><strong><BrandIcon kind="github" />MLX Audio</strong> <a class="repo-stars" href="https://github.com/Blaizzy/mlx-audio" target="_blank" rel="noopener noreferrer" aria-label="Blaizzy/mlx-audio のスター数：7,991">☆ 7,991</a>：Qwen3音声認識のタイムスタンプ補正の最適化 <a href="https://github.com/Blaizzy/mlx-audio/pull/982" target="_blank" rel="noopener noreferrer" aria-label="MLX Audio PR #982" title="PR #982">[PR #982]</a></li>
-                  <li><strong><BrandIcon kind="tract" />tract</strong> <a class="repo-stars" href="https://github.com/sonos/tract" target="_blank" rel="noopener noreferrer" aria-label="sonos/tract のスター数：3,070">☆ 3,070</a>：逆畳み込みのメモリアクセス最適化 <a href="https://github.com/sonos/tract/pull/2909" target="_blank" rel="noopener noreferrer" aria-label="tract PR #2909" title="PR #2909">[PR #2909]</a></li>
-                  <li><strong><BrandIcon kind="espressif" />ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl のスター数：1,148">☆ 1,148</a>：畳み込み・テンソル演算の最適化 <a href="https://github.com/espressif/esp-dl/pull/332" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #332" title="PR #332">[PR #332]</a> <a href="https://github.com/espressif/esp-dl/pull/334" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #334" title="PR #334">[PR #334]</a></li>
-                </ul>
-              </details>
+              <ContributionGroup lang="ja" status="merged" />
 
-              <details class="archive-subsection contributions-proposed">
-                <summary><h3 id="contributions-proposed">提案中（9件のPR）<span class="disclosure" aria-hidden="true"></span></h3></summary>
-                <ul class="entry-list contribution-list" aria-labelledby="contributions-proposed">
-                  <li><strong><BrandIcon kind="vllm" />vLLM</strong> <a class="repo-stars" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener noreferrer" aria-label="vllm-project/vllm のスター数：93,389">☆ 93,389</a>：CPUのAVX2 prefill attentionのレジスタスピル削減 <a href="https://github.com/vllm-project/vllm/pull/58514" target="_blank" rel="noopener noreferrer" aria-label="vLLM PR #58514" title="PR #58514">[PR #58514]</a></li>
-                  <li><strong><BrandIcon kind="onnx" />ONNX Runtime</strong> <a class="repo-stars" href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener noreferrer" aria-label="microsoft/onnxruntime のスター数：21,943">☆ 21,943</a>：CPUの線形ResizeとArgMaxの融合 <a href="https://github.com/microsoft/onnxruntime/pull/33032" target="_blank" rel="noopener noreferrer" aria-label="ONNX Runtime PR #33032" title="PR #33032">[PR #33032]</a></li>
-                  <li><strong><BrandIcon kind="huggingface" />Candle</strong> <a class="repo-stars" href="https://github.com/huggingface/candle" target="_blank" rel="noopener noreferrer" aria-label="huggingface/candle のスター数：21,087">☆ 21,087</a>：1次元逆畳み込みの最適化 <a href="https://github.com/huggingface/candle/pull/3988" target="_blank" rel="noopener noreferrer" aria-label="Candle PR #3988" title="PR #3988">[PR #3988]</a></li>
-                  <li><strong><BrandIcon kind="vllm" />vLLM-Omni</strong> <a class="repo-stars" href="https://github.com/vllm-project/vllm-omni" target="_blank" rel="noopener noreferrer" aria-label="vllm-project/vllm-omni のスター数：7,079">☆ 7,079</a>：タイムスタンプ復号・VAEタイル合成・動画バッファ書き込みの最適化 <a href="https://github.com/vllm-project/vllm-omni/pull/8230" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8230" title="PR #8230">[PR #8230]</a> <a href="https://github.com/vllm-project/vllm-omni/pull/8114" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8114" title="PR #8114">[PR #8114]</a> <a href="https://github.com/vllm-project/vllm-omni/pull/8113" target="_blank" rel="noopener noreferrer" aria-label="vLLM-Omni PR #8113" title="PR #8113">[PR #8113]</a></li>
-                  <li><strong><BrandIcon kind="tract" />tract</strong> <a class="repo-stars" href="https://github.com/sonos/tract" target="_blank" rel="noopener noreferrer" aria-label="sonos/tract のスター数：3,070">☆ 3,070</a>：評価順序計算での依存関係の再走査削減 <a href="https://github.com/sonos/tract/pull/2957" target="_blank" rel="noopener noreferrer" aria-label="tract PR #2957" title="PR #2957">[PR #2957]</a></li>
-                  <li><strong><BrandIcon kind="espressif" />ESP-DL</strong> <a class="repo-stars" href="https://github.com/espressif/esp-dl" target="_blank" rel="noopener noreferrer" aria-label="espressif/esp-dl のスター数：1,148">☆ 1,148</a>：重み再利用・マルチコア実行・引数配置 <a href="https://github.com/espressif/esp-dl/pull/333" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #333" title="PR #333">[PR #333]</a> <a href="https://github.com/espressif/esp-dl/pull/335" target="_blank" rel="noopener noreferrer" aria-label="ESP-DL PR #335" title="PR #335">[PR #335]</a></li>
-                </ul>
-              </details>
+              <ContributionGroup lang="ja" status="proposed" />
             </div>
           </details>
         </section>
