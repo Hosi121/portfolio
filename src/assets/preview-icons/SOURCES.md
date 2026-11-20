@@ -10,14 +10,14 @@
 - [vllm.svg](https://raw.githubusercontent.com/vllm-project/media-kit/main/vLLM-Logo.svg) — official vLLM media kit; also identifies vLLM-Omni.
 - [huggingface.svg](https://huggingface.co/front/assets/huggingface_logo-noborder.svg) — Hugging Face organization logo, used for Candle.
 
-MLX Audio uses the existing GitHub icon. Its web UI favicon is the default Next.js/Vercel mark, so it is not used as a project logo.
+MLX Audio uses the GitHub icon.
 
 ## Universities, programs, events, and communities
 
 Retrieved from the official sites on 2026-11-18. Original brand shapes and colors are preserved; presentation adjustments are noted below. Organization icons identify their programs where noted.
 
 - [shizuoka.png](https://www.shizuoka.ac.jp/common/images/favicon/favicon-32x32.png) — [official site](https://www.shizuoka.ac.jp/).
-- [mitou.svg](https://www.ipa.go.jp/jinzai/mitou/highlights/library/images/common_lg.svg) — the MITOU program logo from [IPA's MITOU highlights site](https://www.ipa.go.jp/jinzai/mitou/highlights/), replacing the IPA icon.
+- [mitou.svg](https://www.ipa.go.jp/jinzai/mitou/highlights/library/images/common_lg.svg) — the MITOU program logo from [IPA's MITOU highlights site](https://www.ipa.go.jp/jinzai/mitou/highlights/).
 - [ktcc.png](https://kansai-tcc.dle.or.jp/assets_2026/favicon/icon-48x48.png) — [official site](https://kansai-tcc.dle.or.jp/).
 - [cybozu.svg](https://cybozu.co.jp/favicon.svg) — [official site](https://cybozu.co.jp/). Cybozu company icon for Cybozu Labs Youth. The white SVG canvas rectangle was removed; brand paths are unchanged.
 - [humai.svg](https://zen.ac.jp/humai/img/logo_pc.svg) — transparent logo from the [official HUMAI site](https://zen.ac.jp/humai). The SVG viewport is limited to the symbol's 50 × 50 area; the embedded image is unchanged.
@@ -36,5 +36,3 @@ Retrieved from the official sites on 2026-11-18. Original brand shapes and color
 - [joai.png](https://ioai-japan.org/wp-content/uploads/2025/03/cropped-joai_logo-32x32.png) — [official site](https://ioai-japan.org/).
 - [iyna.png](https://youthneuro.org/images/iyna-logo.png) — [official site](https://youthneuro.org/).
 - [arxiv.png](https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png) — [official site](https://arxiv.org/).
-
-Source checks in this pass left UDC, Techno Ai, and CPC without new icons: the UDC site timed out, a Techno Ai asset was not retrieved, and the CPC site icon returned HTTP 403. No substitute logo was assigned to those events.
